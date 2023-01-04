@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Pierre-Henri Morand" />
+
+
+<title>Live from BOAMP</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.17/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/jszip-1.10.20/jszip.min.js"></script>
+<script src="site_libs/pdfmake-1.10.20/pdfmake.js"></script>
+<script src="site_libs/pdfmake-1.10.20/vfs_fonts.js"></script>
+<link href="site_libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="site_libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">DeCoMaP</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="live_from_DECP.html">live from D.E.C.P.</a>
+</li>
+<li>
+  <a href="live_from_TED.html">Live from T.E.D.</a>
+</li>
+<li>
+  <a href="live_from_BOAMP.html">Live from B.O.A.M.P.</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Live from BOAMP</h1>
+<h4 class="author">Pierre-Henri Morand</h4>
+<h4 class="date">date: 2021-05-31</h4>
+
+</div>
+
+
+<div id="présentation-de-la-base-de-donnée" class="section level1">
+<h1>Présentation de la base de donnée</h1>
+<p>Contrairement à la base TED, structurée par les services de l’UE en un fichier CSV unique, les données BOAMP prennent la forme de fichiers (XML ou JSON) propre à chaque avis déposé au Bulletin Officiel des Annonces des Marchés Publics. Un avis d’attribution correspond à un fichier. Ce qui signifie que chaque fichier correspond potentiellement à plusieurs lots, qui auront pour tout ou partie été attribués, chaque lot pouvant de surcroît être attribué à plus d’une entreprise.</p>
+<p>Le code source nécessaire à l’obtention de notre base est disponible <a href="https://github.com/phmorand/DeCoMaP">ici</a>.</p>
+<pre class="r"><code>library(tidyverse)
+library(banR)
+library(jsonlite)
+library(magrittr)
+library(data.tree)
+library(geosphere)
+library(sf)
+library(cartography)
+library(stringr)
+library(httr)
+library(dplyr)
+library(stringr)
+library(DT)
+
+#creating the data repository
+data_dir &lt;- &#39;data&#39;
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+
+BOAMP_destfile &lt;-  str_c(data_dir, &quot;/BOAMP_2021_df.Rda&quot;)
+if (!file.exists(BOAMP_destfile)) {
+  
+  #============================================
+  #==== First, GET the web id =================
+  #============================================
+  
+  #================ useful for criterion request ===================
+  space = &quot;%20&quot; # 1 space
+  slash.sign = &quot;%2F&quot; # /
+  equal.sign = &quot;%3D&quot; # =
+  greater.than.sign = &quot;%3E&quot; # &gt;
+  less.than.sign = &quot;%3C&quot; # &lt;
+  greater.than.or.equal.to.sign = paste0(greater.than.sign,equal.sign) # &gt;=
+  less.than.or.equal.to.sign = paste0(less.than.sign,equal.sign) # &lt;=
+  # ==============================================
+  
+  url_start=&quot;http://api.dila.fr/opendata/api-boamp/annonces/search&quot;
+  
+  # ========== Define timelaps ===================
+  
+
+  
+  periods=c(&quot;01-01&quot;,&quot;05-01&quot;,&quot;09-01&quot;,&quot;13-01&quot;,&quot;17-01&quot;,&quot;21-01&quot;,&quot;25-01&quot;,&quot;28-01&quot;,
+            &quot;01-02&quot;,&quot;05-02&quot;,&quot;09-02&quot;,&quot;13-02&quot;,&quot;17-02&quot;,&quot;21-02&quot;,&quot;25-02&quot;,&quot;28-02&quot;,
+            &quot;01-04&quot;,&quot;05-04&quot;,&quot;09-04&quot;,&quot;13-04&quot;,&quot;17-04&quot;,&quot;21-04&quot;,&quot;25-04&quot;,&quot;28-04&quot;,
+            &quot;01-05&quot;,&quot;05-05&quot;,&quot;09-05&quot;,&quot;13-05&quot;,&quot;17-05&quot;,&quot;21-05&quot;,&quot;25-05&quot;,&quot;28-05&quot;,
+            &quot;01-06&quot;,&quot;05-06&quot;,&quot;09-06&quot;,&quot;13-06&quot;,&quot;17-06&quot;,&quot;21-06&quot;,&quot;25-06&quot;,&quot;28-06&quot;,
+            &quot;01-07&quot;,&quot;05-07&quot;,&quot;09-07&quot;,&quot;13-07&quot;,&quot;17-07&quot;,&quot;21-07&quot;,&quot;25-07&quot;,&quot;28-07&quot;,
+            &quot;01-08&quot;,&quot;05-08&quot;,&quot;09-08&quot;,&quot;13-08&quot;,&quot;17-08&quot;,&quot;21-08&quot;,&quot;25-08&quot;,&quot;28-08&quot;,
+            &quot;01-09&quot;,&quot;05-09&quot;,&quot;09-09&quot;,&quot;13-09&quot;,&quot;17-09&quot;,&quot;21-09&quot;,&quot;25-09&quot;,&quot;28-09&quot;,
+            &quot;01-10&quot;,&quot;05-10&quot;,&quot;09-10&quot;,&quot;13-10&quot;,&quot;17-10&quot;,&quot;21-10&quot;,&quot;25-10&quot;,&quot;28-10&quot;,
+            &quot;01-11&quot;,&quot;05-11&quot;,&quot;09-11&quot;,&quot;13-11&quot;,&quot;17-11&quot;,&quot;21-11&quot;,&quot;25-11&quot;,&quot;28-11&quot;,
+            &quot;01-12&quot;,&quot;05-12&quot;,&quot;09-12&quot;,&quot;13-12&quot;,&quot;17-12&quot;,&quot;21-12&quot;,&quot;25-12&quot;,&quot;28-12&quot;,&quot;31-12&quot;)
+  # ============== GET Function ====================
+  get_webid&lt;-function(day_start, month_start, day_stop, month_stop){fromJSON(rawToChar(httr::GET(paste0(url_start, 
+                                                                                                        &quot;?criterion=&quot;,
+                                                                                                        &quot;nature_cat&quot;, equal.sign, &quot;attribution&quot;,
+                                                                                                        space, &quot;AND&quot;, space,
+                                                                                                        &quot;dateparution&quot;, greater.than.or.equal.to.sign, &quot;2021&quot;, slash.sign, month_start, slash.sign, day_start, # you can change the year just here
+                                                                                                        space, &quot;AND&quot;, space, 
+                                                                                                        &quot;dateparution&quot;, less.than.or.equal.to.sign, &quot;2021&quot;, slash.sign, month_stop, slash.sign, day_stop))$content))$item$value} # you can change the year just here
+  
+  # ============= List of all the web id =================
+  rm(list_webid)
+  list_webid=c()
+  for(t in 1:length(periods)-1){list_webid&lt;-c(list_webid,get_webid(unlist(strsplit(periods[t], split=&quot;-&quot;))[1], unlist(strsplit(periods[t], split=&quot;-&quot;))[2],
+                                                                   unlist(strsplit(periods[t+1], split=&quot;-&quot;))[1],unlist(strsplit(periods[t+1], split=&quot;-&quot;))[2]))}
+  
+  #=======================================================
+  # =========GET the award notices based on the web id ===
+  #=======================================================
+  
+  output.dir = &quot;~/BOAMP-tender-data-2021&quot;
+  dir.create(output.dir, recursive=FALSE, showWarnings=FALSE)
+  for(i in 1:length(list_webid)){
+    api.output.dir = file.path(output.dir,list_webid[i])
+    http.request = 
+      paste0(&quot;http://api.dila.fr/opendata/api-boamp/annonces/v230/&quot;,list_webid[i])
+    r = GET(http.request, add_headers(Accept = &quot;application/json&quot;))
+    bin &lt;- content(r, &quot;raw&quot;)
+    writeBin(bin, file.path(paste0(api.output.dir,&quot;.json&quot;)))}
+  
+  
+  # ========================================
+  # =========== generate the dataframe ====
+  # =======================================
+  
+  output.dir = &quot;~/BOAMP-tender-data-2021&quot;
+  
+  list.files(output.dir)
+  list_temp &lt;-c(list.files(output.dir))
+  list_webid&lt;-substr(list_temp, 1, nchar(list_temp)-5)
+  list_webid_unique &lt;-unique(list_webid)
+  
+  # =======================================
+  # =========  test the json files ========
+  #========================================
+  
+  list_webid_inval=c()
+  
+  for(i in 1:length(list_webid_unique)){if(file.info(paste0(file.path(output.dir,list_webid_unique[i]),&quot;.json&quot;))$size==92) {list_webid_inval[i]&lt;-i}}
+  
+  for(i in 1:length(list_webid_unique)){if(file.info(paste0(file.path(output.dir,list_webid_unique[i]),&quot;.json&quot;))$size&lt;200){
+   api.output.dir = file.path(output.dir,list_webid_unique[i])
+    http.request = 
+      paste0(&quot;http://api.dila.fr/opendata/api-boamp/annonces/v230/&quot;,list_webid_unique[i])
+    r = GET(http.request, add_headers(Accept = &quot;application/json&quot;))
+    bin &lt;- content(r, &quot;raw&quot;)
+    writeBin(bin, file.path(paste0(api.output.dir,&quot;.json&quot;)))}}
+  
+  make_df(2734)
+  
+  file.info(paste0(file.path(output.dir,list_webid_unique[2891]),&quot;.json&quot;))$size
+  
+  api.output.dir = file.path(output.dir,list_webid_unique[2734])
+  http.request = 
+    paste0(&quot;http://api.dila.fr/opendata/api-boamp/annonces/v230/&quot;,list_webid_unique[2734])
+  r = GET(http.request, add_headers(Accept = &quot;application/json&quot;))
+  bin &lt;- content(r, &quot;raw&quot;)
+  writeBin(bin, file.path(paste0(api.output.dir,&quot;.json&quot;)))
+  
+  make_df&lt;-function(rank){fromJSON(paste0(file.path(output.dir,list_webid_unique[rank]),&quot;.json&quot;))}
+  id=c()
+  sociaux=c()
+  envir=c()
+  adjudicateurnuts=c()
+  denomination_ach=c()
+  adresse_ach=c()
+  codepostal_ach=c()
+  ville_ach=c()
+  typepouvoiradjudicateur=c()
+  nbr_lots=c()
+  typeprocedure=c()
+  typeorganisme=c()
+  siret_ach=c()
+  datepublication=c()
+  datefindiffusion=c()
+  rm(i)
+  
+  
+  for(i in 1:length(list_webid_unique)){test=make_df(i)
+  datepublication[i]&lt;-ifelse(is.null(test$gestion$indexation$datepublication),NA,str_c(as.Date(as.POSIXct(test$gestion$indexation$datepublication/1000, origin = &quot;1970-01-01&quot;))))
+  datefindiffusion[i]&lt;-ifelse(is.null(test$gestion$indexation$datefindiffusion),NA,str_c(as.Date(as.POSIXct(test$gestion$indexation$datefindiffusion/1000, origin = &quot;1970-01-01&quot;))))
+  siret_ach[i]&lt;-ifelse(is.null(test$donnees$identite$codeidentnational), NA, test$donnees$identite$codeidentnational)
+  id[i]&lt;-ifelse(is.null(test$gestion$reference$idweb), NA, test$gestion$reference$idweb)
+  denomination_ach[i]&lt;-ifelse(is.null(test$donnees$identite$denomination), NA,test$donnees$identite$denomination)
+  adresse_ach[i]&lt;-ifelse(is.null(test$donnees$identite$adresse), NA,test$donnees$identite$adresse)
+  codepostal_ach[i]&lt;-ifelse(is.null(test$donnees$identite$cp), NA,test$donnees$identite$cp)
+  ville_ach[i]&lt;-ifelse(is.null(test$donnees$identite$ville), NA,test$donnees$identite$ville)
+  sociaux[i]&lt;-ifelse(is.null(test$gestion$indexation$criteressociauxenv$sociaux),0,1)
+  envir[i]&lt;-ifelse(is.null(test$gestion$indexation$criteressociauxenv$environnementaux),0,1)
+  adjudicateurnuts[i]&lt;-ifelse(is.null(test$donnees$identite$adjudicateurnuts), NA,test$donnees$identite$adjudicateurnuts)
+  tryCatch(nbr_lots[i]&lt;-ifelse(is.na(test$donnees$objet$lots),NA,ifelse(nrow(as.data.frame(test$donnees$objet$lots$lot))==0,1,nrow(as.data.frame(test$donnees$objet$lots$lot)))), error = function(e) nbr_lots[i]&lt;-1)
+  
+  typepouvoiradjudicateur[i]&lt;-ifelse(is.null(test$donnees$typepouvoiradjudicateur),NA,
+                                     ifelse(!is.null(test$donnees$typepouvoiradjudicateur$minautoritenationale),&quot;minautoritenationale&quot;,
+                                            ifelse(!is.null(test$donnees$typepouvoiradjudicateur$agencenational), &quot;agencenational&quot;,
+                                                   ifelse(!is.null(test$donnees$typepouvoiradjudicateur$autotriteregional), &quot;autoriteregional&quot;,
+                                                          ifelse(!is.null(test$donnees$typepouvoiradjudicateur$agenceregional),&quot;agenceregionale&quot;,
+                                                                 ifelse(!is.null(test$donnees$typepouvoiradjudicateur$orgdroitpublic),&quot;orgdroitpublic&quot;,
+                                                                        ifelse(!is.null(test$donnees$typepouvoiradjudicateur$institutioneuropeenne),&quot;institutioneuropeenne&quot;,&quot;autre&quot;
+                                                                        )
+                                                                 ))))))
+  typeprocedure[i]&lt;-ifelse(is.null(test$donnees$procedure$typeprocedure),NA,
+                           ifelse(!is.null(test$donnees$procedure$typeprocedure$ouvert), &quot;ouvert&quot;,
+                                  ifelse(!is.null(test$donnees$procedure$typeprocedure$restreint), &quot;restreint&quot;,
+                                         ifelse(!is.null(test$donnees$procedure$typeprocedure$negocie), &quot;negocie&quot;,
+                                                ifelse(!is.null(test$donnees$procedure$typeprocedure$procedureadapte), &quot;procedureadapte&quot;,
+                                                       ifelse(!is.null(test$donnees$procedure$typeprocedure$dialoguecompetitif), &quot;dialoguecompetitif&quot;,
+                                                              ifelse(!is.null(test$donnees$procedure$typeprocedure$partenariatinnovation), &quot;partenariatinnovation&quot;,NA
+                                                                     
+                                                              )))))))
+  
+  typeorganisme[i]&lt;-ifelse(is.null(test$donnees$typeorganisme),NA,
+                           ifelse(!is.null(test$donnees$typeorganisme$institutioneuropeenne), &quot;institutioneuropeenne&quot;,
+                                  ifelse(!is.null(test$donnees$typeorganisme$etat),&quot;etat&quot;,
+                                         ifelse(!is.null(test$donnees$typeorganisme$region),&quot;region&quot;,
+                                                ifelse(!is.null(test$donnees$typeorganisme$departement),&quot;departement&quot;,
+                                                       ifelse(!is.null(test$donnees$typeorganisme$commune),&quot;commune&quot;,
+                                                              ifelse(!is.null(test$donnees$typeorganisme$epn), &quot;epn&quot;,
+                                                                     ifelse(!is.null(test$donnees$typeorganisme$ept), &quot;ept&quot;,
+                                                                            ifelse(!is.null(test$donnees$typeorganisme$autre),&quot;autre&quot;,NA)))))))))
+  }
+  
+  
+  df&lt;-cbind(id, datepublication, datefindiffusion,  siret_ach, denomination_ach,adresse_ach,codepostal_ach,ville_ach ,adjudicateurnuts,typepouvoiradjudicateur, typeorganisme  ,nbr_lots, typeprocedure, sociaux, envir)
+  df&lt;-as.data.frame(df)
+  df$sociaux &lt;-as.numeric(df$sociaux)
+  df$envir &lt;- as.numeric(df$envir)
+  summary(df)
+  
+  #######################################
+  # DATABASE RELATIVE TO SELECTED SUPPLIERS 
+  ########################################
+  
+  suppl_denomination=c()
+  suppl_adresse=c()
+  suppl_cp=c()
+  suppl_ville=c()
+  suppl_codenuts=c()
+  suppl_nboffrerecu=c()
+  suppl_siret=c()
+  lot_intitule=c()
+  lot_cpv=c()
+  suppl_dateattribution=c()
+  id=c()
+  criterescctp=c()
+  list_criteria=c()
+  weight=c()
+  price_weight=c()
+  nboffrerecu=c()
+  montant=c()
+  offrebasse=c()
+  accordcadre=c()
+  k=1
+  
+  
+  
+  
+  for(i in 1:length(list_webid_unique)){
+    for(j in 1:ifelse(is.na(df[i,]$nbr_lots),1,df[i,]$nbr_lots)){running_case = make_df(i)
+    
+    accordcadre[k]&lt;- ifelse(!is.null(tryCatch(ifelse(!is.null(running_case$donnees$procedure$avisimplique$accordcadreoui),1,0), error = function(e) NA)),tryCatch(ifelse(!is.null(running_case$donnees$procedure$avisimplique$accordcadreoui),1,0), error = function(e) NA),NA)
+    
+    nboffrerecu[k]&lt;-ifelse(!is.null(tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$nboffrerecu)[[2,1]], error = function(e) NA)),tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$nboffrerecu)[[2,1]], error = function(e) NA),NA)
+    
+    montant[k]&lt;-ifelse(!is.null(tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$montant)[[2,1]], error = function(e) NA)),tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$montant)[[2,1]], error = function(e) NA),NA)
+    
+    offrebasse[k]&lt;-ifelse(!is.null(tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$offrebasse)[[2,1]], error = function(e) NA)),tryCatch(as.data.frame(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$offrebasse)[[2,1]], error = function(e) NA),NA)
+    
+    criterescctp[k]&lt;-ifelse(!is.null(tryCatch( as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[j,])$criterescctp, error = function(e) NA)),tryCatch( as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[1,])$criterescctp, error = function(e) NA),NA)
+    
+    
+    list_criteria[k]&lt;-ifelse(!is.null(tryCatch( paste(as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[1,2]$critere))[1]
+                                                ,  error = function(e) NA)),tryCatch( paste(as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[1,2]$critere))[1]
+                                                                                      ,  error = function(e) NA),NA)
+    
+    weight[k]&lt;- ifelse(!is.null(tryCatch(paste(as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[1,2]$critere))[2]  
+                                         , error = function(e) NA)),tryCatch(paste(as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[1,2]$critere))[2]  
+                                                                             , error = function(e) NA),NA)
+    
+    price_weight[k]&lt;-ifelse(!is.null(tryCatch( as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[j,4])$poids,  error = function(e) NA)),tryCatch( as.data.frame(running_case$donnees$objet$lots$lot[[1]]$criteresattribution[j,4])$poids,  error = function(e) NA),NA)
+    
+    suppl_denomination[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$denomination, error = function(e) NA)),
+                                  tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$denomination, error = function(e) NA),NA)
+    
+    suppl_adresse[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$adresse, error = function(e) NA)),
+                             tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$adresse, error = function(e) NA),NA)
+    
+    suppl_cp[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$cp, error = function(e) NA)),
+                        tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$cp, error = function(e) NA),NA)
+    
+    suppl_ville[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$ville, error = function(e) NA)),
+                           tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$ville, error = function(e) NA),NA)
+    
+    suppl_codenuts[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$codenuts, error = function(e) NA)),
+                              tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$codenuts, error = function(e) NA),NA)
+    
+    suppl_nboffrerecu[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$nboffrerecu, error = function(e) NA)),
+                                 tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]][1,]$nboffrerecu, error = function(e) NA),NA)
+    
+    
+    lot_cpv[k]&lt;-ifelse(!is.null(tryCatch(as.data.frame(running_case$donnees$objet$lots[1]$lot)$cpv[[j]]$principal, error = function(e) NA)),
+                       tryCatch(as.data.frame(running_case$donnees$objet$lots[1]$lot)$cpv[[j]]$principal, error = function(e) NA),NA)
+    
+    lot_intitule[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$intitule[[j]], error = function(e) NA)),
+                            tryCatch(running_case$donnees$attribution$decision$intitule[[j]], error = function(e) NA),NA)
+    
+    suppl_siret[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$codeidentnational[1], error = function(e) NA)),
+                           tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$codeidentnational[1], error = function(e) NA),NA)
+    
+    suppl_dateattribution[k]&lt;-ifelse(!is.null(tryCatch(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$dateattribution[2], error = function(e) NA)), tryCatch(str_c(as.Date(as.POSIXct(running_case$donnees$attribution$decision$titulaireandRENSEIGNEMENT[[j]]$dateattribution[2]/1000, origin = &quot;1970-01-01&quot;))), error = function(e) NA),NA)
+    
+    id[k] &lt;- ifelse(is.null(running_case$gestion$reference$idweb), NA, running_case$gestion$reference$idweb)
+    
+    k=k+1
+    }
+  }
+  
+  
+  
+  suppl_df = cbind(id, lot_intitule, suppl_denomination, suppl_siret, suppl_adresse,suppl_ville,suppl_cp,suppl_codenuts,suppl_nboffrerecu, lot_cpv,suppl_dateattribution, criterescctp, list_criteria, weight, price_weight, nboffrerecu, montant, offrebasse, accordcadre )
+  suppl_df&lt;-as.data.frame(suppl_df)
+  
+  # ================================
+  # JOIN DATABASES
+  # ================================
+  suppl_df$id&lt;-as.character(suppl_df$id)
+  BOAMP_2021_df&lt;-left_join(suppl_df, df)
+  
+  
+  # ====================================
+  # ======= save the file ==============
+  saveRDS(BOAMP_2021_df, file=BOAMP_destfile)
+}</code></pre>
+<p>La base globale (marchés de mars 2015 jusqu’à nos jours) peut être récupérée également directement à partir des données préalablement téléchargées :</p>
+<pre class="r"><code>#### restauration base globale
+if(!file.exists(&quot;data/BOAMP_2021_df.Rda&quot;)){
+BOAMP_2021&lt;-readRDS(&quot;data/BOAMP_2021_df.Rda&quot;)
+BOAMP_2020&lt;-readRDS(&quot;data/BOAMP_2020_df.Rda&quot;)
+BOAMP_2019&lt;-readRDS(&quot;data/BOAMP_2019_df.Rda&quot;)
+BOAMP_2018&lt;-readRDS(&quot;data/BOAMP_2018_df.Rda&quot;)
+BOAMP_2017&lt;-readRDS(&quot;data/BOAMP_2017_df.Rda&quot;)
+BOAMP_2016&lt;-readRDS(&quot;data/BOAMP_2016_df.Rda&quot;)
+BOAMP_2015&lt;-readRDS(&quot;data/BOAMP_2015_df.Rda&quot;)
+
+BOAMP&lt;-rbind(BOAMP_2021,BOAMP_2020,BOAMP_2019,BOAMP_2018,BOAMP_2017,BOAMP_2016, BOAMP_2015)
+rm(list=setdiff(ls(), &quot;BOAMP&quot;))}</code></pre>
+<p>Afin de structurer ces données en une dataframe utilisable pour des traitements statistiques, un travail de récupération, structuration, nettoyage préalable est nécessaire. À l’issue de ce dernier, on obtient un tableau qui ressemble à cela :</p>
+<pre class="r"><code># ======================
+# manage criteria
+# =====================
+
+BOAMP$list_criteria&lt;-str_replace(BOAMP$list_criteria, fixed(&quot;c(&quot;), &quot;&quot;)
+BOAMP$weight&lt;-str_replace(BOAMP$weight, fixed(&quot;c(&quot;), &quot;&quot;)
+BOAMP$list_criteria&lt;-str_replace(BOAMP$list_criteria, fixed(&quot;)&quot;), &quot;&quot;)
+BOAMP$weight&lt;-str_replace(BOAMP$weight, fixed(&quot;)&quot;), &quot;&quot;)
+BOAMP$nbr_criteria&lt;-str_count(BOAMP$list_criteria, fixed(&quot;, &quot;))+1
+
+
+
+#correct SIRET
+BOAMP$suppl_siret_clean&lt;- str_remove_all(BOAMP$suppl_siret,&quot; &quot;)
+BOAMP$siret_ach_clean&lt;-str_remove_all(BOAMP$siret_ach ,&quot; &quot;)
+
+BOAMP$suppl_siret_clean&lt;-ifelse(str_length(BOAMP$suppl_siret_clean)==14,BOAMP$suppl_siret_clean,NA)
+BOAMP$siret_ach_clean&lt;-ifelse(str_length(BOAMP$siret_ach_clean)==14,BOAMP$siret_ach_clean,NA)
+
+# =================================
+# suppress the un-allocated markets
+# =================================
+
+BOAMP&lt;-BOAMP[which(!is.na(BOAMP$suppl_denomination)),]
+
+
+
+# =======================
+# catégorisation
+# =======================
+
+
+
+BOAMP$categorie&lt;-ifelse(substr(BOAMP$lot_cpv, 1,2)==&quot;45&quot;, &quot;travaux&quot;, 
+                        ifelse(substr(BOAMP$lot_cpv,1,2)&gt;=&quot;48&quot;, &quot;services&quot;,
+                        ifelse(substr(BOAMP$lot_cpv,1,2)&lt;&quot;45&quot;, &quot;fournitures&quot;,
+                        ifelse(substr(BOAMP$lot_cpv,1,2)==&quot;48&quot;, &quot;fournitues&quot;,&quot;NonA&quot;))))
+
+
+table&lt;-BOAMP[100000:100150,c(1:12)]
+
+table%&gt;%
+  datatable(extensions = &#39;Buttons&#39;,
+            options = list(dom = &#39;Blfrtip&#39;,
+                           buttons = c(&#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;, &#39;pdf&#39;, &#39;print&#39;),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,&quot;All&quot;))),rownames = FALSE)</code></pre>
+<div id="htmlwidget-280cd2a21bf993e68f8d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-280cd2a21bf993e68f8d">{"x":{"filter":"none","extensions":["Buttons"],"data":[["20-89818","20-89821","20-89823","20-89827","20-8983","20-89835","20-89835","20-89835","20-89835","20-89835","20-89844","20-89847","20-89848","20-89848","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89857","20-89857","20-89858","20-89858","20-89858","20-89858","20-89871","20-89875","20-8988","20-89880","20-89880","20-89880","20-89884","20-89884","20-89885","20-89888","20-89893","20-89893","20-89893","20-89893","20-89897","20-899","20-89900","20-89903","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89911","20-89915","20-89926","20-89931","20-89931","20-89936","20-89940","20-89941","20-89941","20-89958","20-89968","20-89984","20-89984","20-89984","20-89984","20-89985","20-89990","20-900","20-900","20-900","20-90020","20-90023","20-90023","20-90023","20-90023","20-90023","20-90025","20-90027","20-90027","20-90028","20-90035","20-90045","20-90048","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90051","20-90057","20-90063","20-90067","20-90071","20-90081","20-90091","20-90093","20-90094","20-90097","20-90097","20-90097","20-90097","20-90097","20-90099","20-901","20-90100","20-90102","20-90102","20-90106","20-90107","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90113","20-90114"],[null,null,null,null,"Accord-cadre pour la fourniture et la distribution de gaz naturel pour les résidences de Montrouge Habitat","Pains CHIVA","Pains CHAC","Viennoiserie CHAC","Pain CHJR","Pain CHSL","Assurance protection juridique",null,"Fourniture et pose d'équipement d'office de cuisine au groupe scolaire Gambetta","Fourniture et pose d'équipement d'office de cuisine au groupe scolaire Pasteur","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez,Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 1 Foix","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez, Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 2 Rodez","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez,Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 3 Toulouse","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez, Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 6 Albi","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez, Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 7 Montauban","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez, Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 4 Cahors","Marché de prestations de nettoyage des locaux et de la vitrerie des sites de Foix, Rodez, Toulouse, Cahors, Tarbes, Albi et Montauban. Lot 5 Tarbes","Prestations de télésurveillance et de levée de doute","Prestations de sécurisation et surveillance de biens départementaux.","Thématique des rivières","Thématique agriculture - alimentation","Thématique des espaces naturels","Thématique du climat","Fourniture et livraison déquipements pour les programmes Pasteur et Gambetta",null,null,null,null,null,"Agence Bastia Balagne","Agence Bastia Balagne",null,null,"Tonte et entretien des espaces verts hors taille des arbres et haies en Guadeloupe continentale","Elagage des arbres et taille des haies sur le site du Siège","Tonte des espaces verts hors taille des arbres et haies à Marie-Galante","Tonte des espaces verts, élagage des arbres et taille des haies sur les sites non occupés","Gestion des aires d'accueil des gens du voyage",null,null,"Accueil téléphonique des usagers et abonnés du service public de l'eau potable de la Régie des eaux de Montpellier Méditerranée Métropole et prestations connexes.",null,null,null,null,null,null,null,null,null,"Marché de fourniture et livraison de deux véhicules électrqiues de transport de personnes",null,"Achats et livraison de véhicules neufs - segment SUV COMPACT","Débroussaillement des terrains communaux","Débroussaillement des abords de la piste D.F.C.I. de Capitou","Fourniture de barrage souples anti-inondations autobloquants pour les services techniques municipaux","MARCHE NEGOCIE SANS MISE EN CONCURRENCE RELATIF AU LOGICIEL INDEXIMA DATAHUB","LOT 1 : salle de la Palestre","Lot 2 : Manifestations extérieures et petites salles",null,"accord cadre de services de restauration en période scolaire et d'accueil de loisirs sans hébergement sur la commune de Savonnières","Plafond - doublage - cloison - peinture - revêtement mural intérieur - faïence - sols souples - carrelage","Menuiserie intérieure et extérieure","Electricité","Plomberie - sanitaire",null,"Prestations de transports sanitaires terrestres pour l'Établissement Public de Santé Mentale.","LOT 1","LOT 2","LOT 3",null,"Fournitures scolaires spécifiques","Papier de reprographie","Livres, manuels scolaires (papier et numérique)","Matériel pédagogique : activités manuelles et de loisirs","Matériel sportif",null,"Huiles, graisses et liquide de freins","Liquide dépolluant GAS OIL (type AD BLUE), liquide de refroidissement et liquide lave-glace","Assistance en ingénierie administrative, méthodologique et opérationnelles des établissements du GHT du Limousin pour les opérations de travaux",null,null,null,"OMEPRAZOLE FORME ORALE","PARAFFINE HUILE","SEMAGLUTIDE","NICOTINAMIDE","DIGOXINE","ANTIHEMORROIDAIRE","ANTIHEMORROIDAIRE","ANTIPRURIGINEUX","DOXYCYLINE","ABACAVIR + LAMIVUDINE PRINCEPS NON SUBSTITUABLE","TRIFLURIDINE + TIPIRACIL","PIXANTRONE","BROMELAINE","ANESTHESIQUE LOCAL DES MUQUEUSES BUCCALES","MEPIVACAINE ET ADRENALINE","ARTICAINE ET ADRENALINE","FLUNARIZINE","PRIMIDONE","AMITRIPTYLINE","AMITRIPTYLINE","ANTISEPTIQUE POUR LA GORGE","ACETYLCYSTEINE","Gestion de la patinoire des 3 Seine",null,"Prestations d'impression de documents divers pour la commune et le ccas - lot 4: reprographie et façonnage",null,"Extension et maintenance de la vidéo protection et du réseau multiservice",null,null,null,null,"Fourniture, livraison, installation, formation et mise en service d'un panneau de surtitrage","Fourniture, livraison, installation, formation et mise en service d'un système de sonorisation","Fourniture, livraison, et mise en service de matériel lumière","Fourniture, livraison, de tapisserie scénique","Fourniture et livraison de matériel d'orchestre",null,"Collecte, transport et traitement de biodéchets non emballés et achat de matériels ou fournitures au profit des établissements de la base de défense de Toulon.",null,"ENTRETIEN, MAINTENANCE ET TRAVAUX SUR LE RESEAU VMC , HOTTES","ENTRETIEN, MAINTENANCE ET TRAVAUX SUR LES INSTALLATIONS DE CLIMATISATION",null,null,"VRD - Espaces verts","Gros uvre - Démolition - Désamiantage","Charpente métallique","Bardage - Couverture - Etanchéité","ITE - Enduits ","Serrurerie","Menuiseries extérieures Alu","Menuiseries extérieures bois","Menuiseries intérieures bois","Plâtrerie","Faux plafonds","Revêtements de sols souples","Revêtements de sols durs - faïences","Peinture","Electricité","CVC - Plomberie","Equipements cuisine","Panneaux isothermes","Mur d'escalade - SAE",null,null],["TDMI","VAL EQUIPEMENT","SPIE Industrie et Tertiaire Division tertiaire","OTIS","Gaz de paris","LES MOULINS DE LA CATALOGNE","Boulangerie SOUM","Anthony Parolin Maurette","Saveurs d'Ariège","Saveurs d'Ariège","Sarre et Moselle","COLAS","MEDINOX","MEDINOX","Deca Propreté Midi-Pyrénées II","Deca propreté Midi-Pyrénées II","Deca Propreté Midi-Pyrénées II","Deca Proprete Midi-Pyrénées II","Deca Propreté Midi-Pyrénées II","DERICHEBOURG","APR","ASCI","ASCI","Groupement conjoint ZIMELINE (mandataire) / SESIE / EL NIN'EAU","GROUPEMENT AGRIBIO ARDECHE (mandataire) / CIVAM 26, CIVAM 07, ASSOCIATION RHIZO'SOL","Association lpo auvergne-rhône-alpes","Solstice","WESCO","GROUPEMENT RAMBOLL FRANCE-ATELIER DES GIBOULEES","AR CLEAN SERVICES","GFI informatique","Altran technologies","CGI","Garelli","Sas Terraco","Rolando Paysages","LEGRAS INDUSTRIES","ASSOCIATION GUADELOUPÉENNE POUR L'INSERTION PROFESSIONNELLES ET SOCIALES DES ADULTES ET HANDICAPES (AGIPSAH)","AZ ENVIRONNEMENT","Concept jardin Pervenche","AZ Environnement","S.G.2.A.","Groupement conjoint ECOLOR-ARTELIA, ARTELIA mandataire solidaire","Eiffage route","VEOLIA COMPAGNIE GENERALE DES EAUX","AUTODISTRIBUTION FARSY","Société FARSY","PROVAC","Société FARSY","Société SDE","Société FARSY","Société FARSY","Société FARSY","DESCOURS ET CABAUD","LOHR INDUSTRIE","SPARFEL NORMANDIE","RENAULT ENTREPRISE - CAMA SAS","CLM ENVIRONNEMENT SAS","CLM ENVIRONNEMENT SAS","SARL MEGASECUR.EUROPE","INDEXIMA","DUSHOW SAS","DUSHOW SAS","Ey & Associes","RESTAUVAL","BPVR","Prodesign","Amica","La Louisiane","POLE SECURITE ANTILLES","GME CARIUS ANTILLES - AMBULANCE DU CENTRE","SMACL","JDG ASSURANCES AXA","ACL COURTAGE","ERG SARL","SARL CYRANO HAUTS DE FRANCE","PAPETERIE LA VICTOIRE","SAS DECITRE","SARL CYRANO HAUTS DE FRANCE","DÉCATHLON PRO","DRÄGER France","YORK","TOULON TRUCKS SERVICES","Cabinet Clément et associés","SAS GILLARD","Pandrol","ViTO CORSE","EG LABO","COOPERATION PHARMACEUTIQUE FRANCAISE","NOVO NORDISK","TEOFARMA","TEOFARMA","JOHNSON ET JOHNSON SANTE BEAUTE FRANCE","COOPERATION PHARMACEUTIQUE FRANCAISE","COOPERATION PHARMACEUTIQUE FRANCAISE","SERB","VIIV HEALTHCARE","LABORATOIRES SERVIER","LABORATOIRE SERVIER","MYLAN SAS","SEPTODONT","SEPTODONT","SEPTODONT","JANSSEN CILAG","SERB","TEOFARMA","TEOFARMA","COOPERATION PHARMACEUTIQUE FRANCAISE","EG LABO","EQUALIA","MC NUISIBLES","Reprographie cauvin","SATREL","NTI","QUADRIA","i-Lot Architecture","SAS EUROVIA CENTRE LOIRE","COLAS NORD EST Agence Artois","Artcom Diffusion","Dushow Nice","Dushow Nice","Fox Slv","Rythmes Et Sons","Veolia Energie France","Siège : PAPREC RESEAU Etablissement : PAPREC MED 83","ELIS","CCE","CCE","Eiffage Genie Civil","AU VIEUX CAMPEUR","COLAS SUD OUEST","BILSKI","LABEDAN CONSTRUCTIONS","SOPREMA ENTREPRISES","ISOBAT","METALBI 81","SPB","CGEM CONSTRUCTION","MENUISERIE THERON","TRUJILLO PATRICK","MASSOUTIER ET FILS","REY - SOL CONFORT","TECHNI CERAM","LACOMBE PEINTURE","EIFFAGE ENERGIE SYSTEMES - FONTANIE","THERMATIC","QUIETALIS","SOPROMECO","ENTRE-PRISES","COLAS Ile de France NORMANDIE","SECURHIT GROUP"],[null,null,null,null,null,null,null,null,null,null,"382276624 0023",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"338259765","499904308","802809855","499904308","44918742600084",null,null,"57202552601191",null,null,null,null,null,null,null,null,null,null,null,null,"81920927100017",null,"53206352600026",null,"52997567400027","52997567400027",null,null,"412916507400047","4234257080011","30269492200097","32610261300022",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],["54 cours Saint André","121 RUE DU BOIS GIRAULT","4 avenue Jean Jaurès tsa 70017","57 Avenue Simone Veil","47/53, rue Raspail",null,null,null,null,null,"17 bis, avenue poincarré","ZA de Poulvern","44 Rue Blaise Pascal","44 Rue Blaise Pascal","846 Boulevard des Tamaris","846 Boulevard des Tamaris","846 Boulevard des Tamaris","846 Boulevard des tamaris","846 boulevard des tamaris","20 rue Didier Daurat","Rue Marchel Dassault",null,null,"Maison de quartier des Ors 26 rue Magnard","593 route des blaches","14 avenue Tony Garnier","Ronde des alisers",null,"155 RUE LOUIS DE BROGLIE","3 rue Auguste Renoir",null,null,null,"724 bd du Mercantour","Za De Folelli Bp 54","1175 Avenue Jules Grec","CS 20204","BP 35 Champfleury","1018, Batiment 10 Parc d'activités Antillopole","3 Rue Barbe en Or, Guenette","1018, Batiment 10 Parc d'activités Antillopole","355 rue des Mercières",null,"48, rue Saint Antoine","21, rue La Boétie","4 Boulevard des Aciéries","4 Boulevard des Aciéries","12 voie dAngleterre","4 Boulevard des Aciéries","45 avenue José Nobre","4 Boulevard des Aciéries","4 Boulevard des Aciéries","4 Boulevard des Aciéries","45 Avenue des Aygalades","29 RUE DU 14 JUILLET","LA FORGE MOISY",null,"213 RUE DE LA MONTAGNE - ESPACE NOVA","213 RUE DE LA MONTAGNE - ESPACE NOVA","10 ALLEE DES CYITSES","4 rue Raoul Pugno","ZAC du Moulin18 rue Meunier","ZAC du Moulin18 rue du Meunier","1-2, place des Saisons",null,"10, rue Maximilien Robespierre","3 rue Eugène Henaff","116 Quai de Bezons bâtiment B","18 rue Buzelin","IMMEUBLE MEGACHAUSS CENTRE COMMERCIAL CREOLIS","Boulevard Ouest","141 AVENUE SALVADOR ALLENDE","5 RUE DES PRETRES","11 RUE FAIDHERBE","Bp 369 zi Kaweni",null,null,null,null,null,"25 rue Georges Besse - Parc de haute technologie","1394 Avenue de DraguignanZI Toulon Est - BP 90135","250 Route de La Crau","2 rue Malesherbes","ZA rue des Peupliers","Parc Lavoisier Rue Michel Charles","avenue Jean Zuccarelli","12 rue Danjou","Place Lucien Auvert","100 Esplanade Charles de Gaulle","Via Cervi no8","Via Cervi","1 rue Camille Desmoulins","Place Lucien Auvert","Place Lucien Auvert","40 avenue George V","23 rue François Jacob","50 rue Carnot","50 rue Carnot","117 allée des Parcs","58 rue du POnt de Créteil","58 rue du Pont de Créteil","58 rue du Pont de Créteil","1 avenue Camille Desmoulins","40 avenue George V","Via Cervi","Via Cervi","Place Lucien Auvert","12 rue Danjou","40 Boulevard Henri Sellier     ","Lasbouzigues","16 avenue thiers","102 Avenue de la Gironde","9 avenue Pierre Bérégovoy","200 chemin ramatuelle","280, bd Michelet","Rue du 11 Octobre","50 Avenue des entreprises PA de la Galance","1 Bis, Rue Comte Du Demaine","Zac St Esteve","Zac St Esteve","8 avenue de la Chaffine Za La Chaffine 2","18 Rue du Cor de Chasse","6 Rue Anne Gacon","Siège : rue blaise pascal - 69680 Chassieur Etablissement : ZA La Pabourette - 83250 La Londe Les Maures","142 rue de l'Unterelsau","242 boulevard jean OssolaLes Laurentides","242 boulevard jean OssolaLes Laurentides","4 rue copenhague","48 RUE DES ECOLES","Zi de jarlard - 35 rue henri moissan","Zi la baute - espace monaco","Zac sud secteur ouest, 136 rue de l'Autan","31 impasse michel ange","Impasse des taillades","Za fonlabour - chemin de besse","32 chemin de mezard","131 route de launaguet","7 route de prunet","3 rue henri matisse","Za la moliere","43 rue de la marguerite","147 route de toulouse","3, Avenue georges clemenceau","1 allée des pionniers de l'aéropostale","Zi la prade - 50 rue de la prade","6 impasse denis papin","50 route d'Hauterive","ZI de Tire poix","Agence du Val de ReuilParc Industriel d'Incarville","2610 AVENUE DES LANDIERS"],["Pont de claix","SAINT-JEAN-LE-BLANC","Feysin cedex","Nice","LEVALLOIS PERRET","Limoux","Saint Lizier","La Bastide de Sérou","Ax-Les-Thermes","Ax-Les-Thermes","Sarrebourg","Locoal Mendon","AULNAY SOUS BOIS","AULNAY SOUS BOIS","Onet le chateau","Onet le chateau","Onet le chateau","Onet le chateau","Onet le chateau","Toulouse","Lons","VERVINS","VERVINS","ROMANS SUR ISERE","Gaussas","Lyon","Eurre","CERIZAY","AIX-EN-PROVENCE","BESANCON","Saint Ouen sur Seine","neuilly sur seine","lyon","Nice","Penta-di-Casinca","Antibes","EPERNAY","GOURBEYRE","LES ABYMES","Le MOULE","LES ABYMES","RILLEUX-LA-PAPE","SCHILTIGHEIM","Montreuil","PARIS","MARSEILLE","MARSEILLE","Vitrolles Cedex","MARSEILLE","Martigues","MARSEILLE","MARSEILLE","MARSEILLE","MARSEILLE","HANGENBIETEN","Cresseveuille","Baie Mahault","FREJUS","FREJUS","REBREUVE RANCHICOURT","Montrouge","Roissy","Roissy","Courbevoie","ROCHECORBON","Noisy le sec","Stains","Argenteuil","Paris","LE ROBERT","MORNE A L'EAU","NIORT","TOULOUSE","SAINT CERE",null,"Pitgam","Tourcoing cedex","Lyon cedex 8","Pitgam","Villeneuve d'ascq","Antony","TOULON CEDEX 9","LA FARLEDE","LYON","Bois le Roi","Petite foret","Bastia","Boulogne billancourt","Melun","La Défense","Pavia","Pavia","Issy les Moulineaux","Melun","Melun","Paris","Rueil Malmaison","Suresnes","Suresnes","Saint Priest","St Maur des Fossés","St Maur des Fossés","St Maur des Fossés","Issy Les Moulineaux","Paris","Pavia","Pavia","Melun","Boulogne Billancourt","SURESNES","LAYRAC","Antibes","DUNKERQUE","BEAUVAIS","avignon cedex 9","Marseille","Fleury-les-Aubrais","Lens","Avignon","Saint-Jeannet","Saint-Jeannet","Châteaurenard","Illkirch-Graffenstaden","Marseille","La londe les maures","Strasbourg Cedex","Saint Laurent du Var","SAINT LAURENT DU VAR","Vitrolles","PARIS","albi","Le Sequestre","Grenade sur garonne","Toulouse","Le Sequestre","Albi","Albi","Toulouse","Pampelonne","Valence d'agen","Graulhet","Gaillac","Cugnaux","Gaillac","Toulouse","Rodez","Tournefeuille","Abrest","Saint vincent de Mercuze","VAL DE REUIL","CHAMBERY"],["38800","45650","69551","06200","92300",null,null,null,null,null,"57401","56550","93600","93600","12850","12850","12850","12850","12850","31400","64140",null,null,"26100","07210","69007","26400","79140","13100","25000",null,null,null,"06200","20213","06600","51206","97113","97139","97160","97139","69140",null,"93100","75008","13010","13010","13744","13010","13500","13010","13010","13010","13015","67980","14430","97122","83600","83600","62150","92120","93700","93700","92400","37210","93130","93240","95100","75018","97231","97111","79031","31000","46400","97600",null,null,null,null,null,"92160","83088","83210","69006","77590","59494","20200","92517","77020","92932","27010","27010","92130","77020","77020","75008","92500","92284","92284","69792","94100","94100","94100","92787","75008","27100","27100","77020","92517","92150","47390","06600","59240","60000","84918","13008","45400","62300","84000","06640","06640","13160","67400","13016","83250","67037","06700","06700","13745","75005","81000","81990","31330","31200","81990","81000","81000","31200","81190","81340","81300","81600","31270","81600","31029","12033","31170","03200","38660","27100","73000"],[null,null,null,null,"FR105","FRJ11","FRJ21","FRJ21","FRJ21","FRJ21","FR",null,"FR106","FR106","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRE21","FRE21","FRK23","FRK22","FRK26","FRK23","FRI33",null,null,"FR","FR","FR","FRL03","FRM","FRL03",null,"FRY10","FRY10","FRY10","FRY10","FRG02","FRF11",null,"FR101","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FR",null,"FRY10","FRL05","FRL05","FRE12","FR105","FRL03","FRL03","FR105","FR","FR1","FR1","FR1","FR101",null,"FRY10","FRJ23","FRJ23","FRJ23",null,"FRE11","FRE11","FRE11","FRE11","FRE11",null,"FRL05","FRL05","FRK2",null,"FRE11",null,"FR105","FR102","FR105","IT","IT","FR105","FR102","FR102","FR101","FR105","FR105","FR105","FRK26","FR107","FR107","FR107","FR105","FR101","IT","IT","FR102","FR105","FR105",null,"FRL03",null,"FRE22",null,"FRL04",null,null,"FRL06","FRL03","FRL03","FRL04","FRF11","FRL04","FRL05",null,"FRL03","FRL03","FRL04",null,"FRJ27","FRJ27","FRJ23","FRJ23","FRJ27","FRJ27","FRJ27","FRJ23","FRJ27","FRJ27","FRJ27","FRJ27","FRJ23","FRJ27","FRJ23","FRJ22","FRJ23","FRK1","FRK24",null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"09123000","15811100","15811100","15811300","15811100","15811100","66513000",null,"39314000","39314000","90919200","90919200","90919200","90919200","90919200","90919200","90919200","79711000","79713000","92331210","92331210","92331210","92331210","39162110",null,null,"72500000","72500000","72500000","45233140","45233140","77310000",null,"77310000","77310000","77310000","77310000","79993100","71313000",null,"79512000","42410000","42650000","42600000","42120000","43800000","42924740","42100000","42662000","42413400","34144900",null,"34115000","77211400","77211400","45246400","72500000","32342410","32342410","79212300","55523100","45442100","45421000","45311200","45330000",null,"63710000","66515000","66516000","66516000",null,"39162110","30197630","22111000","37524000","37524000",null,"24951000","24960000","71318000",null,"71631470",null,"33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","33600000","70332200",null,"79811000",null,"72500000",null,"71200000",null,null,"34924000","32342400","31527260","39500000","39150000","50720000","90500000",null,"50800000","45331220","45262330",null,"45112500","45223220","45262410","45261210","45321000","45223110","45421000","45421000","45421000","45410000","45421146","45432111","45431100","45442100","45310000","45232141","39314000","45421130","37535291",null,null],["2020-07-06","2020-06-02","2020-07-06","2020-07-05",null,"2020-06-30","2020-06-30","2020-06-30","2020-06-30","2020-06-30",null,"2020-06-11","2020-06-23","2020-06-23","2020-06-30","2020-06-30","2020-06-30","2020-06-30","2020-06-30","2020-06-30","2020-06-30","2020-07-12","2020-07-12",null,null,"2020-07-02","2020-07-02","2020-06-23","2020-06-11","2019-12-01","2020-07-02","2020-07-02","2020-07-02","2020-07-06","2020-07-06","2020-07-12","2020-02-09","2019-08-28","2019-08-28","2019-08-28","2019-08-28","2019-11-25",null,"2020-07-08","2020-07-01","2020-02-16","2020-06-24","2020-06-24","2020-06-24","2020-06-24","2020-02-16","2020-02-16","2020-02-16","2020-06-24","2020-06-02","2020-07-05","2019-09-04","2020-06-30","2020-06-30","2020-06-29","2020-07-07","2019-10-06","2019-10-06","2020-07-09","2020-07-09","2020-05-21","2020-05-21","2020-05-21","2020-05-21","2020-07-01",null,"2019-12-16","2019-12-16","2019-12-16",null,"2020-05-21","2020-05-21",null,"2020-05-21","2020-05-21","2020-07-09","2020-06-30","2020-07-01",null,"2020-07-02","2020-06-22","2020-07-11","2020-03-18","2020-03-18","2020-03-18","2020-03-18","2020-03-18",null,"2020-03-18","2020-03-18","2020-03-18","2020-03-18",null,null,null,"2020-03-25","2020-03-25","2020-03-25","2020-03-18","2020-03-18","2020-03-18","2020-03-18","2020-03-18","2020-03-18","2020-07-01","2020-07-11","2020-07-09","2020-07-09","2020-07-02","2020-06-23","2020-07-09","2020-03-01","2020-06-25","2020-07-06","2020-07-06","2020-07-06","2020-07-06","2020-07-06","2020-06-28","2019-12-29",null,"2020-07-01","2020-07-01",null,"2020-07-05","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-18","2020-06-30","2020-07-06"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>lot_intitule<\/th>\n      <th>suppl_denomination<\/th>\n      <th>suppl_siret<\/th>\n      <th>suppl_adresse<\/th>\n      <th>suppl_ville<\/th>\n      <th>suppl_cp<\/th>\n      <th>suppl_codenuts<\/th>\n      <th>suppl_nboffrerecu<\/th>\n      <th>lot_cpv<\/th>\n      <th>suppl_dateattribution<\/th>\n      <th>criterescctp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","buttons":["copy","csv","excel","pdf","print"],"lengthMenu":[[10,25,50,-1],["10","25","50","All"]],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>table2&lt;-BOAMP[100000:100150,c(1,12:23)]
+
+table2%&gt;%
+  datatable(extensions = &#39;Buttons&#39;,
+            options = list(dom = &#39;Blfrtip&#39;,
+                           buttons = c(&#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;, &#39;pdf&#39;, &#39;print&#39;),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,&quot;All&quot;))),rownames = FALSE)</code></pre>
+<div id="htmlwidget-4f935d5abf495e111c55" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4f935d5abf495e111c55">{"x":{"filter":"none","extensions":["Buttons"],"data":[["20-89818","20-89821","20-89823","20-89827","20-8983","20-89835","20-89835","20-89835","20-89835","20-89835","20-89844","20-89847","20-89848","20-89848","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89857","20-89857","20-89858","20-89858","20-89858","20-89858","20-89871","20-89875","20-8988","20-89880","20-89880","20-89880","20-89884","20-89884","20-89885","20-89888","20-89893","20-89893","20-89893","20-89893","20-89897","20-899","20-89900","20-89903","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89911","20-89915","20-89926","20-89931","20-89931","20-89936","20-89940","20-89941","20-89941","20-89958","20-89968","20-89984","20-89984","20-89984","20-89984","20-89985","20-89990","20-900","20-900","20-900","20-90020","20-90023","20-90023","20-90023","20-90023","20-90023","20-90025","20-90027","20-90027","20-90028","20-90035","20-90045","20-90048","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90051","20-90057","20-90063","20-90067","20-90071","20-90081","20-90091","20-90093","20-90094","20-90097","20-90097","20-90097","20-90097","20-90097","20-90099","20-901","20-90100","20-90102","20-90102","20-90106","20-90107","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90113","20-90114"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"\"Modalités de facturation\", \"Service extranet\", \"Relation client\", \"Délais\"","Q","Q","Q","Q","Q","valeur technique",null,"Valeur Technique","Valeur Technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique",null,null,"Valeur technique","Valeur technique","Valeur technique","Valeur technique","\"Valeur technique détaillée dans le mémoire technique\", \"Délai de livraison détaillé dans le mémoire technique\"",null,null,"valeur technique","valeur technique","valeur technique","Valeur technique","Valeur technique","Valeur technique",null,null,null,null,null,"\"Méthodologie\", \"Gestion technique\", \"Moyens humains\", \"Astreinte\", \"accompagnement sociale et médiation\"","Valeur technique",null,"Qualité de réponse aux exigences fonctionnelles","valeur technique","valeur technique","valeur technique","valeur technique","valeur technique","valeur technique","valeur technique","valeur technique","valeur technique","VALEUR TECHNIQUE",null,null,"\"Valeur technique décomposée en sous-critères suivants\", \"Délai d'intervention en jours pour le débroussaillement, hors planning annuel, tel que proposé à l'Acte d'Engagement.\"","\"Valeur technique décomposée en sous-critères suivants\", \"Délai d'intervention en jours pour le débroussaillement, hors planning annuel, tel que proposé à l'Acte d'Engagement.\"","Valeur technique décomposée en sous-critères",null,"Valeur technique décrite dans le règlement de consultation (article 4","Valeur technique décrite dans le règlement de consultation (article 4",null,"VALEUR TECHNIQUE","Technique","Technique","Technique","Technique",null,"Évaluation des moyens du candidat","\"Valeur Technique\", \"Suivi et gestion des sinistres\"","\"Valeur Technique\", \"Suivi et gestion des sinistres\"","\"Valeur Technique\", \"Suivi et gestion des sinistres\"",null,"\"qualité des fournitures\", \"modalités de passation des commandes et de livraison\"","\"qualité des fournitures\", \"modalités de passation des commandes et de livraison\"","\"qualité des fournitures\", \"modalités de passation des commandes et de livraison\"","\"qualité des fournitures\", \"modalités de passation des commandes et de livraison\"","\"qualité des fournitures\", \"modalités de passation des commandes et de livraison\"",null,"Valeur technique","Valeur technique","\"Qualité de la méthodologie proposée et pertinence de la compréhension du contexte et des enjeux\", \"Pertinence de l'affection des compétences avec présentation de l'équipe dédiée\"",null,"Valeur technique de l'offre (les sous critères sont détaillés dans la rubrique 'renseignements complémentaires'",null,"\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","\"Qualité de l'offre\", \"Qualité clinique\"","Qualité traduisant la valeur technique",null,"\"Valeur technique\", \"Qualité\", \"Performances en matière de protection de l'environnement\"",null,"\"La valeur technique\", \"La qualité\"",null,"Valeur technique",null,null,null,null,null,null,null,null,"Environnemental",null,"La valeur technique","La valeur technique","Valeur technique",null,"Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique","Valeur technique",null,null],[null,null,null,null,"\"25\", \"25\", \"30\", \"5\"","50","50","50","50","50","60 %",null,"50","50","50","50","50","50","50","50","50",null,null,"60","60","60","60","\"45\", \"15\"",null,null,"60%","60%","60%","40.0","40.0","40",null,null,null,null,null,"\"15\", \"15\", \"12\", \"9\", \"9\"","80",null,"70 %","30","30","30","30","30","30","30","30","30","50/100",null,null,"\"20\", \"10\"","\"20\", \"10\"","40",null,"55","55",null,"60%","30","30","30","30",null,"20","\"50\", \"10\"","\"50\", \"10\"","\"50\", \"10\"",null,"\"40\", \"10\"","\"40\", \"10\"","\"40\", \"10\"","\"40\", \"10\"","\"40\", \"10\"",null,"10","10","\"40\", \"30\"",null,"30",null,"\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","\"60\", \"40\"","40%",null,"\"30\", \"25\", \"5\"",null,"\"30\", \"30\"",null,"60",null,null,null,null,null,null,null,null,"30",null,"45","45","50",null,"60","60","60","60","60","60","60","60","60","60","60","60","60","60","60","60","60","60","60",null,null],[null,null,null,null,null,"50","50","50","50","50","40 %",null,null,null,"50","50","50","50","50","50","50",[],[],"40","40","40","40",null,null,null,"40%","40","40","60.0","60.0","60",null,null,null,null,null,"40%","20",null,"30 %","70%","70%","70%","70%","70%","70%","70%","70%","70%","50/100",null,[],"70","70","60",[],"45","45",null,"40%",null,null,null,null,null,"80",null,null,null,null,"50","50","50","40","40",null,"90","90",null,null,"70",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"60%",null,"40",null,"40",null,"40",null,null,null,null,null,null,null,null,"70",null,"55","55","50",null,"40","40","40","40","40","40","40","40","40","40","40","40","40","40","40","40","40","40","40",null,null],[null,null,null,1,null,4,1,3,2,2,null,null,8,7,8,7,11,10,8,1,5,2,1,null,null,2,2,1,null,1,4,4,4,5,5,3,2,1,5,2,6,2,null,4,1,1,3,3,3,3,3,1,2,3,1,3,1,9,10,3,1,1,1,9,5,5,5,5,5,null,null,1,2,2,null,3,3,null,3,1,2,4,6,null,null,2,3,4,2,1,1,1,null,2,1,1,3,null,null,null,1,1,1,1,1,1,1,1,2,4,1,1,null,1,null,5,4,6,1,1,4,3,1,5,3,null,3,3,null,2,4,3,2,1,2,3,3,5,4,4,3,3,3,2,8,3,1,3,3,3,7],[118000,212500,124945,90000,null,163860,166102,9000,28467.3,27837,null,null,111349,115653,null,null,null,null,null,null,null,14316,3828.8,null,null,82800,58320,53532.19,69400,null,1833333,1833333,1833333,300000,300000,200000,54072,240000,18000,7500,24000,216000,null,698123.23,992391.55,36021.4,27477,37430.31,7156,9963.6,17331,69488,40151,8028.75,368400,null,177227,77990,15323,321710,340000,2000000,2000000,519040,710000,223000,924000,1297000,265000,171360,null,56805,68745,1900,null,60000,32000,null,36000,12000,2000000,null,null,null,184415,44620,250000,1,1,1,1,1,null,1,1,1,1,null,null,null,1,1,1,1,1,1,1,1,1,1419045,null,5742.6,96964.69,800000,152155,373550,null,210071.2,36875,106952,90219,43689.91,22546.88,389194,617836.52,8804,86122,93821,null,null,515341.01,2100661.9,171529,497446.72,71220.11,156213.83,567892.2,1108540.88,325490.08,399441.75,300000,466228.52,423036.26,484491.74,835001.43,1831134,1060281,175968.26,59500,297575,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,75350.75,92374.77,290975.7,52100.05,66791.44,7336,16139,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20801,17902,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],["2020-07-12","2020-07-12","2020-07-12","2020-07-12","2020-01-21","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-12","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-17","2020-07-17","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-12","2020-01-19","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-12","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-01-07","2020-07-12","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-12","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-14","2020-07-12","2020-07-15","2020-01-07","2020-01-07","2020-01-07","2020-07-14","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-15","2020-07-15","2020-07-15","2020-07-14","2020-07-15","2020-07-14","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-14","2020-07-16","2020-07-14","2020-07-15","2020-07-14","2020-07-16","2020-07-14","2020-07-14","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-07-16","2020-01-07","2020-07-14","2020-07-16","2020-07-16","2020-07-18","2020-07-14","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-17","2020-07-14","2020-07-14"],["2020-10-09","2020-08-12","2020-10-09","2020-10-09","2020-01-29","2020-09-17","2020-09-17","2020-09-17","2020-09-17","2020-09-17","2020-08-14","2020-08-12","2020-08-12","2020-08-12","2020-08-14","2020-08-14","2020-08-14","2020-08-14","2020-08-14","2020-08-14","2020-08-14","2020-09-15","2020-09-15","2020-09-12","2020-09-12","2020-09-12","2020-09-12","2020-08-12","2020-08-12","2020-02-03","2020-08-12","2020-08-12","2020-08-12","2020-10-09","2020-10-09","2020-10-09","2020-08-11","2020-08-30","2020-08-30","2020-08-30","2020-08-30","2020-08-30","2020-07-14","2020-08-12","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-14","2020-09-29","2020-10-09","2020-07-19","2020-09-12","2020-09-12","2020-09-12","2020-09-29","2020-08-11","2020-08-11","2020-10-09","2020-07-19","2020-09-13","2020-09-13","2020-09-13","2020-09-13","2020-09-12","2020-08-11","2020-02-04","2020-02-04","2020-02-04","2020-07-28","2020-08-15","2020-08-15","2020-08-15","2020-08-15","2020-08-15","2020-09-14","2020-09-13","2020-09-13","2020-07-30","2020-09-29","2020-10-11","2020-10-11","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-07-30","2020-09-19","2020-08-13","2020-09-14","2020-08-14","2020-09-14","2020-09-14","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-10-11","2020-03-05","2020-08-14","2020-09-14","2020-09-14","2020-09-16","2020-08-08","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-09-16","2020-08-08","2020-08-08"],[null,null,null,null,null,"26090023800148","26090023800148","26090023800148","26090023800148","26090023800148",null,null,null,null,"53514650000017","53514650000017","53514650000017","53514650000017","53514650000017","53514650000017","53514650000017",null,null,null,null,null,null,null,null,null,null,null,null,"20007695800012","20007695800012","21060029200010",null,"31456082200194","31456082200194","31456082200194","31456082200194","24490080900116",null,null,null,"20005480700017","20005480700017","20005480700017","20005480700017","20005480700017","20005480700017","20005480700017","20005480700017","20005480700017",null,null,null,"21060079700182","21060079700182",null,"77566543300014","21060030000011","21060030000011","22240001200019",null,"42882285201811","42882285201811","42882285201811","42882285201811",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"23130002100012",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"34020657200067",null,null,"24840025100158","24840025100158","24840025100158","24840025100158","24840025100158","27110003400013",null,null,null,null,null,null,"200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014","200 053 791 00014",null,null],["SEM InnoVia","Ville de Paris - DEVE","SEM InnoVia","COMMUNE DE CANNES","Montrouge Habitat - OPH","CTRE HOSPITALIER INTERCOM VAL D ARIEGE","CTRE HOSPITALIER INTERCOM VAL D ARIEGE","CTRE HOSPITALIER INTERCOM VAL D ARIEGE","CTRE HOSPITALIER INTERCOM VAL D ARIEGE","CTRE HOSPITALIER INTERCOM VAL D ARIEGE","CCI de Martinique","Lorient Agglomération","Ville de Sannois","Ville de Sannois","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Urssaf Midi-Pyrénées","Conseil départemental de la Meuse","Conseil départemental de la Meuse","Arche Agglo","Arche Agglo","Arche Agglo","Arche Agglo","Ville de Sannois","Ville de Paris - DEVE","SAIEMB LOGEMENT","Rectorat de l'Académie de Dijon","Rectorat de l'Académie de Dijon","Rectorat de l'Académie de Dijon","COLLECTIVITE DE CORSE","COLLECTIVITE DE CORSE","COMMUNE DE CANNES","SIVOM CANTONS ST GAUDENS MONTREJEAU AS","CAF GPE Achatpublic","CAF GPE Achatpublic","CAF GPE Achatpublic","CAF GPE Achatpublic","CC ANJOU BLEU COMMUNAUTE","SYNDICAT MIXTE EPTB MEURTHE MADON","COMMUNE DE MONTFERMEIL","Régie des Eaux de Montpellier 3M","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","METROPOLE D AIX MARSEILLE PROVENCE","Ville de Saverne","COMMUNE DE LE GRAND QUEVILLY","SERVICE ADM ET TECHNIQUE DE LA POL NAL","Ville de Mandelieu La Napoule","Ville de Mandelieu La Napoule","Ville de Mandelieu La Napoule","Informatique CDC","COMMUNE LE CANNET","COMMUNE LE CANNET","Conseil Général de la Dordogne","mairie de savonnieres","Etablissement Français du Sang","Etablissement Français du Sang","Etablissement Français du Sang","Etablissement Français du Sang","EPFL de la Martinique","EPSM de Guadeloupe","SMEA31","SMEA31","SMEA31","CENTRE HOSPITALIER DE MAYOTTE","Ville de cappelle la grande","Ville de cappelle la grande","Ville de cappelle la grande","Ville de cappelle la grande","Ville de cappelle la grande","MINARM/DGA/DO/S2A","SDIS du Var","SDIS du Var","CHU DUPUYTREN","SYNDICAT MIXTE DE COLLECTE DES DECHETS","Région Provence Alpes Côte d'Azur","Régie des Eaux du Pays Bastiais","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","CHU DUPUYTREN","Troyes Champagne Métropole","Ville du Passage d'Agen","Ville d'Antibes Juan-les-Pins","EPSM Lille Métropole","Ville de Poissy","METROPOLE D AIX MARSEILLE PROVENCE","Conseil Rég Provence-Alpes-Côte d'Azur","COMMUNAUTE DE COMMUNES DES LOGES","COMMUNAUTE D AGL D HENIN CARVIN","GRAND AVIGNON","GRAND AVIGNON","GRAND AVIGNON","GRAND AVIGNON","GRAND AVIGNON","OFFICE PUBLIC DE L HABITAT DE L AUDE","MINDEF / EMA / DC SCA / PFAF SE","DEPARTEMENT DU BAS RHIN","CENTRE COMMUNAL D ACTION SOCIALE","CENTRE COMMUNAL D ACTION SOCIALE","METROPOLE D AIX MARSEILLE PROVENCE","SCE DEPARTEMENTAL INCENDIE ET SECOURS","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","S.P.L Midi-Pyrénées Construction","Ville de Vernon","SCE DEPARTEMENTAL INCENDIE ET SECOURS"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>criterescctp<\/th>\n      <th>list_criteria<\/th>\n      <th>weight<\/th>\n      <th>price_weight<\/th>\n      <th>nboffrerecu<\/th>\n      <th>montant<\/th>\n      <th>offrebasse<\/th>\n      <th>accordcadre<\/th>\n      <th>datepublication<\/th>\n      <th>datefindiffusion<\/th>\n      <th>siret_ach<\/th>\n      <th>denomination_ach<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","buttons":["copy","csv","excel","pdf","print"],"lengthMenu":[[10,25,50,-1],["10","25","50","All"]],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>table2&lt;-BOAMP[100000:100150,c(1,24:35)]
+
+table2%&gt;%
+  datatable(extensions = &#39;Buttons&#39;,
+            options = list(dom = &#39;Blfrtip&#39;,
+                           buttons = c(&#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;, &#39;pdf&#39;, &#39;print&#39;),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,&quot;All&quot;))),rownames = FALSE)</code></pre>
+<div id="htmlwidget-280cd2a21bf993e68f8d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-280cd2a21bf993e68f8d">{"x":{"filter":"none","extensions":["Buttons"],"data":[["20-89818","20-89821","20-89823","20-89827","20-8983","20-89835","20-89835","20-89835","20-89835","20-89835","20-89844","20-89847","20-89848","20-89848","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89851","20-89857","20-89857","20-89858","20-89858","20-89858","20-89858","20-89871","20-89875","20-8988","20-89880","20-89880","20-89880","20-89884","20-89884","20-89885","20-89888","20-89893","20-89893","20-89893","20-89893","20-89897","20-899","20-89900","20-89903","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89907","20-89911","20-89915","20-89926","20-89931","20-89931","20-89936","20-89940","20-89941","20-89941","20-89958","20-89968","20-89984","20-89984","20-89984","20-89984","20-89985","20-89990","20-900","20-900","20-900","20-90020","20-90023","20-90023","20-90023","20-90023","20-90023","20-90025","20-90027","20-90027","20-90028","20-90035","20-90045","20-90048","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90050","20-90051","20-90057","20-90063","20-90067","20-90071","20-90081","20-90091","20-90093","20-90094","20-90097","20-90097","20-90097","20-90097","20-90097","20-90099","20-901","20-90100","20-90102","20-90102","20-90106","20-90107","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90110","20-90113","20-90114"],["1 Place Firmin Gautier CS 60040","103 avenue de France","1 Place Firmin Gautier CS 60040","Place Cornut Gentille, CS 30140","12 rue Radiguey","Bp 90064","Bp 90064","Bp 90064","Bp 90064","Bp 90064","50 rue Ernest Deproge","CS 20001","Place du Général Leclerc BP 60088","Place du Général Leclerc BP 60088","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","166 rue Pierre et Marie Curie","Place Pierre-François Gossin - BP 50514, 55012","Place Pierre-François Gossin - BP 50514, 55012","BP 103","BP 103","BP 103","BP 103","Place du Général Leclerc BP 60088","103 avenue de France","1 Place de l'Europe",null,null,null,"Direction de la Commande Publique, Hôtel de la Collectivité de Corse, 22 cours Grandval","Direction de la Commande Publique, Hôtel de la Collectivité de Corse, 22 cours Grandval","Place Cornut Gentille, Cs 30140","La GraouadeRoute du Circuit","Parc d'activités la Providence Zac de Dothémare","Parc d'activités la Providence Zac de Dothémare","Parc d'activités la Providence Zac de Dothémare","Parc d'activités la Providence Zac de Dothémare","Place du Port",null,"7 place Jean Mermoz","391 rue de la Font Froide","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon","58 bd Charles Livon",null,"Esplanade Tony Larue","267 Allée Maurice Micaux - BP 466","Avenue de la République","Avenue de la République","Avenue de la République","ICDC","20 BOULEVARD SADI CARNOT","20 BOULEVARD SADI CARNOT","Service de la commande publique, Hôtel du département , 2 rue Paul-Louis Courier - Cs 11200","RUE PRINCIPALE","LEAPARK, Bâtiment B, 122-130, rue Marcel Hartmann","LEAPARK, Bâtiment B, 122-130, rue Marcel Hartmann","LEAPARK, Bâtiment B, 122-130, rue Marcel Hartmann","LEAPARK, Bâtiment B, 122-130, rue Marcel Hartmann","Immeuble Phénix - 4e étage - ZA du Lareinty","1er Plateau","3, Rue André Villet ZI MONTAUDRAN","3, Rue André Villet ZI MONTAUDRAN","3, Rue André Villet ZI MONTAUDRAN","Rue de l'hôpital B.P.04","Place de la mairie bp 40009","Place de la mairie bp 40009","Place de la mairie bp 40009","Place de la mairie bp 40009","Place de la mairie bp 40009","direction générale de l'armement - direction des opérations - service des achats d'armement/division achats sud-ouest/site de St Médard","Centre Jacques Vion87 boulevard Colonel Michel Lafourcade - CS 30255 -","Centre Jacques Vion87 boulevard Colonel Michel Lafourcade - CS 30255 -","2 avenue Martin Luther King","115, rue de l'Adour","Hotel de Région, 27 Place Jules Guesde","Route Maréchal Juin, Clos mimosas Bat 3, CS 30097","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","2 avenue Martin Luther King","1 Place Robert Galley","place du Général de GaulleCS 70004","Direction de la commande publique Bâtiment ' Orange bleu ' 4ème étage 11 boulevard Chancel BP 2205","104 rue du Général Leclerc","Place de la République, BP 63081","58 bd Charles Livon","29 Bd Charles Nédelec","5 Rue du 8 mai 1945","242 Boulevard Schweitzer BP 129","320 Chemin des Meinajaries","320 Chemin des Meinajaries","320 Chemin des Meinajaries","320 Chemin des Meinajaries","320 Chemin des Meinajaries","1 Place Saint Etienne, Cs 40021","BCRM TOULON BP 42","Direction des Politiques ImmobilièresService Gestion et Entretien du Patrimoine ImmobilierPlace du Quartier Blanc","4 place Pierre Gautier","4 place Pierre Gautier","58 bd Charles Livon","Esplanade de l'Armée d'Afrique","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","SPL Midi-Pyrénées Construction, Mandataire agissant au nom et pour le compte de la région Occitanie représentée par la Présidente de la Région Occitanie Pyrénées Méditerranée, Madame Carole DELGA","Hôtel de VillePlace Barette BP 903","Esplanade de l'Armée d'Afrique"],["38027","75639","38027","06406","92120","09017","09017","09017","09017","09017","97200","56314","95111","95111","31670","31670","31670","31670","31670","31670","31670",null,null,"07305","07305","07305","07305","95111","75639","25000",null,null,null,"20187","20187","06406","31800","97139","97139","97139","97139","49501",null,"93370","34197","13007","13007","13007","13007","13007","13007","13007","13007","13007",null,"76120","97100","06212","06212","06212","94110","06110","06110","24019",null,"94200","94200","94200","94200","97232","97120","31400","31400","31400","97600","59180","59180","59180","59180","59180","33160","83007","83007","87042","65460","13481","20291","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","87042","10000","47901","06606","59487","78303","13007","13003","45150","62253","84911","84911","84911","84911","84911","11890","83800","67964","06364","06364","13007","84018","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","31086","27200","84018"],["Grenoble cedex 01","Paris cedex 13","Grenoble cedex 01","CANNES","Montrouge","Foix Cedex","Foix Cedex","Foix Cedex","Foix Cedex","Foix Cedex","Fort-de-France","Lorient cedex","SANNOIS CEDEX","SANNOIS CEDEX","Labège innopole","Labège innopole","Labège innopole","Labège innopole","Labège innopole","Labège innopole","Labège innopole","BAR-LE-DUC","BAR-LE-DUC","Tournon sur rhône","Tournon sur rhône","Tournon sur rhône","Tournon sur rhône","SANNOIS CEDEX","Paris cedex 13","BESANCON","Dijon","Dijon","Dijon","Ajaccio","Ajaccio","Cannes","Saint Gaudens","Les abymes","Les abymes","Les abymes","Les abymes","Segré-en-Anjou Bleu Cédex","NANCY","Montfermeil","Montpellier","Marseille","Marseille","Marseille","Marseille","Marseille","Marseille","Marseille","Marseille","Marseille","Saverne","Grand Quevilly","Basse terre","MANDELIEU Cedex","MANDELIEU Cedex","MANDELIEU Cedex","Arcueil","LE CANNET","LE CANNET","Perigueux","SAVONNIERES","Ivry-sur-Seine","Ivry-sur-Seine","Ivry-sur-Seine","Ivry-sur-Seine","LAMENTIN","Saint-Claude","Toulouse","Toulouse","Toulouse","Mamoudzou","Cappelle la grande","Cappelle la grande","Cappelle la grande","Cappelle la grande","Cappelle la grande","Saint Médard-en-jalles","Draguignan - Cedex","Draguignan - Cedex","Limoges cedex","Bours","Marseille","Bastia","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Limoges cedex","Troyes","AGEN CEDEX 9","Antibes cedex","Armentières","Poissy cedex","Marseille","Marseille","Jargeau","HENIN BEAUMONT CEDEX","Avignon","Avignon","Avignon","Avignon","Avignon","Carcassonne","Toulon cedex 09","Strasbourg Cedex","NICE Cedex 4","NICE Cedex 4","Marseille","Avignon","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Toulouse Cedex","Vernon","Avignon"],[null,null,null,null,"FR105","FRJ21","FRJ21","FRJ21","FRJ21","FRJ21","FR",null,"FR108","FR108","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRJ2","FRF32","FRF32","FRK22","FRK22","FRK22","FRK22","FR108",null,null,"FR","FR","FR","FRM02","FRM02","FRL03",null,"FRY10","FRY10","FRY10","FRY10","FR","FRF31",null,"FRJ13","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FRL04","FR",null,"FRY10","FRL03","FRL03","FRL03","FR107","FRL03","FRL03","FRI11","FR","FR10","FR10","FR10","FR10",null,"FRY10","FRJ23","FRJ23","FRJ23",null,"FRE11","FRE11","FRE11","FRE11","FRE11",null,"FRL05","FRL05","FRI23",null,"FRL01",null,"FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FRI2","FR",null,"FRL03",null,"FR103",null,"FRL",null,null,"FRL06","FRL06","FRL06","FRL06","FRL06","FRJ11","FRL05",null,"FRL03","FRL03","FRL04",null,"FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ","FRJ",null,null],[null,null,null,null,"agenceregionale","orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic",null,"autoriteregional","autoriteregional","autre","autre","autre","autre","autre","autre","autre","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional",null,null,"minautoritenationale","minautoritenationale","minautoritenationale","autoriteregional","autoriteregional","autoriteregional",null,"autre","autre","autre","autre","autoriteregional","autre",null,null,"autre","autre","autre","autre","autre","autre","autre","autre","autre","autre",null,"minautoritenationale","autoriteregional","autoriteregional","autoriteregional","autre","autoriteregional","autoriteregional","autoriteregional","orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic",null,"orgdroitpublic","orgdroitpublic","orgdroitpublic","orgdroitpublic",null,"autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","minautoritenationale","orgdroitpublic","orgdroitpublic","autre",null,"autoriteregional",null,"autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autre","autoriteregional",null,"autoriteregional",null,"autoriteregional",null,"autre",null,null,"autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autre","minautoritenationale",null,"autoriteregional","autoriteregional","autre",null,"autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional","autoriteregional",null,null],["autre","commune","autre","commune",null,null,null,null,null,null,null,"ept",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"commune","autre",null,null,null,null,null,null,null,null,null,null,null,null,null,"commune",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"autre",null,null,null,null,"epn",null,null,null,null,null,null,null,null,null,"ept",null,"autre",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"ept","autre",null,null,null,null,null,null,null,"departement",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"1","5","5","5","5","5","2",null,"2","2","7","7","7","7","7","7","7","2","2","4","4","4","4","2",null,null,"3","3","3","2","2","1",null,"4","4","4","4","1","1",null,"1","9","9","9","9","9","9","9","9","9","1",null,"2","2","2","1","1","2","2","1","1","5","5","5","5",null,"1","3","3","3",null,"9","9","9","9","9",null,"2","2","1",null,"1",null,"44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","44","1",null,"1",null,"1",null,"1",null,null,"5","5","5","5","5","1","1",null,"2","2","1",null,"19","19","19","19","19","19","19","19","19","19","19","19","19","19","19","19","19","19","19",null,null],["procedureadapte","ouvert","procedureadapte","negocie","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","negocie","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert",null,"ouvert","ouvert","ouvert",null,"ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","negocie","ouvert","ouvert","ouvert","procedureadapte","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","procedureadapte","ouvert","procedureadapte","restreint","procedureadapte","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","procedureadapte","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","ouvert","procedureadapte","procedureadapte"],[1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0],[1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0],[null,null,null,null,4,1,1,1,1,1,1,null,1,1,1,1,1,1,1,1,1,null,null,1,1,1,1,2,null,null,1,1,1,1,1,1,null,null,null,null,null,5,1,null,1,1,1,1,1,1,1,1,1,1,1,null,null,4,4,1,null,1,1,null,1,1,1,1,1,null,1,2,2,2,null,2,2,2,2,2,null,1,1,2,null,1,null,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,null,3,null,2,null,1,null,null,null,null,null,null,null,null,1,null,1,1,1,null,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"44918742600084",null,null,"57202552601191",null,null,null,null,null,null,null,null,null,null,null,null,"81920927100017",null,"53206352600026",null,"52997567400027","52997567400027",null,null,null,null,"30269492200097","32610261300022",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>id<\/th>\n      <th>adresse_ach<\/th>\n      <th>codepostal_ach<\/th>\n      <th>ville_ach<\/th>\n      <th>adjudicateurnuts<\/th>\n      <th>typepouvoiradjudicateur<\/th>\n      <th>typeorganisme<\/th>\n      <th>nbr_lots<\/th>\n      <th>typeprocedure<\/th>\n      <th>sociaux<\/th>\n      <th>envir<\/th>\n      <th>nbr_criteria<\/th>\n      <th>suppl_siret_clean<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","buttons":["copy","csv","excel","pdf","print"],"lengthMenu":[[10,25,50,-1],["10","25","50","All"]],"columnDefs":[{"className":"dt-right","targets":[9,10,11]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Cette base inclue des variables propre au traitement - sociaux (0/1) en fonction de la présence ou non de clause sociale dans le marché. - envir (0/1) en fonction de la présence ou non de clause environnementale dans le marché (attention, comme pour la précédente, la présence de clause s’entend à l’échelle du marché et donc pas nécessairement du lot considéré, ces informations n’étant pas disponibles dans les données BOAMP) - local_dep (0/1) indique si un marché est conclu auprès d’une entreprise localisée dans le même département que l’acheteur - à différentes échelles, on retrouve la même logique pour les indicateurs local_NUTS, local_NUTS4 et local_NUTS3 (NUTS à 5 caractères, 4 caractères et 3 caractères, ce qui correspond à 3 niveaux de proximité géographique).</p>
+<p>Cette base est aussi très dépendante de la qualité des données saisies en amont. Ainsi en est-il des champs non renseignés ou des données saisies dans un format impropre.</p>
+</div>
+<div id="analyse-préliminaire-des-données" class="section level1">
+<h1>Analyse préliminaire des données</h1>
+<pre class="r"><code>table(str_sub(BOAMP$suppl_codenuts,1,2), str_sub(BOAMP$adjudicateurnuts,1,2))[,7]</code></pre>
+<pre><code>##     00     AL     AT     BE     BG     BR     CA     CH     CZ     DE     DK 
+##    234      2     35    335      1      2      2     95     12    425     33 
+##     EE     EL     ES     FI     FR     HR     HU     IE     IT     LT     LU 
+##      1      4    167     16 319248      1      3     33    212      2     47 
+##     LV     MT     NL     NO     PL     PT     RO     SE     SK     UK     US 
+##      1      2    172      6     19     28      3     10      1    142      2</code></pre>
+<p>Sur la période 2015-2021, la base permet d’identifier 460963 contrats entre acheteurs publics et fournisseurs. Parmis eux, 9.05 % intègrent des clauses environnementales, contre 4.72 % de clauses sociales.</p>
+<pre class="r"><code>mydata&lt;-aggregate(BOAMP[which(str_length(BOAMP$adjudicateurnuts)==5),33], by=list(BOAMP[which(str_length(BOAMP$adjudicateurnuts)==5),]$adjudicateurnuts), FUN=mean)
+
+mydata%&gt;%
+  datatable(extensions = &#39;Buttons&#39;,
+            options = list(dom = &#39;Blfrtip&#39;,
+                           buttons = c(&#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;, &#39;pdf&#39;, &#39;print&#39;),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,&quot;All&quot;))),rownames = FALSE)</code></pre>
+<div id="htmlwidget-280cd2a21bf993e68f8d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-280cd2a21bf993e68f8d">{"x":{"filter":"none","extensions":["Buttons"],"data":[["BE335","DE259","DE277","DE278","DE712","DEF07","ES511","FR101","FR102","FR103","FR104","FR105","FR106","FR107","FR108","FR211","FR212","FR213","FR214","FR221","FR222","FR223","FR231","FR232","FR241","FR242","FR243","FR244","FR245","FR246","FR251","FR252","FR253","FR261","FR262","FR263","FR264","FR301","FR302","FR411","FR412","FR413","FR414","FR421","FR422","FR431","FR432","FR433","FR434","FR511","FR512","FR513","FR514","FR515","FR521","FR522","FR523","FR524","FR531","FR532","FR533","FR534","FR611","FR612","FR613","FR614","FR615","FR621","FR622","FR623","FR624","FR625","FR626","FR627","FR628","FR631","FR632","FR633","FR711","FR712","FR713","FR714","FR715","FR716","FR717","FR718","FR721","FR722","FR723","FR724","FR811","FR812","FR813","FR814","FR815","FR821","FR822","FR823","FR824","FR825","FR826","FR831","FR832","FR910","FR920","FR930","FR940","FRB01","FRB02","FRB03","FRB04","FRB05","FRB06","FRC11","FRC12","FRC13","FRC14","FRC21","FRC22","FRC23","FRC24","FRD11","FRD12","FRD13","FRD21","FRD22","FRE11","FRE12","FRE21","FRE22","FRE23","FRF11","FRF12","FRF21","FRF22","FRF23","FRF24","FRF31","FRF32","FRF33","FRF34","FRG01","FRG02","FRG03","FRG04","FRG05","FRH01","FRH02","FRH03","FRH04","FRI11","FRI12","FRI13","FRI14","FRI15","FRI21","FRI22","FRI23","FRI31","FRI32","FRI33","FRI34","FRJ11","FRJ12","FRJ13","FRJ14","FRJ15","FRJ21","FRJ22","FRJ23","FRJ24","FRJ25","FRJ26","FRJ27","FRJ28","FRK11","FRK12","FRK13","FRK14","FRK21","FRK22","FRK23","FRK24","FRK25","FRK26","FRK27","FRK28","FRL01","FRL02","FRL03","FRL04","FRL05","FRL06","FRM01","FRM02","FRY10","FRY20","FRY30","FRY40","FRY50","FRZZZ","ITE43"],[0,0,0,0,0,0,0,0.153327417923691,0.200324265898036,0.106445573682803,0.140693832599119,0.159204735164668,0.160551313093686,0.135749662314273,0.10168907273354,0.010989010989011,0.00956937799043062,0.137254901960784,0,0.112462006079027,0.152317880794702,0.102380952380952,0.12,0.122574055158325,0.118279569892473,0.13961038961039,0.111764705882353,0.0020703933747412,0.256944444444444,0.0965732087227414,0.0272596843615495,0.0425531914893617,0.0251572327044025,0.105978260869565,0.216216216216216,0.0767888307155323,0.0991735537190083,0.0939958592132505,0.118712273641851,0.125757575757576,0.187096774193548,0.124390243902439,0.00921658986175115,0.103678929765886,0.146341463414634,0.0323624595469256,0,0.0416666666666667,0.155405405405405,0.0726698262243286,0.0632911392405063,0.0045662100456621,0.0262970859985785,0.106870229007634,0.0349075975359343,0.204747774480712,0.280155642023346,0.0641447368421053,0.008,0.0263522884882108,0.0829875518672199,0.113207547169811,0,0.129579375848033,0.14018691588785,0.165289256198347,0.0336351875808538,0,0,0.0557184750733138,0.0126050420168067,0.151898734177215,0,0,0,0.0445344129554656,0.0865384615384615,0.0356472795497186,0.0143266475644699,0.0597014925373134,0.00814663951120163,0.0959725792630677,0.00671140939597315,0.0897085610200364,0.0864406779661017,0.0289855072463768,0,0,0.0695652173913043,0.0238095238095238,0.029126213592233,0.0617283950617284,0.0779014308426073,0.123287671232877,0.0270935960591133,0.0645161290322581,0.122448979591837,0.202633504023409,0.0445089501693275,0.0826498422712934,0.0620347394540943,0.123711340206186,0.0149253731343284,0.0477453580901857,0.0753768844221105,0.107142857142857,0.102272727272727,0.18342151675485,0.0588235294117647,0.245436105476673,0.0591216216216216,0.201204819277108,0.184741144414169,0.206290471785384,0.190625,0.166206896551724,0.0559139784946237,0.0772316950852558,0.1,0.0833333333333333,0.15421686746988,0.0541567695961995,0.139687756778965,0.0353200883002208,0.147955390334573,0.173042966450853,0.109876731091158,0.136846095526914,0.152834008097166,0.0969479353680431,0.195496417604913,0.149875621890547,0.0424263674614306,0.0310734463276836,0.0147255689424364,0.0467583497053045,0.0124688279301746,0.121673003802281,0.432835820895522,0.182421751501739,0.0299319727891156,0.063230605738576,0.0531428571428571,0.0350877192982456,0.0898673100120627,0.193353474320242,0.0674242424242424,0.202776400594943,0.271966527196653,0.0814917127071823,0.10930576070901,0.0960949464012251,0.132540356839422,0.163097199341021,0.0966952264381885,0.105590062111801,0.0625,0.0856844305120167,0.031924882629108,0.107142857142857,0.0373303167420814,0.161084529505582,0.0290519877675841,0.0345953002610966,0.0773333333333333,0.0749128919860627,0.115118956254797,0.0206794682422452,0.00711237553342817,0.0988282113641388,0.0044543429844098,0.00276243093922652,0.039344262295082,0.109876543209877,0.0283582089552239,0.0607064017660044,0.00696864111498258,0.00268817204301075,0.104697226938314,0.0647226173541963,0.012,0.0223642172523962,0.130220417633411,0.0695577501073422,0.168667585121039,0.0722453222453222,0.0692337611824193,0.0680628272251309,0.0816326530612245,0.157789945246391,0.118781006378455,0.111613074674462,0.201214223764094,0.00896860986547085,0.0480427046263345,0.172491544532131,0.165934065934066,0.196078431372549,0.0970084228870171,0.0940366972477064,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Group.1<\/th>\n      <th>x<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","buttons":["copy","csv","excel","pdf","print"],"lengthMenu":[[10,25,50,-1],["10","25","50","All"]],"columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>On peut également s’amuser à identifier les marchés attribués à des entreprises en dehors du territoire national :</p>
+<pre class="r"><code># Maps
+
+data(nuts2006)
+library(sp)
+library(sf)
+region&lt;-as.data.frame(table(str_sub(BOAMP[which(str_sub(BOAMP$suppl_codenuts,1,2)!=&quot;FR&quot;),]$suppl_codenuts,1,2)))
+names(region)[names(region) == &#39;Var1&#39;] &lt;- &#39;id&#39;
+
+choroLayer(spdf = nuts0.spdf, df = region, var = &quot;Freq&quot;, legend.pos = &quot;topright&quot;, legend.title.txt = &quot;Nb de contrats&quot;)</code></pre>
+<p><img src="live_from_BOAMP_files/figure-html/maps1-1.png" width="672" /></p>
+<pre class="r"><code># Titles, legend, sources
+#layoutLayer(title = &quot;L&#39;achat public à l&#39;international&quot;,
+ #           author = &quot;carto : PH Morand&quot;,
+  #          sources = &quot;https://www.data.gouv.fr/fr/datasets/api-boamp-beta/, 2021&quot;,
+   #         scale = NULL,
+    #        south = TRUE)</code></pre>
+<p>Ces derniers restent cependant très largemet minoritaires. On observe ainsi en 2020 2068 marchés attribués à une entreprise hors du territoire national, pour un total de 460963 contrats.</p>
+<p>L’usage des clauses environnementales s’avère très hétérogène à l’échelle territoriale :</p>
+<pre class="r"><code>boamp_test&lt;-BOAMP
+data_dir &lt;- &#39;data&#39;
+NUTS_FRANCE_CORRESPONDANCES &lt;- read.delim(str_c(data_dir, &quot;/NUTS_FRANCE_CORRESPONDANCES.txt&quot;), header=FALSE)
+
+
+boamp_test&lt;-left_join(boamp_test, NUTS_FRANCE_CORRESPONDANCES, by=c(&quot;adjudicateurnuts&quot; = &quot;V4&quot;))
+boamp_test$adjudicateurnuts&lt;-ifelse(!is.na(boamp_test$V3),boamp_test$V3,boamp_test$adjudicateurnuts )
+data(nuts2006)
+
+graph_data&lt;-aggregate(boamp_test[which(str_length(boamp_test$adjudicateurnuts)==5),]$envir*100,by=list(boamp_test[which(str_length(boamp_test$adjudicateurnuts)==5),]$adjudicateurnuts), FUN=mean)
+names(graph_data)[names(graph_data) == &#39;Group.1&#39;] &lt;- &#39;id&#39;
+graph_data &lt;-as.data.frame(graph_data)
+graph_data&lt;-graph_data[which(str_sub(graph_data$id,1,2)==&quot;FR&quot;),]
+choroLayer(spdf = nuts3.spdf, df = graph_data, var = &quot;x&quot;, legend.title.txt = &quot;% clause envir.&quot;, method = &quot;quantile&quot;, nclass = 5,
+           col = carto.pal(pal1 = &quot;green.pal&quot;, n1 = 5))</code></pre>
+<p><img src="live_from_BOAMP_files/figure-html/clauses_envi-1.png" width="672" /></p>
+<p>Il en est de même des clauses sociales :</p>
+<pre class="r"><code>graph_data&lt;-aggregate(boamp_test[which(str_length(boamp_test$adjudicateurnuts)==5),]$sociaux*100,by=list(boamp_test[which(str_length(boamp_test$adjudicateurnuts)==5),]$adjudicateurnuts), FUN=mean)
+names(graph_data)[names(graph_data) == &#39;Group.1&#39;] &lt;- &#39;id&#39;
+graph_data &lt;-as.data.frame(graph_data)
+graph_data&lt;-graph_data[which(str_sub(graph_data$id,1,2)==&quot;FR&quot;),]
+choroLayer(spdf = nuts3.spdf, df = graph_data, var = &quot;x&quot;, legend.title.txt = &quot;% clause soc.&quot;, method = &quot;quantile&quot;, nclass = 5,
+           col = carto.pal(pal1 = &quot;red.pal&quot;, n1 = 5),
+           border = &quot;grey40&quot;,)</code></pre>
+<p><img src="live_from_BOAMP_files/figure-html/clauses_soc-1.png" width="672" /></p>
+</div>
+<div id="quelques-séries-chronologiques" class="section level1">
+<h1>Quelques séries chronologiques</h1>
+<p>où l’on remarque que les données les plus anciennes et les plus récentes méritent d’être consolid&amp;es… ## évolution de l’usage des marchés clausés</p>
+<pre class="r"><code>library(ggplot2)
+library(ggthemes) # Charger
+
+group_mean &lt;- aggregate(envir ~ substr(datepublication,1,7), data = BOAMP, mean)
+group_mean_2 &lt;- aggregate(sociaux ~ substr(datepublication,1,7), data = BOAMP, mean)
+
+colnames(group_mean)&lt;-c(&quot;date&quot;,&quot;environnementales&quot;)
+colnames(group_mean_2)&lt;-c(&quot;date&quot;,&quot;sociales&quot;)
+
+group_mean$date&lt;-str_c(group_mean$date,&quot;-01&quot;)
+group_mean_2$date&lt;-str_c(group_mean_2$date,&quot;-01&quot;)
+group_mean_2$date&lt;-as.Date(group_mean_2$date)
+
+group_mean$date&lt;-as.Date(group_mean$date)
+
+group&lt;-left_join(group_mean, group_mean_2)
+
+group2 &lt;- gather(
+  data = group,
+  key = TYPE,
+  value = VAL,
+  sociales, environnementales)
+
+ggplot(
+  group2,
+  aes(x = date, y = VAL*100, color = TYPE)
+) +labs(y=&quot;% de marchés à clause&quot;, x=&quot;Données mensuelles&quot;)+
+  geom_line() +theme_economist() + 
+  scale_color_economist()+
+  ggtitle(&quot;Évolution de l&#39;usage des clauses  - BOAMP 2016/21&quot;)</code></pre>
+<p><img src="live_from_BOAMP_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>group3&lt;-as.data.frame(table(BOAMP$categorie,substr(BOAMP$datepublication,1,7)))
+colnames(group3)&lt;-c(&quot;catégorie&quot;,&quot;date&quot;,&quot;nbr&quot;)
+group3$date&lt;-str_c(group3$date,&quot;-01&quot;)
+group3$date&lt;-as.Date(group3$date)
+
+ggplot(
+  group3,
+  aes(x = date, y = nbr, color = catégorie)
+) +labs(y=&quot;Nbr de marchés&quot;, x=&quot;moyennes mensuelles&quot;)+
+  geom_line() +theme_economist() + 
+  scale_color_economist()+
+  ggtitle(&quot;Évolution des attributions - BOAMP 2016/20&quot;)</code></pre>
+<p><img src="live_from_BOAMP_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

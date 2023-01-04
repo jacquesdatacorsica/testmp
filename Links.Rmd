@@ -1,0 +1,17 @@
+---
+title: "Resources"
+output: html_document
+---
+
+### R and R-Studio
+
+[R](http://www.r-project.org) is a free open-source programming language that can be used for statistical analysis, data-simulation, graphing, and lots of other stuff. Another free program is [R-studio](http://www.rstudio.com), that provides a nice graphic interface for R. Download R first, then download R-studio. Both can run on PCs, Macs or Linux. Students will be learning R in the stats labs using the lab manual []().
+
+### Additional resources
+
+1. a description of the API BOAMP [here](https://api.gouv.fr/les-api/boamp)
+2. A subset of Tenders Electronic Daily (TED) data covering public procurement for the European Economic Area, Switzerland, and the Republic of North Macedonia from 2006-01-01 to 2019-12-31 in comma separated value format [here](https://data.europa.eu/data/datasets/ted-csv?locale=en)
+3. Données essentielles de la commande publique - fichiers consolidés DECP. This dataset comes from a certified public service [here](https://www.data.gouv.fr/en/datasets/donnees-essentielles-de-la-commande-publique-fichiers-consolides/)
+4. Do you wanna fork my code? github [here](https://github.com/phmorand/DeCoMaP)
+
+

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Journal de Recherche</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.17/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/dt-ext-colreorder-1.10.20/css/colReorder.dataTables.min.css" rel="stylesheet" />
+<script src="site_libs/dt-ext-colreorder-1.10.20/js/dataTables.colReorder.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">DeCoMaP</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="carto.html">Cartographie</a>
+</li>
+<li>
+  <a href="live_from_DECP.html">live from D.E.C.P.</a>
+</li>
+<li>
+  <a href="live_from_TED.html">Live from T.E.D.</a>
+</li>
+<li>
+  <a href="live_from_BOAMP.html">Live from B.O.A.M.P.</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Journal de Recherche</h1>
+
+</div>
+
+
+<div id="section" class="section level2">
+<h2>—</h2>
+</div>
+<div id="au-fil-de-lactualité" class="section level1">
+<h1>Au fil de l’actualité</h1>
+<div class="row">
+<div class="col-md-6" markdown="1">
+<table>
+<thead>
+<tr class="header">
+<th>De rapides enquêtes dans les bases de données des marchés publics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tender Electronic Daily</td>
+</tr>
+<tr class="even">
+<td>Bulletin Officiel des Annonces des Marchés Publics</td>
+</tr>
+<tr class="odd">
+<td>Données Essentielles de la Commande Publique</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-6" markdown="1">
+<!-- ![Alt Text](../img/folder/blah.jpg) --> <img height="300px" class="center-block" src="images/Photo-digitale-12.png">
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2>—</h2>
+</div>
+</div>
+<div id="achat-public-local-et-préférence-régionale-état-des-lieux" class="section level1">
+<h1>Achat public local et préférence régionale, état des lieux</h1>
+<p>DATE : 16 juin 2021</p>
+<p>Les campagnes des élections régionales ont cela d’intéressant que c’est à chaque fois l’occasion de reparler commande publique, et achat local. Pour un bon nombre de plateformes politiques, on voit apparaître la question de l’usage des marchés publics à des fins de redynamisation de l’activité régionale. Qu’elles prennent la forme d’un engagement vers une “préférence régionale”, ou du choix du “circuit court”, ces promesses reviennent au rythme des campagnes. Pour mémoire, <a href="https://www.lepoint.fr/politique/au-menu-des-regionales-le-manger-local-et-parfois-la-preference-regionale-01-12-2015-1986411_20.php">en 2015, dans le Point</a>, ces thèmes apparaîssaient déjà au coeur de la campagne… Mais que nous disent concrêtement des Données Essentielles de la Commande Publique ? rapide tour d’horizon à partir des données “enrichies” fournies par le Ministère de l’économie <a href="https://data.economie.gouv.fr/explore/dataset/decp_augmente/table/?location=6,46.87521,-0.17578&amp;basemap=jawg.light">ici</a></p>
+<pre class="r"><code>decp_augmente$local &lt;- ifelse(decp_augmente$libelleRegionAcheteur ==decp_augmente$libelleRegionEtablissement,1,0)
+
+round(mean(decp_augmente$local)*100,2)</code></pre>
+<pre><code>## [1] 63.69</code></pre>
+<p>Ainsi, plus de 63.69 % des marchés publics donnent lieu à un contrat à destination d’une entreprise appartenant à la même région que l’acheteur. Cette proportion dépend fortement de la nature du marché.</p>
+<pre class="r"><code>decp_augmente$local &lt;- ifelse(decp_augmente$libelleRegionAcheteur ==decp_augmente$libelleRegionEtablissement,1,0)
+
+aggregate(local~natureObjetMarche, data = decp_augmente, mean)</code></pre>
+<pre><code>##   natureObjetMarche     local
+## 1       Fournitures 0.4686058
+## 2          Services 0.5816647
+## 3           Travaux 0.8101342</code></pre>
+<p>Cet argument de proximité (achat dans la même région) s’observe aussi naturellement dans les distances entre acheteur et fournisseur :</p>
+<pre class="r"><code>aggregate(as.numeric(distanceAcheteurEtablissement)~natureObjetMarche, data = decp_augmente, mean, rm.na=TRUE)</code></pre>
+<pre><code>##   natureObjetMarche as.numeric(distanceAcheteurEtablissement)
+## 1       Fournitures                                 282.23794
+## 2          Services                                 256.35286
+## 3           Travaux                                  87.32694</code></pre>
+<p>S’agissant des fournitures, la nature des produits joue naturellement à plein. Si l’on se concentre par exemple sur les seuls produits agricoles, de l’élevage, de la pêche, de la sylviculture et produits connexes (code CPV 03), on obtient :</p>
+<pre class="r"><code>aggregate(local~natureObjetMarche, data = decp_augmente[which(str_sub(decp_augmente$codeCPV_Original,1,2)==&quot;03&quot;),], mean, rm.na=TRUE)</code></pre>
+<pre><code>##   natureObjetMarche     local
+## 1       Fournitures 0.6394389</code></pre>
+<p>Un argument souvent lié à l’échat local est sa capacité à favoriser l’accès des PME à la commande publique, ce que semble confirmer le petit tableau suivant comparant la proportion d’achat à une PME selon que l’achat est local ou non.</p>
+<pre class="r"><code>decp_augmente$PMEoui &lt;-ifelse(decp_augmente$categorieEtablissement==&quot;PME&quot;,1,0)
+aggregate(local~PMEoui, data = decp_augmente, mean, rm.na=TRUE)</code></pre>
+<pre><code>##   PMEoui     local
+## 1      0 0.5507377
+## 2      1 0.7155433</code></pre>
+<p>Une analyse (statistique) un peu plus poussée est cependant nécessaire. Testons la probabilité d’attribuer un marché à une PME en fonction de plusieurs paramètres… Pour cela un petit logit est bien utile ! (attention, il s’agit d’un billet de blog, un travail économétrique bien plus consistant serait nécessaire pour tirer des conclusions scientifiquement recevables, contrôler toute une série de biais potentiels, mais ce sera l’objet peut-être d’un papier académique, pas d’un simple post !).</p>
+<p>Commençons par calculer l’odds-ratio du simple lien “achat local” / “achat à une PME” :</p>
+<pre class="r"><code>model_PME1 &lt;- glm(PMEoui ~ local ,data = decp_augmente, family = binomial)
+
+logit_PME1.or = exp(coef(model_PME1))
+library(stargazer)
+stargazer(model_PME1, title=&quot;Odds Ratio&quot;, coef=list(logit_PME1.or),
+          ci=TRUE, ci.level=0.90, single.row=TRUE, type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## Odds Ratio
+## =============================================
+##                       Dependent variable:    
+##                   ---------------------------
+##                             PMEoui           
+## ---------------------------------------------
+## local               2.052*** (2.040, 2.064)  
+## Constant            0.693*** (0.684, 0.703)  
+## ---------------------------------------------
+## Observations                336,042          
+## Log Likelihood           -227,642.100        
+## Akaike Inf. Crit.         455,288.200        
+## =============================================
+## Note:             *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Contrôlons par d’autres caractéristiques du marchés (nature du marché, choix de procédure, taille du marchés en terme de durée et de montant)</p>
+<pre class="r"><code>model_PME &lt;- glm(PMEoui ~ local + natureObjetMarche + procedure+ as.numeric(montantCalcule) + as.numeric(dureeMoisCalculee) ,data = decp_augmente, family = binomial)
+
+logit_PME.or = exp(coef(model_PME))
+library(stargazer)
+stargazer(model_PME, title=&quot;Odds Ratio&quot;, coef=list(logit_PME.or),
+          ci=TRUE, ci.level=0.90, single.row=TRUE, type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## Odds Ratio
+## ==========================================================================================================
+##                                                                                    Dependent variable:    
+##                                                                                ---------------------------
+##                                                                                          PMEoui           
+## ----------------------------------------------------------------------------------------------------------
+## local                                                                            1.794*** (1.781, 1.806)  
+## natureObjetMarcheServices                                                        1.141*** (1.126, 1.156)  
+## natureObjetMarcheTravaux                                                         1.371*** (1.354, 1.387)  
+## procedureAppel d&#39;offres ouvert                                                   0.903*** (0.871, 0.935)  
+## procedureAppel d&#39;offres restreint                                                1.491*** (1.409, 1.573)  
+## procedureDialogue compétitif                                                     2.058*** (1.915, 2.202)  
+## procedureMarché négocié sans publicité ni mise en concurrence préalable          1.613*** (1.556, 1.671)  
+## procedureMarché passé sans publicité ni mise en concurrence préalable            0.804*** (0.638, 0.970)  
+## procedureMarché public négocié sans publicité ni mise en concurrence préalable   1.513*** (1.439, 1.587)  
+## procedureProcédure adaptée                                                       1.465*** (1.433, 1.497)  
+## procedureProcédure avec négociation                                              1.132*** (1.080, 1.184)  
+## procedureProcédure négociée ouverte                                              1.978*** (1.719, 2.237)  
+## procedureProcédure négociée restreinte                                           1.243*** (0.722, 1.764)  
+## procedureProcédure non négociée ouverte                                          1.633*** (1.255, 2.012)  
+## procedureProcédure non négociée restreinte                                        0.153 (-1.591, 1.898)   
+## as.numeric(montantCalcule)                                                       1.000*** (1.000, 1.000)  
+## as.numeric(dureeMoisCalculee)                                                    1.000*** (0.999, 1.000)  
+## Constant                                                                         0.548*** (0.515, 0.580)  
+## ----------------------------------------------------------------------------------------------------------
+## Observations                                                                             336,042          
+## Log Likelihood                                                                        -223,088.800        
+## Akaike Inf. Crit.                                                                      446,213.700        
+## ==========================================================================================================
+## Note:                                                                          *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Si le odds-ratio est sensiblement plus faible que dans l’analyse précédente (signifiant qu’une part des effets mesurés initialement captaient en réalité des effets liés aux paramètres que nous venons d’intégrer), il reste largement supérieur à 1 : toutes choses égales par ailleurs, la probabilité de sélectionner à une PME augmente de 80 % dans le cas d’un achat local (comparativement à un achat effectué dans une autre région).</p>
+<p>Le paysage des PME recouvre en réalité une immense hétérogénéité. Si l’on s’intéresse à la seule question des effectifs de cette structure, en reprenant la typologie officielle :</p>
+<ul>
+<li>NN Unités non employeuses (pas de salarié au cours de l’année de référence et pas d’effectif au 31/12). Cette tranche peut contenir quelques effectifs inconnus</li>
+<li>00 0 salarié (n’ayant pas d’effectif au 31/12 mais ayant employé des salariés au cours de l’année de référence)</li>
+<li>01 1 ou 2 salariés</li>
+<li>02 3 à 5 salariés</li>
+<li>03 6 à 9 salariés</li>
+<li>11 10 à 19 salariés</li>
+<li>12 20 à 49 salariés</li>
+<li>21 50 à 99 salariés</li>
+<li>22 100 à 199 salariés</li>
+<li>31 200 à 249 salariés</li>
+<li>32 250 à 499 salariés</li>
+<li>41 500 à 999 salariés</li>
+<li>42 1 000 à 1 999 salariés</li>
+<li>51 2 000 à 4 999 salariés</li>
+<li>52 5 000 à 9 999 salariés</li>
+<li>53 10 000 salariés et plus</li>
+</ul>
+<p>nous pouvons déjà étudier la structure des PME dans leur ensemble (en recherchant la répartition par classe sur les seuls établissements actifs de la base SIRENE)</p>
+<pre class="r"><code>decp_augmente&lt;-left_join(decp_augmente, base_sirene,by=c(&quot;siretEtablissement&quot;=&quot;siret&quot;))
+
+
+base_sirene$trancheEffectifsEtablissement &lt;-ifelse(base_sirene$trancheEffectifsEtablissement==&quot;NN&quot;, &quot;00&quot;,base_sirene$trancheEffectifsEtablissement)
+
+decp_augmente$trancheEffectifsEtablissement &lt;-ifelse(decp_augmente$trancheEffectifsEtablissement==&quot;NN&quot;, &quot;00&quot;, decp_augmente$trancheEffectifsEtablissement)
+
+
+prop.table(table(base_sirene[which(base_sirene$trancheEffectifsEtablissement&lt;&quot;41&quot; &amp; base_sirene$etatAdministratifEtablissement==&quot;A&quot;),]$trancheEffectifsEtablissement))</code></pre>
+<pre><code>## 
+##           00           01           02           03           11           12 
+## 0.6226535054 0.1651527458 0.0868306917 0.0473180806 0.0384464129 0.0248352705 
+##           21           22           31           32 
+## 0.0088710198 0.0039311336 0.0007133184 0.0012478212</code></pre>
+<pre class="r"><code>prop.table(table(decp_augmente[which(decp_augmente$categorieEtablissement==&quot;PME&quot;),]$trancheEffectifsEtablissement))</code></pre>
+<pre><code>## 
+##          00          01          02          03          11          12 
+## 0.027307229 0.071406091 0.104736339 0.131969515 0.235983832 0.297022432 
+##          21          22          31          32 
+## 0.088142183 0.038563362 0.003832269 0.001036749</code></pre>
+<p>On observe, assez naturellement, une sous-représentation dans les titulaire de marchés publics des plus petites des TPE (jusqu’à 5 salariés). De manière peut-être un peu contre-intuitive (et à croiser sans doute avec la caractéristique des marchés), des PME de petite taille (moins de 50 salariés) sont assez massez présentes dans les marchés publics attribués.</p>
+</div>
+<div id="les-prestations-artistiques-dans-les-données-de-marchés-publics" class="section level1">
+<h1>Les prestations artistiques dans les données de marchés publics</h1>
+<p>DATE : 3 juin 2021</p>
+<p>Encore un article de presse qui m’oblige à fouiller les données.</p>
+<p><a href="https://www.lemonde.fr/societe/article/2021/06/01/eric-piolle-le-maire-de-grenoble-en-garde-a-vue-pour-un-litige-autour-de-l-attribution-d-un-marche-public_6082347_3224.html">Dans le Monde du 1 juin 2020</a>, on apprend que</p>
+<blockquote>
+<p>La municipalité écologiste avait fait l’objet en 2018 d’un signalement de la chambre régionale des comptes, qui avait conclu à « plusieurs irrégularités importantes » dans la passation de marchés publics pour l’organisation de ce rassemblement populaire organisé chaque année par la Ville depuis l’élection de M. Piolle, en 2014. Une plainte contre X pour « favoritisme » avait également été déposée.</p>
+</blockquote>
+<p>La mairie argumente que</p>
+<blockquote>
+<p>« les caractéristiques particulières du projet associant création artistique et association du public et des citoyens, n’entre pas dans la définition de la prestation d’organisation d’événement mais bien dans la création artistique ».</p>
+</blockquote>
+<p>Sans rentrer dans ce débat juridique intéressant, on peut néanmoins rechercher la présence, ou non, de marchés de prestation artistique. En fait, le code CPV (Common Procurement Vocabulary) identifie 4 catégories de services de cette nature, et les codes afférents :</p>
+<ul>
+<li>92310000-7 Services de création et d’interprétation d’œuvres artistiques et littéraires</li>
+<li>92312000-1 Services artistiques</li>
+<li>92312200-3 Services prestés par les auteurs, les compositeurs, les sculpteurs et les artistes</li>
+<li>92312240-5 Services prestés par les artistes</li>
+</ul>
+<p>Commençons par recenser ces marchés à l’échelle de la TED par des acheteurs français :</p>
+<pre class="r"><code>TED_CULTURE&lt;-TED[which(TED$CPV==&quot;92310000&quot;|TED$CPV==&quot;92312000&quot;|TED$CPV==&quot;92312200&quot;|TED$CPV==&quot;92312240&quot;),]
+TED_CULTURE_FR&lt;-TED_CULTURE[which(TED_CULTURE$ISO_COUNTRY_CODE==&quot;FR&quot;),]
+datatable(TED_CULTURE_FR[,c(1,10,32,57)], extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-0b08689a6b6cfca28431" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b08689a6b6cfca28431">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["50043","50044","50045","50142","191898","209853","209854","209855","287182","287183","340530","340927","370858","370859","370860","380809","381229","381230","404417","434437","465181","465182","465183","465184","477364","479946","494920","531430","533003","539781","562928","565147","574990","586326","657329","657490","727307","758882","775882","778128","794070","828593","840768","862383","895216","927081","943305","960434","966511","976958","989630","1060886","1071650","1096349","1114317","1117048","1122444","1159914","1225296","1227341","1227768","1227791","1250282","1256277","1256278","1256279","1256280","1256282","1256287","1256386","1257020","1260389","1262625","1327025","1328194","1328226","1328227","1328228","1328229","1328230","1328231","1331698","1346108","1346111","1356708","1356709","1391116","1407531","1442925","1452702","1474502","1527728","1531007","1603509","1623755","1623756","1623757","1623758","1623759","1623760","1623761","1623762","1623763","1623764","1623765","1660857","1660948","1669668","1730016","1730127","1730185","1747121","1747122","1747123","1747124","1747125","1759753","1759754","1759755","1766393","1766394","1766395","1766396","1766397","1766398","1766399","1766400","1766401","1766402","1784296","1806417","1825962","1825963","1825964","1825965","1825966","1825967","1825968","1825969","1825970","1825971","1825972","1825973","1825974","1825975","1825976","1825977","1825978","1825979","1825980","1825981","1825982","1825983","1825984","1825985","1825986","1825987","1825988","1825989","1840150","1840151","1859323","1859324","1859325","1859326","1859327","1867726","1892837","1956917","1972215","1989189","2007292","2012915","2015497","2015853","2016076","2016417","2025788","2025977","2026520","2026521","2026522","2058975","2058976","2073415","2088117","2132051","2141095","2144951","2147130","2167481","2167482","2167483","2180779","2252361","2268139","2268140","2268141","2268142","2268143","2268144","2268145","2268146","2268147","2268148","2268149","2268150","2268151","2268152","2268153","2268154","2268155","2268156","2268157","2268158","2268159","2268160","2268161","2268162","2273560","2273650","2273861","2273927","2273973","2273989","2274323","2284640","2295664","2303030","2303379","2303380","2303381","2303382","2303383","2303384","2303385","2303386","2303387","2303388","2303389","2303390","2305473","2305555","2305556","2305557","2305558","2308989","2309180","2310499","2320480","2349780","2349781","2349782","2349783","2349784","2349785","2349786","2349787","2349788","2349789","2382899","2413159","2413180","2413199","2413478","2413552","2413661","2416753","2416755","2426520","2428832","2546166","2581024","2615399","2647096","2647097","2649780","2659804","2763885","2763886","2763887","2763888","2763889","2763890","2763891","2791213","2791214","2791215","2791216","2791217","2791218","2791219","2793265","2793279","2795573","2795574","2795575","2795576","2795577","2795578","2795579","2795580","2795581","2795582","2795583","2795584","2795585","2795586","2795587","2795588","2795589","2795590","2795591","2795592","2795593","2795594","2795595","2798979","2799075","2809149","2809266","2819710","2819742","2819838","2820037","2840505","2846265","2854654","2854655","2854656","2854657","2854658","2854659","2854660","2854661","2854662","2854704","2854705","2854706","2857343","2859538","2922611","2922612","2922613","2922614","2922615","2922616","2926395","2926435","2926447","2926448","2926452","2926453","2926484","2926485","2926523","2927573","2939593","2939776","2939917","2965397","2982653","2990069","3025838","3027347","3045913","3057640","3057804","3057817","3057877","3057916","3077124","3083892","3083902","3105381","3105529","3115422","3220632","3220634","3223353","3226294","3271881","3344833","3361432","3361437","3361629","3365763","3371060","3383006","3394933","3447874","3452428","3452433","3452434","3453537","3457979","3460591","3464656","3474088","3479469","3489622","3504980","3505002","3537088","3581042","3597649","3605737","3605766","3610749","3618271","3641914","3702537","3702538","3702539","3702540","3702541","3702542","3794206","3794207","3794208","3794209","3794210","3794211","3794212","3794213","3794214","3794215","3794216","3794217","3794218","3794219","3794220","3794221","3794222","3833502","3926466","3951281","3979681","4048226","4048227","4064742","4064743","4064744","4064745","4064746","4064747","4138454","4138455","4138456","4138457","4138458","4138459","4138460","4144952","4145436","4147558","4154706","4154709","4156044","4157852","4157854","4157863","4161246","4167152","4186345","4188808","4225393","4283257","4311753","4312258","4337853","4337854","4391483","4407732","4494183","4496802","4520629","4525706","4599201","4599202","4603456","4634896","4694726","4694727","4744932","4754172","4769339","4779348","4797592","4797601","4797676","4802675","4843472","4843474","4843478","4851972","4871007","4886884","4897867","4897868","4897869","4897870","4897871","4903159","4913227","4913228","4913229","4913230","4913231","4913232","4913233","4936098","4936105","4936113","4950685","4950789","4973140","4978446","4978452","5023493","5058093","5058103","5106678","5109551","5213382","5213383","5213384","5248585","5248586","5248587","5359164","5377565","5418855","5447514","5447515","5447516","5447517","5450464","5571897","5583413","5583424","5583471","5583481","5594476","5594477","5594478","5594479","5599253","5632189","5632190","5632191","5632192","5632200","5632221","5632235","5632237","5632261","5635686","5657843","5657847","5657848","5688179","5707057","5736944","5858570","5863435","5870679","5924536","5924537","5924538","5924539","5924540","5924541","5924542","5933021","5933761","5961194","5973313","5996203","6108991","6118674","6118675","6118676","6118677","6118678","6118679","6118680","6118681","6118682","6124088","6127173","6253377","6256467"],[201032187,201032187,201032187,201032233,2010157589,2010175229,2010175229,2010175229,2010245558,2010245558,2010291509,2010291674,2010320597,2010320597,2010320597,2010329641,2010329821,2010329821,2010349716,2010376818,20115215,20115215,20115215,20115215,201112955,201114580,201124414,201152605,201154045,201159841,201180045,201181657,201189591,201199871,2011168428,2011168515,2011232160,2011257615,2011270501,2011272280,2011285050,2011314128,2011325381,2011344054,2011371250,2011395584,2011407882,20124036,20127021,201214223,201221884,201275114,201284414,2012105575,2012120417,2012123134,2012127971,2012161224,2012217170,2012218870,2012219030,2012219043,2012240382,2012245068,2012245068,2012245068,2012245068,2012245070,2012245075,2012245095,2012245323,2012248629,2012250640,2012298548,2012300043,2012300061,2012300061,2012300061,2012300061,2012300061,2012300061,2012303650,2012316934,2012316937,2012326867,2012326867,2012355999,2012370284,2012399197,2012406299,20135311,201339458,201341419,201399451,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013117611,2013152527,2013152585,2013161437,2013220538,2013220601,2013220640,2013236786,2013236786,2013236786,2013236786,2013236786,2013249559,2013249559,2013249559,2013256149,2013256149,2013256149,2013256149,2013256149,2013256149,2013256149,2013256149,2013256149,2013256149,2013271032,2013290552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013307552,2013319797,2013319797,2013337059,2013337059,2013337059,2013337059,2013337059,2013344586,2013366508,2013423347,2013437158,20144135,201415686,201419276,201421159,201421222,201421313,201421379,201428040,201428121,201428364,201428364,201428364,201450275,201450275,201461608,201472204,2014107822,2014115331,2014119351,2014121250,2014137281,2014137281,2014137281,2014151261,2014215846,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014231535,2014237032,2014237094,2014237181,2014237212,2014237231,2014237243,2014237333,2014244858,2014255586,2014262950,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014263093,2014265016,2014265067,2014265067,2014265067,2014265067,2014268563,2014268638,2014270063,2014279023,2014302222,2014302222,2014302222,2014302222,2014302222,2014302222,2014302222,2014302222,2014302222,2014302222,2014328819,2014351930,2014351945,2014351963,2014352082,2014352108,2014352171,2014355567,2014355569,2014365614,2014367454,201513483,201536642,201563692,201591334,201591334,201593122,2015102403,2015198663,2015198663,2015198663,2015198663,2015198663,2015198663,2015198663,2015221203,2015221203,2015221203,2015221203,2015221203,2015221203,2015221203,2015223793,2015223800,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015225994,2015229436,2015229494,2015238100,2015238156,2015248269,2015248285,2015248330,2015248384,2015264759,2015269337,2015277637,2015277637,2015277637,2015277637,2015277637,2015277637,2015277637,2015277637,2015277637,2015277663,2015277663,2015277663,2015279134,2015281140,2015330512,2015330512,2015330512,2015330512,2015330512,2015330512,2015332895,2015332909,2015332911,2015332912,2015332916,2015332917,2015332926,2015332927,2015332948,2015334687,2015344589,2015344651,2015344677,2015367048,2015381803,2015386810,2015415539,2015416883,2015431102,2015439998,2015440036,2015440047,2015440079,2015440101,2015455532,2015460827,2015460831,20168581,20168622,201613965,201692250,201692252,201694652,201698438,2016142732,2016204434,2016219434,2016219439,2016219557,2016222600,2016226887,2016237698,2016249138,2016291092,2016294542,2016294547,2016294548,2016295368,2016298936,2016301354,2016304060,2016311702,2016316997,2016325835,2016339565,2016339580,2016371103,2016410178,2016422952,2016428634,2016428654,2016432724,2016439522,2016459953,201728085,201728085,201728085,201728085,201728085,201728085,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,201788973,2017122608,2017190494,2017213061,2017237371,2017290299,2017290299,2017302255,2017302255,2017302255,2017302255,2017302255,2017302255,2017357523,2017357523,2017357523,2017357523,2017357523,2017357523,2017357523,2017362970,2017363557,2017364808,2017370910,2017370913,2017371894,2017373093,2017373095,2017373102,2017375559,2017381378,2017396615,2017398596,2017425805,2017469113,2017490424,2017490676,2017510112,2017510112,201816551,201826245,201883459,201885463,2018104406,2018109210,2018172165,2018172165,2018175503,2018196494,2018244389,2018244389,2018285855,2018292295,2018303462,2018309882,2018321419,2018321422,2018321459,2018325041,2018351341,2018351343,2018351347,2018356670,2018371093,2018381044,2018387779,2018387779,2018387779,2018387779,2018387779,2018391007,2018399319,2018399319,2018399319,2018399319,2018399319,2018399319,2018399319,2018414479,2018414484,2018414488,2018425379,2018425422,2018442263,2018446112,2018446117,2018476116,2018497073,2018497079,2018530766,2018532976,201917385,201917385,201917385,201936432,201936432,201936432,2019100997,2019113024,2019140105,2019160393,2019160393,2019160393,2019160393,2019162798,2019235280,2019242731,2019242739,2019242770,2019242775,2019250056,2019250056,2019250056,2019250056,2019253552,2019273205,2019273206,2019273207,2019273208,2019273210,2019273214,2019273224,2019273226,2019273238,2019275669,2019290260,2019290263,2019290264,2019309089,2019319667,2019335869,2019401172,2019403376,2019407275,2019439256,2019439256,2019439256,2019439256,2019439256,2019439256,2019439256,2019443762,2019444068,2019462678,2019472042,2019486727,2019542579,2019547716,2019547716,2019547716,2019547716,2019547716,2019547716,2019547716,2019547716,2019547716,2019550222,2019552383,2019618951,2019620807],["Marseille Aménagement","Marseille Aménagement","Marseille Aménagement","Département de la Charente Maritime","Ville d'Epernay","Comité Martiniquais du Tourisme","Comité Martiniquais du Tourisme","Comité Martiniquais du Tourisme","Musée du Louvre","Musée du Louvre","Région Franche-Comté","Conseil général du Gard","Région Ile de France","Région Ile de France","Région Ile de France","Etablissement public Musée du Louvre","Conseil général des Yvelines","Conseil général des Yvelines","Département de la Vienne","Etablissement public Musée du Louvre","Ville de Chambéry","Ville de Chambéry","Ville de Chambéry","Ville de Chambéry","Ville d'Orléans","Ville d'Orléans","Ville d'Angers","Aéroports de Paris","Ville de Montélimar","Conseil régional Nord - Pas-de-Calais","Ville de Saumur","Ville de Montélimar","Ville d'Epernay","EMOC","Conseil régional Nord - Pas-de-Calais","Ville de Paris","Ville de Chartres","Département de la Charente Maritime","Établissement public Musée du Louvre","Département de la Somme","Marseille Provence 2013","Ville de Fréjus","Ville de Chartres","Ville de Fenouillet","Conseil général des Vosges","Grand Montauban Communauté d'agglomération","Ville de Puteaux","Ville d'Orléans","Conseil général de l'Essonne","Département de la Charente-Maritime","Conseil régional Nord - Pas de Calais","Ville d'Orléans","Ville de Levallois","Établissement public musée du Louvre","Ville de Chartres","Ville d'Epernay","Ville de Chartres","Conseil général du Nord","Marseille Provence 2013","Brest Métropole Océane","Departement de la Somme","Conseil général de la Somme","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Etablissement public musée du Louvre","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Rectorat de l'Académie de Rouen-Ire","Conseil général du Gard","Ville de Chartres","Ville d'Epernay","Ville d'Epernay","OPPIC","Marseille Provence 2013","Marseille Provence 2013","Ville de Reims","Région Picardie","Conseil régional des Pays de la Loire","Ville d'Orléans","Ville de Saint-Louis","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Metz","Ville de Lyon","Ville d'Épernay","Ville de Saumur","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Office tourisme et congrès d'Antibes","Ville d'Épernay","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Ville de Doué-la-Fontaine","Région Île-de-France","Région Île-de-France","Ville de La Roche-sur-Yon","Ville de La Roche-sur-Yon","Ville de La Roche-sur-Yon","Ville de La Roche-sur-Yon","Ville de La Roche-sur-Yon","Centre hospitalier universitaire d'Angers","Ville d'Epernay","Conseil général de la Loire","Ville de Chartres","Région Picardie","Conseil général de la Loire","Ville d'Orléans","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Corbeil-Essonnes","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Région Rhône-Alpes","Ville d'Orléans","Conseil régional Languedoc-Roussillon","Ville d'Épernay","Conseil général de la Loire","Communauté de communes du Sénonais","Le Grand Narbonne","Le Grand Narbonne","Le Grand Narbonne","Ville de Chartres","Conseil général du Gard","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Conseil général de la Loire","Ville de Chartres","Ville de Chartres","Ville du Mans","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Conseil général des Alpes-Maritimes – direction des finances; de l'achat et de la commande publique – service des marchés","Ville de Chartres","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville d'Annecy","Ville de Toulon","Ville de Toulon","Ville de Toulon","Ville de Toulon","Ville de Chartres","Ville de Chartres","Ville d'Épernay","Ville d'Épernay","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Conseil régional Nord Pas de Calais","Ville de Chartres","Conseil régional des Pays de la Loire","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Commune de Fenouillet","Ville de Fenouillet","Ville de Chartres","Agence de l'eau Rhône-Méditerranée-Corse","Conseil général de la Vendée","Ville d'Orléans","Ville de Chartres","Conseil général des Alpes-Maritimes — direction des finances; de l'achat et de la commande publique — service des marchés","Conseil général des Alpes-Maritimes — direction des finances; de l'achat et de la commande publique — service des marchés","Conseil régional Languedoc-Roussillon","Direction des achats mairie de Paris","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Département de la Loire","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville du Mans","Ville de Chartres","OPPIC","Ville de Chartres","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Paris","Ville d'Annecy","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Société du Grand Paris","Région Île-de-France","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ministère chargé du logement; de l'égalité des territoires et de la ruralité","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Corbeil-Essonnes","Ville de Chartres","Ville de Chartres","Conseil départemental du Gard","Ville de Paris","Ville de Chartres","Ville de Reims","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville d&amp;apos;Asnières-sur-Seine","Ville de Chartres","Ville de Paris","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Lyon","Ville de Paris","Ville de Chartres","Ville des Ulis","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Conseil régional des Pays de la Loire","Ville de Chartres","EPT Plaine Commune","Ville de Chartres","Ville de Chartres","Région Normandie","Ville de Chartres","Ministère chargé de l'environnement; de l'énergie et de la mer (MEEM)","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Office du tourisme et des congrès de Nice","Ville de Chartres","Département de la Charente-Maritime","Conseil général des Hauts-de-Seine","Ville de Paris","Mairie de Villeneuve-Loubet","Mairie de Villeneuve-Loubet","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville de Chartres","Ville d'Annecy","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Conseil général d&amp;apos;Eure et Loir","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Paris","Commune de pau","Ville de Lyon","Ville de Clamart","Ville de Clamart","Nantes Métropole Aménagement","Ville de Chartres","Ville de Chartres","e.p.g.d","Conseil départemental du Gard","Toulouse Métropole","Département de la Vendée","Département de la Vendée","Commune de Brignoles","Commune de Brignoles","CCAS de Toulon","CCAS de Toulon","Ville de Chartres","Commune de Saintes","Ville d&amp;apos;Annecy","Commune de Brignoles","Ville de Chartres","Ville de Chartres","Ville de Chartres","Département de la Charente Maritime","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Clermont-Ferrand","Département de la Charente Maritime","Ville de Lyon","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d'Épernay","Ville d&amp;apos;Annecy","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Ville de Chartres","Conseil départemental de la Seine-Saint-Denis — Direction de la nature; des paysages et de la biodiversité","Ville de Chartres","Ville de Chartres","Mairie d'Épernay","Ville de Chartres","Ville de Chartres","Département de la Haute-Savoie","SEM Ville Renouvelée","Établissement public du campus de Jussieu","Établissement public du campus de Jussieu","Établissement public du campus de Jussieu","Paris La Défense","Paris La Défense","Paris La Défense","Metz Métropole","Communauté d&amp;apos;agglomération Rochefort Océan","Établissement public du Campus de Jussieu","Paris La Défense","Paris La Défense","Paris La Défense","Paris La Défense","Mairie de Metz","Mairie de Brignoles","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Communauté d&amp;apos;agglomération du Douaisis","Communauté d&amp;apos;agglomération du Douaisis","Communauté d&amp;apos;agglomération du Douaisis","Communauté d&amp;apos;agglomération du Douaisis","Ville de Saint-Nazaire","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Région Normandie","Mairie de Brignoles","Région Normandie","Région Normandie","Région Normandie","Département de la Charente Maritime","Mindef/EMA/SCA/PFAF-IDF","Epamarne","Laboratoire National de Métrologie","Ville la Rochelle","Métropole Nice-Côte d&amp;apos;Azur","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Paris","Commune de Challans","Département de la Charente-Maritime","Economat des armées","Ville d&amp;apos;Annecy","Ville de Lyon","AFPA","AFPA","AFPA","AFPA","AFPA","AFPA","AFPA","AFPA","AFPA","Metz Métropole","OPPIC","Est Métropole Habitat","Région Normandie"],[92312000,92312000,92312000,92312000,92312000,92312200,92312200,92312200,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92312000,92312000,92310000,92312000,92312000,92312000,92312000,92310000,92312000,92312000,92312000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312240,92312000,92310000,92312000,92312000,92312000,92310000,92310000,92310000,92312240,92312240,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312240,92312000,92310000,92312240,92312240,92312240,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92312000,92312000,92312000,92312240,92312240,92312000,92312000,92312240,92312240,92312240,92312240,92312000,92312240,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312200,92312200,92312200,92312200,92310000,92310000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92310000,92312240,92310000,92310000,92310000,92310000,92312000,92312000,92310000,92310000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312240,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312200,92310000,92310000,92310000,92310000,92312000,92310000,92310000,92312000,92312000,92310000,92312000,92310000,92310000,92310000,92310000,92310000,92312000,92310000,92312240,92310000,92310000,92310000,92312000,92312240,92310000,92312000,92310000,92310000,92310000,92310000,92310000,92312240,92310000,92312000,92310000,92310000,92312000,92310000,92312200,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92312200,92312240,92312200,92312200,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312240,92312000,92310000,92312000,92312000,92310000,92310000,92310000,92312000,92312200,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92310000,92312000,92312000,92312000,92312000,92312200,92310000,92310000,92310000,92312000,92312000,92312000,92312000,92312000,92310000,92312000,92312000,92312000,92312000,92310000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92310000,92310000,92312000,92312000,92312000,92312240,92312000,92312000,92312000,92312000,92312000,92312000,92312000,92312240,92312000,92310000,92310000,92312000,92312000,92312240,92312240,92312240,92312240,92312240,92312240,92312240,92312240,92312240,92312000,92312240,92312000,92312000],["M. Hervé Paraponaris","M. Julien Amouroux dit \"Le Gentil Garçon\"","M. Julien Amouroux dit \"Le Gentil Garçon\"","Association CREA","Les Lutins Refractaires","Entract' Productions","TWA KAT SHOW","TWA KAT SHOW","Groupement Hourriere - Vergez","Cinzia Pasquali","Weal'S Concept","Listen Up","Barrocco évènements","Barrocco évènements","Barrocco","Sceno Mme Brigitte Fryland","Société EDS","Il a été décidé de déclarer ce lot sans suite pour motif d'intérêt général et de relancer une consultation sous la forme d'un marché réservé en procédure adaptée","Jora Vision BV","Groupement Pontabry","Groupement Blanc Emilie","Groupement Deyrolle","Groupement Vicat-Blanc","Groupement Pop Petrescu","Lightmotif","Groupement ETC / association pour l'Histoire Vivante","ACQUA VIVA","BY VOLTA","","Institut français du cheval et de l'équitation (IFCE)","Société Katsura","IDEE HALL évènements (production de spectacles)","Evenementiel Technique Catering","Groupement atelier Fleury (mandataire)/Pascal Convert/Claus Velte/Olivier Juteau/Light'n light","Groupement MPI Action SA/MAW","Atelier Renaud Piérard","Xavier de Richemont","Stromboli spectacles","Vincen Cornu","Sicalines","","Association pour la diffusion des enseignements artistiques","Atelier LORIN – Hermet - Juteau","Loisirs éducation &amp; citoyenneté","Les Assistants - M. Julien Gros","AU FIL DU TEMPS Association","7ème Sens GIE Mme Mireille Perrin","Groupement Évènementiel Technique Catering / Association pour l'Histoire Vivante","Coal","Vialarue","La Comedie de Béthune","La Maison Production","A. Fresco","Pontabry","Spectaculaires","ETC Audiovisiuel","Le SNOB et Compagnies","Troisième Pôle","Agence Zèle","Cite creation","Sicalines","Sicalines","Norma Production","SARL Kapitol Kréation","Sarl Kapitol Kreation","Sarl Kapitol Kreation","Sarl Kapitol Kreation","La Roulotte Ruche","Xpressions urbaines","Porte Par Le Vent","Le mysterieux art du Stulugatnuch","Le Turbul","Groupement Lepetitdidier/ Pleutret","Vrurban","Artway","Motus Modules","Puce Muse","Puce Muse","AADN","LA SCOP","La Tortue Magique","Didier Courbot","Listen Up","SARL Acces","Compagnie Transe Express","ETC Audiovisuel","Groupement P. Dombis/G. Percal","LEO Les effets originaux","SAS InnoVision","M. Jean-François Gavoty; artiste sculpteur","Lys","Claude Rutault","Marie-Jeanne Gauthe","SEML La Coupole","APE Est audiovisuel solutions","MPM Lorraine","Systeme son","Teksas","Codex events","APE Est audiovisuel solutions","Codex events","GL events services","La songerie","C. Comm","APE Est audiovisuel solutions","gpt Agence9/Une bulle en Plus/T'Hompouss","La Maison Production","amaclio","Association Tout Par Terre","Association Blue Cap","Association Féros","DBAM","Minet Eclairages Scéniques (MES)","Elacom","Newloc","Mus'Azik c/o ACB 44","Luczinsky Milosh","Les Grandes Personnes","FA Musique","Tetro","GL Events","Jacques Couturier Organisation","Hexagone Illumination","MPA International","La Maison Production","Dar La Luz","En Attendant","Gpt Moreau/Dallu","En Attendant","Cet avis a été déclaré infructueux","Association des plasticiens volants","Citeos Exploitation","Citeos Exploitation","SARL Moinard","SARL Moinard","SARL Moinard","SARL Moinard","AZ Decor","AZ Decor","AZ Decor","AZ Decor","AZ Decor","AZ Decor","Raphael Lerays","Raphael Lerays","AZ Decor","AZ Decor","Forma","Forma","Jerome Paressant et son cotraitant Nicolas Jolivot","Jerome Paressant et son cotraitant Nicolas Jolivot","AZ Decor","AZ Decor","AZ Decor","AZ Decor","AZ Decor","AZ Decor","Nokinomo","Nokinomo","barocco evenements (manifestory) no siret: 414 502 922 00035","barocco evenements (manifestory) no siret: 414 502 922 00035","Compagnie La Machine","Compagnie La Machine","Compagnie La Machine","Compagnie La Machine","Compagnie La Machine","Atelier Lucie Lom","COSMO AV","Allemand Nicolas","TYMBEL PRODUCTIONS","lys","Centre de formation Cefedem","Groupement Compagnie Lilou / association pour l'histoire vivante","Wallfiller","La Boussole concepts et spectacles","LA'SZLO Cziga'ny","Musique à tout va","Richard PAK","Compagnie La Belle Rouge","Ondine Evenement","Enluminures","Artway","CA va etre beau","CA va etre beau","Pièces montées conseil SARL","Marie-Jeanne Gauthe","Marc Fornes","Spectaculaires","La Soupe Aux Étoiles","Spectaculaires","EURL Heliage","SARL Kaleo","Groupement Camineo (mandataire) - passe simple","Compagnie des Quidams","Mes scènes de stars","Conservatoire Massenet","Les Minutes Heureuses","Tandem Concerts","Theatre de la Toupine","Chok Theatre","OSE L'Orchestre Symphonique","Les Concerts Parisiens","Association CIE Intermezzo","Association Le Boulon Manquant","Sita Productions","Cappella Forensis","Association Lezards Dores","Les P'Tits Bras","Theatre Alicante","Ensemble telemann","F2F Music","Vice &amp; Versa","Ensemble Celadon CS JB de la Salle","Association Solal","Theatre de L'Eventail","Association L'Estock Fish","CCN Malandain Ballet Biarritz","Les Concerts Parisiens","Artistic Production","Légion VIII","Ginger","Skertzo","Marino Manca","Musique à tout va","Jérôme Colivet","Musique à tout va","La Cuisine antique","CF VI.","Torchis Beauge et Chaux","FA Musique","Theoriz","La Maison Production","Dar La Luz","GL Events","digiplay studio","Hexagone Illuminations","Light Event","ILEX SAS","Porte le Vent","GPT Vendredi 4 Bean Art","WECIP","Spectaculaires (Groupement spectaculaires / Artslide)","EURL \"La ferme de Tiligolo\"","Association 3/12 - Les Swingolos","Association Cobalt","Sigalas Production - Compagnie Croch et Tryolé","Oreille à plumes","Musique en liberté","Compagnie Off","Marie-Jeanne Gauthe","Kadaenza","Afozic","Compagnie Lilamayi","Theoriz","Mobile Untermehmenstheater &amp; Showproduktion","Mastoc Production","Ad Lib Créations","Les têteaux du coeur volant","Tilt","Lieux d'émotions","Boscher signaletique et image","Thomas Chasleries","Seulgi Lee","ARTWAY","Digital Art International – Art 2M","Compagnie d'Ailleurs","Association les Contes de la Chaise à Porteurs","Loisirs éducation citoyenneté","Loisirs éducation citoyenneté","Divan Theatre","Société avec des mots","Community France SA","Groupement Compagnie Lilou / Association pour l'Histoire Vivante","Spectaculaires","École de Wushu Yang","École de Wushu Yang","Bourgeat Lilian","Anastasia Makridou-Bretonneau","Cie Litecox","Gaga Jazz","Ensemble Celadon","Compagnie Maintes et Une Fois","La Soupe aux Étoiles","Compagnie Caracol","Association Minorano","Association Musiaue à tout va","Association Apma Musique","Association Rozahn Production","Association Cie Oyon Musik","Association musique pour tous","Association Rozahan Production","Association Cie Oyon Musik","Association Piano Panier","Ginger Production","Sons du Monde","Contraste productions Sarl","Association Cie Caracol","Symphonie Loire Forez (SYLF)","Pol Compagnie","Association tout en vrac","Théâtre de l'incendie","Gaga Jazz","Accords Croises","Sans Paradis Fixe","Les Nouveaux Nez et Cie","Collectif AOC","Compagnie Yoann Bourgeois","Compagnie La Reveuse","Centre chorégraphique national de Créteil et Val de Marne","Caramba Spectacles","Arts et musiques d'Ambronay","Sherpah Productions (sycomore international Sarl)","Circo Aereo","Compagnie la Phaleine","Caramba Spectacles","Caramba Spectacles","Koman-Y-Productions","Micro-entreprise la poterie des chemins Creux","Micro-Entreprise la Forge de l'Histoire","Micro-entreprise la cuisine antique","Micro-entreprise au pied du mur","Monsieur Didier Geiler Sarl Etoile","Madame Elsa Bonot","Skertzo","SARL Étoile Monsieur Didier Geiler","Virginie Yassel","Tewhoola","Madeinhl","La Maison Production","Laser Movement","Jacques Couturier Organisation","Atelier Erik Barray","FA Musique","ILEX","En Attendant","Cahoreau Fabrice","Tetro","Pixel n'Pepper","Gl Events Audiovisual","José Manuel Gonçalvès","B71 SPRL","Big Drum","Concept événementiel","Plasticiens volants","Spectaculaires","Eurodrop","Carabosse","Compagnie Pipototal","Compagnie Gratte Ciel","Sarl Jimyprod","Association Orgue A Feu","Compagnie Atlantid","Porte par le vent","AD LIB Creations","Les Artlumes","Compagnie les Melangeurs","Les Faucons de Dyane","Société DCI","Association Artway Chartres","Association Deklic Theatre Tonik","Compagnie Tewhoola","Groupement constitué de Postmedia Finance Conseil (mandataire); Eurl Jerome Sans; M. Marques Goncalves Jose; conseil artistique; Smile &amp; Co et Eva Albarran &amp; Co","Groupement d'entreprises Community SA (mandataire) Art Expo-Sylvain Roca","La Compagnie Lilalayi","Compagnie Alveole","Cirque Asymetrik","CIE Tibodypaint","SAS Tymbel Productions","Compagnie Turbul","En Tant Qu'artiste","Sculpteur STEVE Armance","Antoine PetitJean","Société Max Vallon/Streed LAB","Société Jean-Noël Beyssier","Societe Iaroslav Kostenko/Eurovideomapping","Societe Alession Cassaro","Patrice TERRAZ","SAS Tymbel Productions","Association Zinzin Familly","EPCC du Pont du Gard","M. Jean de Loisy","Leslie Epsztein","Compagnie des Quidams","Société Légion VIII Augusta","Ludi Scaenici","Société l'Oreille à Plumes","Association Divan Production","Société Meu Brasil","","Ginger Production","EH SARL","TILT","Fastoche Productions","Compagnie Carabosse","","Le Nom du Titre","Société Plasticiens Volants","Kolektif Alambik","Spectacle «Apparatus Floius»","Collectif Coin","Porte par le Vent","Société Amanda Parer","Les Allumantes","Agence Pièces Montées (mandataire)---En Cotraitance avec Pierre Ardouvin","Theoriz","Cuesta (mandataire)---Gongle (co-traitant)","Jean-François Charles","SAS Tymbel Productions","Nathalie Brevet","L&amp;apos;Arche en Sel","École nationale supérieure d'architecture Paris-Malaquais","Association La Reveuse","Association Correspondances et Musique","Ensemble Doulce Mémoire","Ensemble Jacques Moderne","SÀRL Gecko&amp;apos;S Post","Kestu","Concept Evénementiel","Concept Evénementiel","Concept Evénementiel","France Festivites","France Festivités","Concept Evénementiel","France Festivites","Concept Evénementiel","Concept Evénementiel","Nice Festivités","Concept Evénementiel","France festivités","Nice Festivités","Concept Evénementiel","France Festivités","Carnaval Story","Nice Festivités","SAS Tymbel Productions","Les Lapidiales","Établissement public du musée Rodin","1024","Livevents","","Dbam","Melpomen","Novelty Grand Ouest","Newloc Nantes","Desevedavy Pianos","La Centrale Eclectique","Carmen Escardo Carulla","Compagnie Des Quidams","Eido","Blachere Events — B. Digital Events","Eurodrop","Cie Carabosse","Studio 7+11","Isis Création","Fondation pour l'art contemporain Claudine et Jean-Marc Salomon","Vous êtes ici ailleurs","Collectif Coin","Association Écran Sonique","Playmode Studio SL","All Access Design","International Show Parade SRL","OGE GROUP","Polaris","PHILIPP ARTUS","Alexander Reichstein","Lords Of Lighting Limited","AD LIB Créations","Unidade Infinita; Projectos LDA","Groupement ID Scenes Sarl — enluminures","Juste pour Rire","Blachere Events B Digital Events","","Association la Machine---François Delaroziere---Pierre Orefice","Compagnie Tymbel Production","Association vous êtes ici ailleurs","Jigsaw---Société Molle---Supporter l&amp;apos;Art","EPCC Pont du Gard","Compagnie La Machine","Cavalier de liberté production","Paul Production","Energic Animations","Zouave","SCOP SARL Hergos","Association Corps Sonore","Compagnie Carabosse","Le loup blanc","Doka Productions","Fabien Ramade Productions","Société AD LIB Creations","Société Mobilite Unternehmenstheater et Showproduktion","Société Motus Modules","Les Lapidiales","SARL Jimyprod","TILT","Sound Light Evenement","Béatrice Fichet","Cristal Production","Le pilote productions","Theater Titanick","Plasticiens volants","Blachere Events — B Digital Events","Eurodrop","EURL Mecavivante","ID Scenes SARL","Nuits des Temps","","Porte Par Le Vent","Ocubo Crativo Lda","Madeinhl SARL","La maison production","Inook SARL","Compagnie Transe Express","EIDO Production","Compagnie le Montreur","Zöllner + Piatza GbR","La Compagnie de l&amp;apos;Homme debout","Ilotopie","La Compagnie Quidams","Les Allumantes","Tilt","Théâtre de la Grande Ourse","SARL Karapoil Production","De Loustal Jacques","Jocelyn Cottencin","Eva Albarran SARL---Ivan Argote","SARL 5.5 Designers","","","","","Orchestre National de Metz","Les Studios Moment Factory","Beatrice Casadesus","Mollet","","","","La Maison Production","TS3","BFP Production SAS","JHD Production","Decibels Productions","JHD Production","Top Régie","Top Régie","Top Régie","J2A","Compagnie Transe Express","Far Production","PAPA&amp;apos;S","Azimuth Production SARL","Pap&amp;apos;s Production","Dérapage Prod","To Become Music","SCOP Art&amp;apos;Syndicate","Azimuth Productions SARL","Azimuth Productions SARL","Fabien Ramade Productions","Scop Art&amp;apos;Syndicate","My Favourite Things","Astérios Spectacle","Les Lapidiales","Corporate Fiction","Carlos Medina","Agence Klapisch Claisse---ETC Audiovisuel SAS---Gelatic---Graphica---Pluie Violette---Société Sequoia---Transpalux","Elec Expo","Le Duc des Lombards","","Theoriz","FA Musique","Spectaculaires","","Digizik SPRL","TILT Porté par Le Vent","Arnold AG","Ellipsis","Cristal Production","","VLS EVENT","Tarm Showlaser Gmbh","","","ASS Paul Production","","ASS Paul Production","ASS Paul Production","ASS Paul Production","La Compagnie TAÏKO","","Gilschamber","Gilles Clément---Tout se transforme","Milosz Lucczynski---Novelty","GL Events Exhibitions"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID_NOTICE_CAN<\/th>\n      <th>CAE_NAME<\/th>\n      <th>CPV<\/th>\n      <th>WIN_NAME<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>On peut noter la répartition par type de procédure un peu atypique pour ce type de prestation :</p>
+<pre class="r"><code>table(TED_CULTURE_FR$TOP_TYPE)</code></pre>
+<pre><code>## 
+## AWP COD NIC NOC OPE RES 
+## 216   1   5  78 198  95</code></pre>
+<p>AWP signifiant “award without prior publication of a contract notice”, COD “competitive dialogue”, NOC/NOP “negotiated without a call for competition”, OPE “open”, RES “restricted”.</p>
+<p>Les données européennes nous permettent de confronter les pratiques en terme de prestation de service artistique. Pour identifier les spécificités du secteur, rappelons que sur l’ensemble des marchés publics, la procédure dite ouverte domine très largement :</p>
+<pre class="r"><code>data1=as.data.frame(table(TED$TOP_TYPE))
+colnames(data1)=c(&quot;NB&quot;,&quot;TOP&quot;)
+ggplot(data1, aes(x=&quot;&quot;, y=TOP, fill=NB)) +
+  geom_bar(stat=&quot;identity&quot;, width=1) +
+  coord_polar(&quot;y&quot;, start=0) </code></pre>
+<p><img src="Journal_files/figure-html/culture22-1.png" width="672" /> L’acquisition de prestation artistique est donc fortement atypique :</p>
+<pre class="r"><code>data=as.data.frame(table(TED_CULTURE$TOP_TYPE))
+colnames(data)=c(&quot;NB&quot;,&quot;TOP&quot;)
+ggplot(data, aes(x=&quot;&quot;, y=TOP, fill=NB)) +
+  geom_bar(stat=&quot;identity&quot;, width=1) +
+  coord_polar(&quot;y&quot;, start=0) </code></pre>
+<p><img src="Journal_files/figure-html/culture23-1.png" width="672" /></p>
+<p>Et la France est particulièrement atypique en ce domaine :</p>
+<pre class="r"><code>data2=as.data.frame(table(TED_CULTURE_FR$TOP_TYPE))
+colnames(data2)=c(&quot;NB&quot;,&quot;TOP&quot;)
+ggplot(data2, aes(x=&quot;&quot;, y=TOP, fill=NB)) +
+  geom_bar(stat=&quot;identity&quot;, width=1) +
+  coord_polar(&quot;y&quot;, start=0) </code></pre>
+<p><img src="Journal_files/figure-html/culture24-1.png" width="672" /> Pour une meilleure comparaison, voici les données européennes hors France :</p>
+<pre class="r"><code>data2=as.data.frame(table(TED_CULTURE_FR$TOP_TYPE))
+colnames(data2)=c(&quot;NB&quot;,&quot;TOP&quot;)
+ggplot(data2, aes(x=&quot;&quot;, y=TOP, fill=NB)) +
+  geom_bar(stat=&quot;identity&quot;, width=1) +
+  coord_polar(&quot;y&quot;, start=0) </code></pre>
+<p><img src="Journal_files/figure-html/culture25-1.png" width="672" /></p>
+<pre class="r"><code>data3=as.data.frame(table(TED_CULTURE[which(TED_CULTURE$ISO_COUNTRY_CODE!=&quot;FR&quot;),]$TOP_TYPE))
+colnames(data3)=c(&quot;NB&quot;,&quot;TOP&quot;)
+ggplot(data3, aes(x=&quot;&quot;, y=TOP, fill=NB)) +
+  geom_bar(stat=&quot;identity&quot;, width=1) +
+  coord_polar(&quot;y&quot;, start=0) </code></pre>
+<p><img src="Journal_files/figure-html/culture25-2.png" width="672" /></p>
+<p>Sans surprise (puisque c’est le reproche qui est fait à la municiaplité grenobloise, on ne retrouve pas Grnoble dans la liste des autorités concédantes). On pourra cependant noter qu’on obtient malgré tout de l’information pour 216 marchés sans publication préalable de notice et 78 marchés négiciés sans appel à concurrence. L’absence d’obligation de publicité ou de mise en concurrence n’exclue pas l’absence de publicité (et donc pour nous de données ouvertes) sur les attributions.</p>
+<p>On constatera au passage la taille de ce “marché” : 1.5848091^{8} euros de prestations payées en France entre 2010 et 2019 pour ces marchés référencés sur la TED à travers 593 marchés</p>
+<p>On peut rechercher les mêmes critères sur la base BOAMP (données à partir de mars 2015) :</p>
+<pre class="r"><code>BOAMP_CULTURE&lt;-BOAMP[which(BOAMP$lot_cpv ==&quot;92310000&quot;|BOAMP$lot_cpv==&quot;92312000&quot;|BOAMP$lot_cpv==&quot;92312200&quot;|BOAMP$lot_cpv==&quot;92312240&quot;),]
+datatable(BOAMP_CULTURE[,c(1,3,23)],extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-dd6fc27763493618448f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dd6fc27763493618448f">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["71662","71663","71664","71665","71666","71667","78669","83217","89059","89060","103337","110528","129766","133888","135278","135279","138457","149720","149908","154005","159176","167347","168259","173999","174000","174001","174002","174003","174004","174005","174220","176906","189738","191620","198489","198492","216548","218861","220177","220178","220179","221578","225190","254024","268599","271428","271429","271430","271431","271432","271433","271434","294298","309769","314270","326585","326586","348426","355143","355144","355145","355146","357147","357148","359785","359786","359787","359788","359789","359790","373787","375118","392007","395326","396593","400096","400097","419582","436667","441392","450448","461612","462277","462983","464134","476517","487131","489799","519160","519868"],["20-112630","20-112630","20-112630","20-112630","20-112630","20-112630","20-125860","20-135751","20-146239","20-146239","20-20588","20-3266","20-67882","20-76574","20-79284","20-79286","20-848","19-10279","19-103100","19-109302","19-118040","19-128968","19-130317","19-141053","19-141053","19-141053","19-141053","19-141053","19-141053","19-141053","19-141505","19-14665","19-170352","19-173546","19-183776","19-183776","19-35422","19-39307","19-4174","19-4174","19-4174","19-44647","19-53276","17-181758","18-121478","18-126179","18-126179","18-126179","18-126179","18-126179","18-126179","18-126179","18-166621","18-25692","18-32810","18-53906","18-53906","18-92467","17-10158","17-10158","17-10158","17-10158","17-105337","17-105337","17-109226","17-109226","17-109226","17-109226","17-109226","17-109226","17-130381","17-133226","17-164520","17-170334","17-171840","17-177118","17-177118","17-43790","17-76634","17-85366","16-101730","16-123200","16-124223","16-125230","16-127062","16-150452","16-171625","16-176189","16-85199","16-86815"],["Spectaculaires","Tetro","Grpt Moment Factory Neuf/Fa Musique","Le Pilote Productions","Module","Let There Be Light","MAGNUM","Etc (Evènementiel Technique Catering)",null,"Concept group",null,"Société Molle",null,"Cavalier de Liberté de production","Association Diapason","Association Paul Production","sas etc",null,"CORPORATE FICTION","CARLOS MEDINA","domicilform","Elec Expo","LE DUC DES LOMBARDS",null,"Theoriz","Fa Musique","Spectaculaires",null,"Digizik Sprl","Tilt Porte Par Le Vent","ARNOLD AG",null,"Tarm Showlaser Gmbh","Gilles Clément","Oval Collectivites",null,"Les studios Moment factory","EIRL Christophe BERTE (mandataire)","Ivan ARGOTE","SARL 5.5 DESIGNERS",null,"Beatrice CASADESUS","Mollet","Association La Machine","Le Pilote productions","Nuits Des Temps",null,"Porte Par Le Vent","Ocubo Crativo Lda","Madeinhl Sarl","La Maison Production","Inook Sarl","Jocelyn COTTENCIN","Société MOLLE","Compagnie La Machine","Cavalier de liberté production","Paul Production","le loup blanc","ASSOCIATION LA REVEUSE","Association Correpondances et Musique","Ensemble Doulce Mémoire","Ensemble Jacques Moderne","LIVEVENTS",null,"DBAM","Melpomen","Novelty Grand Ouest","Newloc Nantes","Desevedavy Pianos","La Centrale Eclectique","Videlio Iec","Polaris","Unidade Infinita, Projectos Lda","Groupement Id Scenes Sarl - Enluminures","Juste Pour Rire","BLACHERE EVNTS B DIGITAL EVENTS",null,"Illusion Madadam - Magalie Desbazeille","Etablissement public du musée Rodin","1024",null,"EH SARL",null,"Le nom du titre","Kolektif alambik","Agence Pièces Montées (mandataire)","CUESTA (mandataire)","CONCEPT GROUP","Acoustiguide France SAS","Compagnie des Quidams"],["Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Sté d'Exploitation de la Tour Eiffel","Ville d'Orléans","Ville de Fos-sur-Mer","Ville de Fos-sur-Mer","Communauté de communes du sancy","PARIS LA DEFENSE","Ville de Château-Renault","Département de la Vendée","Département de la Vendée","Département de la Vendée","Ville d'Orléans","PARIS LA DEFENSE","MINDEF/EMA/SCA/PFAF-IDF","EPAMARNE","Ville d'Arles","VILLE LA ROCHELLE","Métropole Nice Côte d'Azur","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Paris","Amiens Métropole","Ville de Lyon","OPPIC","Communauté de communes du sancy","Communauté de communes du sancy","Cté Agglomération Rochefort Océan","Lorient Agglomération","Etablt Public du Campus de Jussieu","Etablt Public du Campus de Jussieu","Etablt Public du Campus de Jussieu","Etablt Public du Campus de Jussieu","PARIS LA DEFENSE","Nantes Métropole Amenagement","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","Ville de Lyon","SEM Ville Renouvelée","E.P.G.D.","Toulouse Métropole","Département de la Vendée","Département de la Vendée","Commune de Saintes","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Université François Rabelais de Tours","Mairie de Villeneuve-Loubet","Mairie de Villeneuve-Loubet","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Ville de Carquefou","Syndicat Mixte Pic du Midi de Bigorre","Conseil général d'Eure et Loir","Ville de Paris","COMMUNE DE PAU","Ville de Lyon","Ville de Clamart","Ville de Clamart","Rectorat de l'académie de Lille","Conseil général des Hauts-de-Seine","Ville de Paris","Ville d'Asnières-sur-Seine","Ville de Paris","Ville de Lyon","Ville de Paris","Ville des Ulis","Conseil régional des Pays de la Loire","EPT Plaine Commune","Ville de Cannes","Ville de Marseille","Ville de Reims"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>suppl_denomination<\/th>\n      <th>denomination_ach<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<p>On notera au passage <strong>l’écart surprenant dans le nombre de marchés identifiés</strong>, entendu que ce qui est sur la TED est sensé être sur le BOAMP. Cela s’explique sans doute par le nombre de procédures en “AWP” et par la faible qualité du champs “CPV” dans les données BOAMP.</p>
+<p>Enfin, les données DECP sont plus prolixes (même si elles couvrent une période plus récente)</p>
+<pre class="r"><code>DECP_CULTURE&lt;-df[which(df$codeCPV ==&quot;92310000&quot;|df$codeCPV==&quot;92312000&quot;|df$codeCPV==&quot;92312200&quot;|df$codeCPV==&quot;92312240&quot;),]
+datatable(DECP_CULTURE[,c(3,6,35)],extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-76509b31ec536dc32b5f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-76509b31ec536dc32b5f">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["5521","18072","25179","25180","25181","25182","25183","25184","25185","25186","25187","25188","25189","25190","25191","25192","25193","25194","25195","25196","25197","30436","32574","36909","44117","45062","51879","56125","56721","56912","56913","56914","56915","56916","56920","64939","67428","67429","67916","73256","80896","81206","81207","81383","81798","81799","81800","81801","81802","81803","83532","86904","88582","89645","91418","92147","92148","99357","101287","102934","114532","115579","116577","116608","117044","117045","118239","120851","122500","123394","125331","133487","135419","138058","138090","140063","140069","146121","146287","147548","158960","161713","161824","161825","161829","161845","161876","161888","162563","162629","163055","202819","202820","207079","211383","230620","231088","231101","248760","258734","259849","259918","260040","260103","260106","260119"],["57207017500060","41430516900024","41389314000025","80968031700017","35238933200037","32809927000014","21630063200017","32195340800028","53203199400058","39963803000029","38850293200048","34998249600037","81740918800015","50081216900026","40126875000023","21630063200017","41389314000025","80968031700017","32809927000014","32195340800028","35238933200037","38986347300028","84453944500016","47877193400021","53296709800023","80821997600012","45025854600032","39328613300045","53330499400023","53330499400023","53330499400023","53333625100020","53333625100020","44766928400021","39192088100011",null,"78873088500019",null,"79758003200036","79069505000019","42937463000037","81943304600011","81943304600011","81943304600011","80403244900014","80403244900014","79860528300018","80403244900014","31165284600032","52528423800025","39436626400056","40164001600036","34865884000056","80120121100019","43201908100012","81102167400015","83766011700016","48393214100029","52804209600024","44075325900033","33169313500054","77567146400110","75106749700014",null,"81200710200013","35033632700035","52283096700017","51055739000018","39124530500027","84099192100015","50082577300012","44853166500025","38024460800028","41399142300034","79959347000021","82867135400011","82537723700011","81496106600010","49455584000029","40944050000034","82330488600018","82926859800010","43166159400017","35326470800044","43975604000028","52347515000026","52918915100010","84108551700016","54003186100011","83407109400017","34467163100069","81437823800020","83374212500028","83496811700012","33334468700046","79106581600039","52399746800013","80942857600015","83075764700011","37811787300042","48462018200028","48462018200028","48462018200028","48462018200028","48462018200028","48462018200028"],[null,null,null,null,null,null,"MAIRIE","THEATRE DES ILETS",null,null,null,null,null,null,null,"MAIRIE",null,null,null,"THEATRE DES ILETS",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"CONCEPT GROUP",null,null,null,null,null,null,null,null,null,null,null,null,"MAISON VANZETTI / SACCO BARET / SAC",null,null,null,null,null,"CARACOM-AFR",null,null,null,null,null,null,null,null,"GILBERT COULLIER PRODUCTIONS",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],["Ministère de la Transition Écologique et Solidaire, Ministère de la Cohésion des Territoires - Direction Générale de l'Aménagement, du Logement et de la Nature ","Ministère des armées - Plate-forme commissariat Paris ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Université Clermont Auvergne - Direction des achats ","Ministère de la Culture - Direction Régionale des Affaires Culturelles - Centre ","Ministère des armées - Office national des anciens combattants et victimes de guerre ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - Centre de Recherche Inria Bordeaux - Sud-Ouest  ","Etablissements et organismes de l'enseignement supérieur, de la recherche et de l'innovation - UNIVERSITE LE HAVRE NORMANDIE ","ENS Paris-Saclay","Metz Métropole","Région Normandie","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Région Bourgogne-Franche-Comté ","Communauté d'agglomeration de Châlons en Champagne","Grand Lac - Communauté d'Agglomération","Grand Lac - Communauté d'Agglomération","COMMUNAUTE DE COMMUNES COEUR DE GARONNE","Collectivité de Corse","Mairie de Fos sur Mer","COMMUNE DE MARTIGUES","COMMUNE DE MARTIGUES","COMMUNE DE MARTIGUES","MAIRIE DE ROUSSET","MAIRIE DE ROUSSET","MAIRIE DE ROUSSET","MAIRIE DE ROUSSET","MAIRIE DE ROUSSET","MAIRIE DE ROUSSET","VILLE SAINTES","Ville de Valence","MAIRIE DE BLAGNAC","Ville de Toulouse","Mairie de Palavas-les-Flots","VILLE D'AVOINE","VILLE D'AVOINE","Ville de Saint-Jean-de-la-Ruelle","Mairie de Metz","Lomme","COMMUNE DE MEGEVE","VILLE DE PARIS BUDGET PRINCIPAL","VILLE DE PARIS BUDGET PRINCIPAL","VILLE DE PARIS BUDGET PRINCIPAL","VILLE DE PARIS BUDGET PRINCIPAL","VILLE DE PARIS BUDGET PRINCIPAL","VILLE DE PARIS BUDGET PRINCIPAL","La Commune de Montereau-Fault-Yonne\t ","Ville de Poissy","Mairie de Niort (Service marchés publics)","Commune de Saint-Raphaël","Ville d' Épinay-sur-Seine ","VILLE D'ALFORTVILLE ","Ville de Vincennes ","Ville de Vincennes ","Mairie de Bras Panon","Mairie de Bras Panon","Collectivité de Corse","Conseil départemental de Côte d'Or ","Conseil Départemental de la Gironde","DEPARTEMENT DE LA HAUTE-SAVOIE","Département de la Vendée","Département de la Vendée","Département de la Vendée","Département de la Vendée","Département de la Vendée","Département de la Vendée","Département de la Vendée","CD91 - Conseil départemental de l'Essonne ","CD91 - Conseil départemental de l'Essonne ","Département de la Seine-Saint-Denis","CHRU STRASBOURG ","CHRU STRASBOURG ","ASSISTANCE PUBLIQUE - HOPITAUX DE PARIS ","Orvitis - Office Public de l'Habitat de la Côte-d'Or ","SAFI","SEM PLAINE COMMUNE DEVELOPPEMENT ","SEM PLAINE COMMUNE DEVELOPPEMENT ","Ministère de la Culture - Musée du quai Branly ","SPL PLAINE COMMUNE DEVELOPPEMENT\t\t\t ","PARIS LA DEFENSE","PARIS LA DEFENSE","PARIS LA DEFENSE","PARIS LA DEFENSE","PARIS LA DEFENSE","PARIS LA DEFENSE"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>siret<\/th>\n      <th>enseigne1Etablissement<\/th>\n      <th>acheteur.nom<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="enquête-en-bord-de-beuvron" class="section level1">
+<h1>Enquête en bord de Beuvron</h1>
+<p>DATE : 2 juin 2021</p>
+<p>Quand on tombe au petit matin sur un papier comme celui-ci <a href="https://www.lemonde.fr/societe/article/2021/06/01/dons-et-services-rendus-plongee-dans-les-micro-partis-de-guillaume-peltier_6082294_3224.html">Dons et services rendus : plongée dans les micropartis de Guillaume Peltier</a>, qui nous apprend, au détour d’un paragraphe que</p>
+<blockquote>
+<p>en 2017, Neung-sur-Beuvron paye 182 000 euros à Girard-Sudron pour réaliser une étude « technico-économique » sur le remplacement de l’éclairage public du village par des luminaires utilisant la technologie LED.</p>
+</blockquote>
+<p>on se dit que la journée va être particulièrement excitante, que les données ouvertes des marchés publics vont révéler toute leur puissance, que des réseaux évoqués dans l’article transparaîtront rapidement des données brutes…</p>
+<p>À 182 000 euros l’étude, on se dit qu’on n’est pas très loin des seuils européens et on commence donc naturellement par fouiller la TED pour voir un peu ce que la commune et la communauté de commune évoquée dans le papier ont passé comme marchés sur les dix dernières années. Question de ne pas passer à côté de dénominations fluctuantes, nous élargissons la recherche à tous les acheteurs dont le nom incoropore les termes “Sologne” et “Sudron”.</p>
+<pre class="r"><code>datatable(TED[which(grepl(&quot;sologne&quot;, TED$CAE_NAME, ignore.case = TRUE)==TRUE |grepl(&quot;beuvron&quot;, TED$CAE_NAME, ignore.case = TRUE)==TRUE|grepl(&quot;neung&quot;, TED$CAE_NAME, ignore.case = TRUE)==TRUE),][,c(1,10,32,57)],extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-5464dd39d621a57008f0" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5464dd39d621a57008f0">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["185726","390039","390040","390041","390042","390043","390044","1050073","1691863","1691864","2167486","2792114","2792115","2792116","2792117","2792118","2792119","2792120","2792121","2792122","2792123","2792124","2792125","2792126","2792127","2792128","2792129","2792130","2941481","3411035","3411036","3411037","3411038","3411039","3421770","3483438","3744859","3744860","3744861","3744862","3744863","4085350","4085351","4085352","4085353","5118106","5118107","5118108","5158823","6019017","6019018"],[2010151012,2010337965,2010337965,2010337965,2010337965,2010337965,2010337965,201266061,2013183445,2013183445,2014137283,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015222082,2015346017,2016261752,2016261752,2016261752,2016261752,2016261752,2016270955,2016320719,201753918,201753918,201753918,201753918,201753918,2017316826,2017316826,2017316826,2017316826,2018539135,2018539135,2018539135,2018565745,2019499071,2019499071],["SIVOM Sologne Bourbonnaise","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","Communauté de communes Cher-Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","Commune de Pruniers-en-Sologne","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Mairie de Candé-sur-Beuvron","Communauté communes Sologne des Rivières","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","Communauté de communes Val du Beuvron","Centre communal d&amp;apos;&amp;apos;action Sociale---Communauté de communes «Vierzon-Sologne-Berry»---Ville de Vierzon","Communauté de communes «Vierzon Sologne Berry»---Ville de Vierzon","Communauté de communes «Vierzon Sologne Berry»---Ville de Vierzon","Communauté de communes «Vierzon Sologne Berry»---Ville de Vierzon","Communauté de communes «Vierzon Sologne Berry»---Ville de Vierzon","Communauté de communes «Vierzon Sologne Berry»---Ville de Vierzon","Communauté de communes Vierzon Sologne Berry ---Ville de Vierzon","Communauté de communes Vierzon Sologne Berry ---Ville de Vierzon","Communauté de communes Vierzon Sologne Berry ---Ville de Vierzon","Communauté de communes Vierzon Sologne Berry ---Ville de Vierzon","Centre communal d&amp;apos;action sociale---Communauté de communes «Vierzon-Sologne-Berry»---Ville de Vierzon","Centre communal d&amp;apos;action sociale---Communauté de communes «Vierzon-Sologne-Berry»---Ville de Vierzon","Centre communal d&amp;apos;action sociale---Communauté de communes «Vierzon-Sologne-Berry»---Ville de Vierzon","Communauté de communes Sauldre et Sologne","Centre communal d&amp;apos;action sociale de Vierzon---Communauté de communes  «Vierzon-Sologne-Berry»---Ville de Vierzon","Centre communal d&amp;apos;action sociale de Vierzon---Communauté de communes  «Vierzon-Sologne-Berry»---Ville de Vierzon"],[90000000,90500000,90500000,90500000,90500000,90500000,90500000,90492000,90513000,90513000,90513000,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,45214200,50721000,90500000,90500000,90500000,90500000,90500000,9134200,79810000,50232000,50232000,50232000,50232000,50232000,39830000,39830000,39830000,39830000,65300000,65300000,65300000,90513000,30163100,30163100],["Lyonnaise des Eaux France","Sita Centre Ouest Agence Collectivités Est","Sytcom des Régions de Gien et de Chateauneuf-sur-Loire","Sita Centre Ouest","CTSP Centre Sas Veolia Propreté","Temaco","Sita Centre Ouest","Veolia Eau -Compagnie Generale des Eaux","Sita Centre Ouest","Triadis services SAS","Véolia Propreté Soccoim SA","Groupement Rochette / TP Paris / SN Goulet","TSD","Lasnier","EVL","MEAN","PEB","APSM","Gauthier","VSA Amenagement","Rodriguez","Isolux","Magalhaes","Poussin","Pelle","Galloux","Lehoux","Geosport","Cofely Services GDF SUEZ ES","SITA Centre — siège social","SITA Centre — siège social","CTSP Centre SAS Véolia","Syndicat mixte central de traitement des déchets des régions de Gien et Châteauneuf-sur-Loire (Syctom)","SITA Centre — siège social","ETS Coignet","Imprimerie Rapide","Ineo Réseaux Centre","Valmont France SAS","Eclatec","Rexel France","Lacroix Traffic","Hygial Berry","Hygial Berry","Orapi hygiène","Jacky Courtigne","Total Energie Gaz","Total Energie Gaz","EDF Commerce Grand Centre","CTSP Centre SAS Veolia","Siplec","Total marketing France"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID_NOTICE_CAN<\/th>\n      <th>CAE_NAME<\/th>\n      <th>CPV<\/th>\n      <th>WIN_NAME<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"columnDefs":[{"className":"dt-right","targets":[1,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Rien de concluant à l’échelles des marchés européens, rabattons-nous sur les marchés publiés au BOAMP sur la période mars 2015 à aujourd’hui.</p>
+<pre class="r"><code>datatable(BOAMP[which(grepl(&quot;sologne&quot;, BOAMP$denomination_ach, ignore.case = TRUE)==TRUE |grepl(&quot;beuvron&quot;, BOAMP$denomination_ach, ignore.case = TRUE)==TRUE |grepl(&quot;neung&quot;, BOAMP$ville_ach, ignore.case = TRUE)==TRUE),][,c(1,3,10,23)],extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-e13931e1fc73b4b0bd62" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e13931e1fc73b4b0bd62">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["30402","76885","84185","84186","85178","94826","244468","251533","300120","434948","454113","454114","454115","454116","454117","457012","556067"],["15-148721","20-121939","20-1382","20-1382","20-1401","20-153156","19-8650","19-97665","18-175414","17-73733","16-109999","16-109999","16-109999","16-109999","16-109999","16-115525","15-148721"],["COFELY SERVICES GDF SUEZ E.S","PASTEUR TP","centre national de la propriete forrestiere","chambre d'agriculture du loi er cher","SAS SOTRAP","GRAS SAVOYE","ATELIER NATURE","Cabinet BAROIN Architectes","CTSP Centre SAS VEOLIA ","SARL G. AUTRET ARCHITECTURE","SITA Centre  Siège social","SITA Centre  Siège social","CTSP CENTRE SAS VEOLIA","Syndicat mixte central de traitement des déchets des régions de Gien et Châteauneuf sur Loire (SYCTOM)","SITA Centre  Siège social","ETS COIGNET","COFELY SERVICES GDF SUEZ E.S"],[null,null,"90700000","90700000",null,"66512000",null,null,"90513000","71221000","90511200","90500000","90500000","90513000","90513000","09134200",null],["Cté Cnes Sologne des Rivières","Cté de Cnes de la Sologne des Etangs","Cté de Cnes de la Sologne des Etangs","Cté de Cnes de la Sologne des Etangs","Cté de Cnes de la Sologne des Etangs","MAIRIE DE PRUNIERS-EN-SOLOGNE","Cté de Cnes de la Sologne des Etangs","COMMUNE DE BRINON SUR BEUVRON","CDC Sauldre et Sologne","COMMUNE DE LAMOTTE BEUVRON","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","CDC Sauldre et Sologne","Communauté de communes Val du Beuvron","Cté Cnes Sologne des Rivières"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>suppl_denomination<\/th>\n      <th>lot_cpv<\/th>\n      <th>denomination_ach<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<p>Pas grand chose de plus à se mettre sous la dent, et surtout, aucune nouvelle du marché indiqué dans l’article du Monde.</p>
+<p>On se dit alors que les DECP (et même si elles ne couvrent pas la période incriminée) devraient permettre d’y voir plus clair dans les marchés passés dans cette ville ou cette interco. En requêtant de manière identique (sur les dénominations de l’acheteur), la pêche est un peu meilleure…</p>
+<pre class="r"><code>datatable(df[which(grepl(&quot;sologne&quot;, df$acheteur.nom, ignore.case = TRUE)==TRUE |grepl(&quot;beuvron&quot;, df$acheteur.nom, ignore.case = TRUE)==TRUE |grepl(&quot;neung&quot;, df$acheteur.nom, ignore.case = TRUE)==TRUE),][,c(3,6,35)],extensions = &#39;ColReorder&#39;, options = list(colReorder = list(realtime = FALSE)))</code></pre>
+<div id="htmlwidget-d0a3222c76ef6f29faab" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d0a3222c76ef6f29faab">{"x":{"filter":"none","extensions":["ColReorder"],"data":[["45541","45542","45543","45544","45545","45546","45547","49822","49823","49824","49825","49826","49827","49828","49829","49830","49831","49832","49833","49834","49835","49836","49837","49838","49839","49840","49841","49842","49843","49844","49845","49846","49847","49848","49849","49850","49851","49852","49853","49854","49855","49856","49857","49858","49859","49860","49861","49862","49863","49864","49865","49866","49867","49868","49869","49870","49871","49872","49873","49874","49875","49876","74459","74460","74461","94104","94105","94106","94107","94108","94109","94110","101590"],["33415947200458",null,"85480074500929","57202552600953","35392777500042","42221833900022","32933888300062","53247112500015","53329178700018","80132544000015","53247112500015","79897421800017","82886840600012",null,"50783120400015","42315073900013","82200488300010","52061109600022","30519092800021","52061109600022","32933888301185","80132544000015","53247112500015","52061109600022","42315073900013","79217611700010","80132544000015","52475252400016","50783120400015","32933888301185","39316827300224","47882868400017","52061109600022","39316827300224","40428823500025","33960966101467","79018467500391","79018467500391","50144171100022","79018467500391","79018467500391","79018467500391","50783120400015","50374048200016","54210780001624","53180918400017","79897421800017","45165792800037","45165792800037","53247112500015","38211923800030","38166277400235","40428823500025","52061109600022","83409669500574","79217611700010","79018467500391","40985159900053","83775606300066","79018467500391","30041282200011","53180918400017","57202552600961","57202552600961","57202552611786","32933888300229","32933888300229","32933888300229","32933888300229","31531949100041","41255618500012","47718101000729","35380747200025"],[null,null,null,null,null,null,"ETABLISSEMENT D ORLEANS","ARTEC",null,null,"ARTEC",null,"AAP SECURITE",null,null,null,null,null,null,null,"ETABLISSEMENT DE BOURGES",null,"ARTEC",null,null,null,null,null,null,"ETABLISSEMENT DE BOURGES",null,null,null,null,null,null,null,null,null,null,null,null,null,"PASCAL PETIT",null,null,null,null,null,"ARTEC",null,"ONET TECHNOLOGIES ND AMIANTE VILLEJUST",null,null,null,null,null,null,null,null,null,null,null,null,null,"ETABLISSEMENT DE BLOIS","ETABLISSEMENT DE BLOIS","ETABLISSEMENT DE BLOIS","ETABLISSEMENT DE BLOIS",null,null,null,null],["Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communauté de communes des Portes de Sologne","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communaut� de Communes Vierzon-Sologne-Berry","Communauté de Communes Vierzon-Sologne-Berry","SIAEP COURMEMIN-VERNOU EN SOLOGNE","SIAEP COURMEMIN-VERNOU EN SOLOGNE","SIAEP COURMEMIN-VERNOU EN SOLOGNE","COMMUNE DE NEUNG-SUR-BEUVRON","COMMUNE DE NEUNG-SUR-BEUVRON","COMMUNE DE NEUNG-SUR-BEUVRON","COMMUNE DE NEUNG-SUR-BEUVRON","PRUNIERS-en-SOLOGNE - (1)","PRUNIERS-en-SOLOGNE - (1)","PRUNIERS-en-SOLOGNE - (1)","Commune de Brinon-sur-Beuvron "]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>siret<\/th>\n      <th>enseigne1Etablissement<\/th>\n      <th>acheteur.nom<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"colReorder":{"realtime":false},"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script>
+<p>Mais à nouveau, rien de bien intéressant à se mettre sous la dent, même si la commune apparaît enfin dans nos fichiers. Et surtout, l’impression de ne pas avoir accès à l’ensemble des données.</p>
+<p>En résumé, qu’est-ce que ce très rapide cas pratique nous enseigne ?</p>
+<ul>
+<li><p>que par nature, la base TED, compte-tenu des seuils élevés qu’elle implique, n’est pas d’une grande utilité pour connaître les pratiques d’achats principalement réalisés par les “petits” acheteurs.</p></li>
+<li><p>que la base BOAMP, parce qu’elle est impérative également uniquement au-dessus de seuils de passation élevés, ne s’avère pas très informative non plus</p></li>
+<li><p>que les DECP fonctionnent naturellement bien mieux, mais que d’une part, leur antériorité est limitée à des évènement très récents et que, d’autre part, comme la remontée des DECP sur data.gouv.fr n’est que parcellaire, elle ne permet pas pour l’heure une vue exhaustive des marchés</p></li>
+<li><p>et surtout, qu’ <strong>un marché de 2017 à 182 000 euros passe totalement sous les radars</strong>. Sans l’article de presse et les indiscrétions auxquelles les journalistes ont eu accès, aucune chance de tomber sur ce cas pourtant intéressant. C’est sans doute la principale information de cette rapide enquête !</p></li>
+</ul>
+<p>Reste à rechercher directement dans les marchés éventuellement attribués à l’entreprise identifiée, si un éventuel accord cadre n’aurait pas été le véhicule juridique du contrat en cause</p>
+<pre class="r"><code>enquête4&lt;-TED[which(grepl(&quot;girard-sudron&quot;, TED$WIN_NAME, ignore.case = TRUE)==TRUE |grepl(&quot;girard sudron&quot;, TED$WIN_NAME, ignore.case = TRUE)==TRUE),]</code></pre>
+<p>Rien à l’échelle du TED…</p>
+<pre class="r"><code>enquête5&lt;-BOAMP[which(grepl(&quot;girard-sudron&quot;, BOAMP$suppl_denomination, ignore.case = TRUE)==TRUE |grepl(&quot;girard sudron&quot;, BOAMP$suppl_denomination, ignore.case = TRUE)==TRUE),]</code></pre>
+<p>Et rien non plus dans le BOAMP si l’on recherche à partir de la dénomination… On peut néanmoins tenter une recherche sur le numéro de SIRET que l’on peut aisément retrouver directement dans la base SIRENE.</p>
+<pre class="r"><code>enquête6&lt;-base_sirene[which(grepl(&quot;girard-sudron&quot;, base_sirene$enseigne1Etablissement , ignore.case = TRUE)==TRUE |grepl(&quot;girard sudron&quot;,  base_sirene$enseigne1Etablissement, ignore.case = TRUE)==TRUE),]
+head(enquête6)</code></pre>
+<pre><code>## # A tibble: 1 x 5
+##   siret   sirene_code_post… codeCedexEtablis… enseigne1Etabli… activitePrincipa…
+##   &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;             &lt;chr&gt;            &lt;chr&gt;            
+## 1 562057… 41200             &lt;NA&gt;              GIRARD SUDRON    82.11Z</code></pre>
+<pre class="r"><code>enquête7&lt;-BOAMP[which(BOAMP$suppl_siret ==&quot;56205749700082&quot;),]</code></pre>
+<p>Sachant que moins de 7 % des marchés du BOAMP identifient proprement le SIRET du fournisseur, cette absence de résultat n’est pas une grande surprise.</p>
+<pre class="r"><code>enquête8&lt;-TED[which(TED$WIN_NATIONALID ==&quot;56205749700082&quot;),]</code></pre>
+<p>Rien non plus à l’échelle européenne.</p>
+<pre class="r"><code>enquête9&lt;-df[which(df$siret ==&quot;56205749700082&quot;),]</code></pre>
+<p>et rien dans les DECP (au jour de ma mise à jour, il y a 2 mois)</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+---
+title: "Live from Tender Electronic Daily Database"
+author: "Pierre-Henri Morand"
+date: 'date: `r Sys.Date()`'
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set( warning = FALSE,  message = FALSE, cache.lazy = FALSE)
+
+```
+
+
+# Presentation of the database
+
+## Main characteristics
+
+- The data comes from public procurement standard forms, which are filled in by
+contracting bodies and sent as notices for publication to TED. Most of the variables in the data directly correspond to the fields in the forms.
+
+- TED - Contract award notices 2010-2019. It is a merged file for the analysis across the years.
+
+- TED data has multiple levels. Contract awards (CAs), which is the fifth section of a CAN standard form. Each CAN has one or more CAs. ID_award_ca is an ID of a CA.
+
+- These levels serve different purposes. To give an example, a CAN generally informs on the result of the procurement (“The ministry has bought furniture”); and the three individual CAs, nested within the CAN, inform about the specific detail (“The ministry has bought a chair from company A”; “The ministry has bought a table from company B”; “The ministry has bought a cupboard from company B”). 
+
+## Downloading the data
+
+The latest database can be downloaded directly [here](https://data.europa.eu/euodp/repository/ec/dg-grow/mapps/TED%202020/Export_OpenDataCAN_from2010to2019.csv)
+
+
+```{r data dwonloading, echo=TRUE, message=FALSE, warning=TRUE, cache=TRUE}
+#importing useful library
+
+library(tidyverse)
+library(banR)
+library(jsonlite)
+library(magrittr)
+library(data.tree)
+library(geosphere)
+library(sf)
+library(cartography)
+library(stringr)
+
+#creating the data repository
+data_dir <- 'data'
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+
+# downloading the DECP JSON file from the remote data.europa.eu site.
+TED_url <- "https://data.europa.eu/euodp/repository/ec/dg-grow/mapps/TED%202020/Export_OpenDataCAN_from2010to2019.csv"
+TED_destfile <-  str_c(data_dir, "/Export_OpenDataCAN_from2010to2019.csv")
+if (!file.exists(TED_destfile)) {
+  download.file(TED_url, TED_destfile)
+}
+
+# creating the dataframe
+TED<- read.csv(TED_destfile)
+```
+
+# Some data to work up the appetite!
+
+The database represents `r length(TED$ID_NOTICE_CAN)` contracts awarded between 2010 and 2019. Here is the number of contracts by buyers country and by year :
+
+```{r, echo=TRUE,  cache=TRUE}
+library(DT)
+library(tidyverse)
+
+#datatable(table(TED$ISO_COUNTRY_CODE, TED$YEAR), colnames = c("Country code", "Year", "Nb of Contracts"))
+table_1<-as.data.frame(table(TED$ISO_COUNTRY_CODE, TED$YEAR))
+table_1 %>%
+  datatable(extensions = 'Buttons',
+            options = list(dom = 'Blfrtip',
+                           buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,"All"))), colnames = c("Country code", "Year", "Nb of Contracts"))
+```
+
+France (as well as Poland) accounts for a large share of the data available under TED.
+
+```{r, echo=TRUE,  cache=TRUE}
+table_2<-table(TED[which(TED$ISO_COUNTRY_CODE=="FR" |TED$ISO_COUNTRY_CODE=="DE"|TED$ISO_COUNTRY_CODE=="IT"|TED$ISO_COUNTRY_CODE=="UK"|TED$ISO_COUNTRY_CODE=="PL"),]$YEAR, TED[which(TED$ISO_COUNTRY_CODE=="FR" |TED$ISO_COUNTRY_CODE=="DE"|TED$ISO_COUNTRY_CODE=="IT"|TED$ISO_COUNTRY_CODE=="UK"|TED$ISO_COUNTRY_CODE=="PL"),]$ISO_COUNTRY_CODE)
+barplot(table_2, legend.text = TRUE, main="cumulative nb of contracts", ylab="Nb", xlab="Country")
+```
+  
+
+The distribution of contracts by main categories gives us, for the entire database:
+
+```{r, echo=TRUE, cache=TRUE}
+library(RColorBrewer)
+count<-table(TED$TYPE_OF_CONTRACT)
+color <- brewer.pal(length(count), "Set2")
+pie(table(TED$TYPE_OF_CONTRACT), labels = table(TED$TYPE_OF_CONTRACT), col = color, density = 50, angle = 45)
+pie_labels <- paste0(c("Works: ", "Furnitures: ", "Services: "),round(100 * count/sum(count), 2), "%")
+pie(count, labels = pie_labels,col = color, density = 50, angle = 45)
+```
+
+Similarly, the type of purchasers corresponds to:`
+```{r, echo=TRUE, cache=TRUE}
+library(DT)
+library(tidyverse)
+
+#datatable(table(TED$ISO_COUNTRY_CODE, TED$YEAR), colnames = c("Country code", "Year", "Nb of Contracts"))
+table_2<-as.data.frame(table(TED$CAE_TYPE))
+table_2 %>%
+  datatable(extensions = 'Buttons',
+            options = list(dom = 'Blfrtip',
+                           buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                           lengthMenu = list(c(10,25,50,-1),
+                                             c(10,25,50,"All"))), colnames = c("CAE type",  "Nb of Contracts"))
+```
+with:
+  
+  |CAE Code |CAE Type|
+|:--------:|:----------|
+ | 1 |  Ministry or any other national or federal authority, including their regional of local subdivisions|
+|3 |Regional or local authority|
+|4 |Water, energy, transport and telecommunications sectors|
+|5 |European Union institution/agency|
+|5A |other international organisation|
+|6 |Body governed by public law|
+|8 |Other|
+|N |National or federal Agency / Office|
+|R |Regional or local Agency / Office|
+|Z |Not specified|
+
+# Let us focus on French contracts!
+```{r french, echo=TRUE, cache=TRUE}
+TEDFR <- TED[which(TED$ISO_COUNTRY_CODE=="FR"),]
+rm(TED)
+rm(table_1)
+rm(table_2)
+```
+We've got `r length(TEDFR$ID_NOTICE_CAN)` contracts in the French Database.
+```{r, echo=TRUE, cache=TRUE}
+table(TEDFR$YEAR)->table_1
+barplot(table_1, legend.text = "Nb of contracts by year")
+```
+# Manipulation of the database
+
+In order to focus on effective awarded contracts, we don't consider raws of the database without any name for the selected supplier. Similarly, sometimes, the award notice reflects an unsuccessful call for tenders. In order to suppress the corresponding lines, it should be noticed that in the database, the *WIN_NAME* presents terms like "infructueux" or "sans suite". We now reduce our attention to the successful call for tenders
+
+```{r,  echo=TRUE}
+TEDFR<-TEDFR[which(TEDFR$WIN_NAME!=""),]
+TEDFR<-TEDFR[which(str_detect(TEDFR$WIN_NAME, "infructueux")==FALSE),]
+TEDFR<-TEDFR[which(str_detect(TEDFR$WIN_NAME, "sans suite")==FALSE),]
+```
+We've got now only `r length(TEDFR$ID_NOTICE_CAN)` contracts in the French Database.
+
+## environmental clauses
+In order to infer the existence of environmental clauses as specific evaluation criteria, we create a specific variable that take value 1 if environmental concerns appear in the award notice, 0 otherwise. The notice is written in French, such that we consider a environmental concern if we can detect string like "développement durable", "environnement" (for environnement, environementAL  a.s.o), "écologi" (for écologiQUE, écologiE) and "RSE" (Social and Environmental Responsability).
+
+```{r, echo=TRUE}
+TEDFR$ENVIR<-ifelse(str_detect(TEDFR$CRIT_CRITERIA, "développement durable")==TRUE|str_detect(TEDFR$CRIT_CRITERIA, "environnement")==TRUE  |str_detect(TEDFR$CRIT_CRITERIA, "écologi")==TRUE|str_detect(TEDFR$CRIT_CRITERIA, " RSE")==TRUE,1,0)
+```
+
+
+We observe `r round(mean(TEDFR$ENVIR, na.rm=TRUE)*100,2)` % of contracts with environmental clauses.
+
+In order to check that this method makes it possible, over the period, to identify in a relevant way the real presence of environmental clauses in public procurement contracts, one can observe the evolution of frequency over time.
+
+```{r, echo=TRUE}
+mean_envir<-c()
+for(i in 1:10){mean_envir[i]<- mean(TEDFR[which(TEDFR$YEAR==i+2009),]$ENVIR,na.rm=TRUE)}
+years<-c()
+for(i in 1:10){years[i]<-i+2009}
+```
+```{r, echo=TRUE}
+plot(years[1:10],mean_envir[1:10],type = "b", main = "% of envir. clauses", xlab = "years",ylab="")
+```
+
+
+## local buying
+
+We create a first, very rough indicator of spatial proximity between buyer and supplier. In France, the first two digits of the postal code refer to the department. `LOCAL` takes value 1 if the public purchaser selects a supplier in this own department, 0 otherwise.
+
+```{r, echo=TRUE}
+TEDFR$LOCAL<-ifelse(str_sub(TEDFR$CAE_POSTAL_CODE, 1, 2)==str_sub(TEDFR$WIN_POSTAL_CODE, 1, 2),1,0)
+```
+`r round(mean(TEDFR$LOCAL, na.rm=TRUE)*100,2)` % of public purchasing is made inside the same department.
+
+```{r, echo=TRUE}
+table(TEDFR$LOCAL, TEDFR$CAE_TYPE)
+TC <- table(TEDFR$LOCAL, TEDFR$CAE_TYPE)
+```
+```{r}
+summary(TC) 
+round(TC[2]/colSums(TC),2)
+```
+
+
+Of course, it varies also a lot depending on the type of the contract :
+
+```{r, echo=TRUE}
+TC2 <- table(TEDFR$LOCAL, TEDFR$TYPE_OF_CONTRACT)
+```
+```{r}
+summary(TC2)
+round(TC2[2]/colSums(TC2),2)
+```
+
+
+
+

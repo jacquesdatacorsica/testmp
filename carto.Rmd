@@ -1,0 +1,58 @@
+---
+title: "Cartographie"
+author: "Pierre-Henri Morand"
+date: 'date: `r Sys.Date()`'
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set( warning = FALSE,  message = FALSE, cache.lazy = FALSE)
+
+```
+
+# Cartographie interactive des DECP
+
+Naviguez sur la carte des DECP, localisés par le code postal de l'acheteur. Chaque marqueur est clicable et permet d'identifier le marché en question.
+
+
+```{r init,  echo=FALSE,  cache=TRUE}
+# loading the required packages
+library(ggplot2)
+library(sp)
+library(leaflet)
+library("lubridate")
+library(tidyverse)
+library(banR)
+library(jsonlite)
+library(magrittr)
+library(data.tree)
+library(geosphere)
+library(sf)
+library(cartography)
+library(stringr)
+
+df<-read.csv("data/df_maj.csv")
+```
+
+
+```{r carto,  echo=TRUE,  cache=TRUE}
+
+
+lat<-as.numeric(df$coordonnees_gps1.x)
+lon<-as.numeric(df$coordonnees_gps2.x)
+
+data_graph<-cbind(lat, lon)
+data_graph<-as.data.frame(data_graph)
+
+
+leaflet(data=data_graph) %>% addTiles() %>% addMarkers(~lon, ~lat, popup =  str_c(as.character((df$acheteur.nom)), " achète le ", mday(df$dateNotification), " ", month(df$dateNotification), " ", year(df$dateNotification), " à ",  as.character((df$tit)), " situé à ", round(df$distance)," km de là", " et pour un montant global du lot de ", df$ , " pour l'objet suivant : ", as.character((df$objet))), clusterOptions = markerClusterOptions())
+
+```
+

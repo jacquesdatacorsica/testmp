@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Pierre-Henri Morand" />
+
+
+<title>Live from DECP</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">DeCoMaP</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="live_from_DECP.html">live from D.E.C.P.</a>
+</li>
+<li>
+  <a href="live_from_TED.html">Live from T.E.D.</a>
+</li>
+<li>
+  <a href="live_from_BOAMP.html">Live from B.O.A.M.P.</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Live from DECP</h1>
+<h4 class="author">Pierre-Henri Morand</h4>
+<h4 class="date">date: 2021-04-29</h4>
+
+</div>
+
+
+<pre class="r"><code>library(tidyverse)
+library(banR)
+library(jsonlite)
+library(magrittr)
+library(data.tree)
+library(geosphere)
+library(sf)
+library(cartography)
+library(stringr)</code></pre>
+<div id="collect-the-data" class="section level1">
+<h1>Collect the data</h1>
+<p>Two main datafiles are used: the first one is the collection of DECP (données essentielles de la commande publique, main data of public procurement). See <a href="https://www.data.gouv.fr/fr/datasets/donnees-essentielles-de-la-commande-publique-fichiers-consolides/">here</a>.</p>
+<p>The second one is the SIRENE datafile. See <a href="https://www.insee.fr/fr/information/3591226">here</a></p>
+<pre class="r"><code># creating the data repository
+data_dir &lt;- &#39;data&#39;
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+# downloading the DECP JSON file from the remote data.gouv.fr site.
+DECP_url &lt;- &quot;https://www.data.gouv.fr/fr/datasets/r/16962018-5c31-4296-9454-5998585496d2&quot;
+DECP_destfile &lt;-  str_c(data_dir, &quot;/decp.json&quot;)
+if (!file.exists(DECP_destfile)) {
+ download.file(DECP_url, DECP_destfile)
+}
+# creating the dataframe
+df&lt;-as.data.frame(fromJSON(DECP_destfile, flatten=TRUE)[[&#39;marches&#39;]])
+names(df)</code></pre>
+<pre><code>##  [1] &quot;id&quot;                        &quot;source&quot;                   
+##  [3] &quot;uid&quot;                       &quot;_type&quot;                    
+##  [5] &quot;objet&quot;                     &quot;codeCPV&quot;                  
+##  [7] &quot;dureeMois&quot;                 &quot;dateNotification&quot;         
+##  [9] &quot;datePublicationDonnees&quot;    &quot;montant&quot;                  
+## [11] &quot;formePrix&quot;                 &quot;titulaires&quot;               
+## [13] &quot;modifications&quot;             &quot;nature&quot;                   
+## [15] &quot;procedure&quot;                 &quot;dateSignature&quot;            
+## [17] &quot;dateDebutExecution&quot;        &quot;valeurGlobale&quot;            
+## [19] &quot;montantSubventionPublique&quot; &quot;donneesExecution&quot;         
+## [21] &quot;concessionnaires&quot;          &quot;uuid&quot;                     
+## [23] &quot;lieuExecution.code&quot;        &quot;lieuExecution.typeCode&quot;   
+## [25] &quot;lieuExecution.nom&quot;         &quot;autoriteConcedante.id&quot;    
+## [27] &quot;autoriteConcedante.nom&quot;    &quot;acheteur.id&quot;              
+## [29] &quot;acheteur.nom&quot;</code></pre>
+<pre class="r"><code># downloading the SIRENE datafile 
+sirene_destfile &lt;-  str_c(data_dir, &quot;/etablissements-sirene.zip&quot;)
+# sirene_url = &quot;https://www.data.gouv.fr/fr/datasets/r/3966c990-d3a0-48b4-95b9-745fa24b2589&quot;
+sirene_url = &quot;https://www.data.gouv.fr/fr/datasets/r/9e26138d-7938-4c1e-971b-d307489f12db&quot;    
+# It is a dynamic link. The latest version should be checked here:https://www.data.gouv.fr/fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret/ Sirene Fichier StockEtablissement
+if (!file.exists(sirene_destfile)) {
+  download.file(sirene_url, sirene_destfile)
+  # The unzipped CSV file is more than 4GB, so R&#39;s unzip will choke on it
+  # We&#39;ve got to unzip it manually
+  unzip(sirene_destfile,
+        unzip = getOption(&quot;unzip&quot;),
+        exdir = data_dir)
+}
+sirene_csv &lt;- str_c(data_dir, &#39;/&#39;, unzip(sirene_destfile, list = TRUE)[[1]])
+# Alternatively, if this doesn&#39;t work for memory reasons, run directly: 
+#sirene_csv &lt;- str_c(data_dir, &#39;/&#39;, &quot;StockEtablissement_utf8.csv&quot;)
+base_sirene &lt;- read_csv(
+  sirene_csv,
+  col_types = cols_only(
+    siret = col_character(),
+    codePostalEtablissement = col_character(),
+    codeCedexEtablissement = col_character()
+  )
+) %&gt;%
+  rename(sirene_code_postal=codePostalEtablissement)</code></pre>
+</div>
+<div id="join-the-databases" class="section level1">
+<h1>Join the databases</h1>
+<p>In order to geocode the DECP, we use de SIRET number of the purchasers and the SIRET number of the selected suppliers. The first step is to add the zip-code of the purchasers.</p>
+<pre class="r"><code># Add postal codes to DECP
+df&lt;-left_join(df, base_sirene,by=c(&quot;acheteur.id&quot;=&quot;siret&quot;))</code></pre>
+<p>In the case of suppliers, it is necessary to proceed in step by step. Indeed, in some cases, several companies are selected on the same contract. We therefore have to flatten our database.</p>
+<pre class="r"><code># number of selected suppliers
+nb_tit&lt;-c()
+for(i in 1:length(df$uid)){nb_tit[[i]]&lt;-length(df$titulaires[[i]]$id)}
+df$nb_tit&lt;-nb_tit
+# Creation of the multi-attribute table 
+k&lt;-1
+uid&lt;-c()
+for(i in 1:length(df$uid)){for(j in 1:ifelse(df$nb_tit[[i]]==0,1,df$nb_tit[[i]])){uid[[k]]&lt;-df$uid[[i]]; k&lt;-k+1}}
+tit&lt;-c()
+k&lt;-1
+for(i in 1:length(df$uid)){for(j in 1:ifelse(df$nb_tit[[i]]==0,1,df$nb_tit[[i]])){tit[[k]]&lt;-df$titulaires[[i]]$id[j]; k&lt;-k+1}}
+df2&lt;-data.frame()
+df2&lt;-as.data.frame(cbind(uid, tit))
+df2$tit&lt;-as.character(df2$tit)
+df2$uid&lt;-as.character(df2$uid)
+# associate postal code to SIRET of selected suppliers 
+df2&lt;-left_join(df2, base_sirene,by=c(&quot;tit&quot;=&quot;siret&quot;),keep=TRUE)
+# join everything 
+df&lt;-left_join(df2,df, by=&quot;uid&quot;)
+# Remove unnecessary databases
+rm(base_sirene,df2,nb_tit,tit,uid)</code></pre>
+</div>
+<div id="add-variables-in-our-dataframe" class="section level1">
+<h1>Add variables in our dataframe</h1>
+<pre class="r"><code># Creation of a year column 
+df$year &lt;-str_sub(df$id,1,4)
+# Creation of a departement_tit column (tit = titulaire = supplyer)
+df$departement_tit &lt;-str_sub(df$sirene_code_postal.x,1,2)
+# Creation of a departement-buyer column 
+df$departement_ach &lt;-str_sub(df$sirene_code_postal.y,1,2)
+#creation of dummy local buy 
+df$local&lt;-ifelse(df$departement_ach==df$departement_tit,1,0)
+summary(df$local)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    0.00    0.00    0.00    0.44    1.00    1.00   16813</code></pre>
+<pre class="r"><code># Creation of 2 digit CPV column  / documentation, see cpv.pm/?hl=en
+df$CPV2&lt;-str_sub(df$codeCPV,1,2)</code></pre>
+<p>Postal codes enable us to merger GPS coordinates:</p>
+<pre class="r"><code># Import of GPS coordinantes 
+# to do: the code_postaux.csv is my own file. I don&#39;t remember where it comes from. Clean and open source is needed.
+GPS_destfile &lt;-  str_c(data_dir, &quot;/code_postaux.csv&quot;)
+gps &lt;- read_csv(GPS_destfile)
+# Merge data to import GPS buyer coordinates 
+df&lt;-left_join(df, gps,by=c(&quot;sirene_code_postal.y&quot;=&quot;Code_postal&quot;))
+# Merge data to import GPS supplier coordinates 
+df&lt;-left_join(df, gps,by=c(&quot;sirene_code_postal.x&quot;=&quot;Code_postal&quot;))</code></pre>
+<p>We also use the NUTS of the suppliers and the purchasers. The Nomenclature of Territorial Units for Statistics (NUTS) was established by Eurostat in order to provide a single uniform breakdown of territorial units for the production of regional statistics for the European Union.</p>
+<pre class="r"><code># Creation of NUTS_ach and NUTS_tit columns 
+NUTS_destfile &lt;-  str_c(data_dir, &quot;/dept_nuts.csv&quot;)
+dept_nuts&lt;-read_csv(NUTS_destfile)
+df&lt;-left_join(df,dept_nuts, by=c(&quot;departement_tit&quot;=&quot;0C&quot;))
+df&lt;-left_join(df,dept_nuts, by=c(&quot;departement_ach&quot;=&quot;0C&quot;))
+names(df)[names(df) == &#39;NUTS_3.x&#39;] &lt;- &#39;nuts_tit&#39;
+names(df)[names(df) == &#39;NUTS_3.y&#39;] &lt;- &#39;nuts_ach&#39;</code></pre>
+<p>We add geographical variables to the main dataframe:</p>
+<pre class="r"><code># Distance computation in km 
+for(i in 1:length(df$uid)){df$distance[i]&lt;-distGeo(c(df$coordonnees_gps1.x[i],df$coordonnees_gps2.x[i]),c(df$coordonnees_gps1.y[i],df$coordonnees_gps2.y[i]))}
+df$distance&lt;-df$distance/1000
+# Creation of 4 and 3 digit NUTS column 
+df$nuts4_tit&lt;-str_sub(df$nuts_tit,1,4)
+df$nuts4_ach&lt;-str_sub(df$nuts_ach,1,4)
+df$nuts3_tit&lt;-str_sub(df$nuts_tit,1,3)
+df$nuts3_ach&lt;-str_sub(df$nuts_ach,1,3)
+table(df$nuts3_ach, df$nuts3_tit)</code></pre>
+<pre><code>##      
+##         FR1   FR2   FR3   FR4   FR5   FR6   FR7   FR8   FRA
+##   FR1 46276  4012  1253  1554  2922  1760  3236  2021   419
+##   FR2  7707 25875  1117  1583  2605   984  2200   741     6
+##   FR3  1914   610  6965   341   285   212   592   177     2
+##   FR4  2294  1168   229 12123   327   226  1786   314    16
+##   FR5  4810  1351   301   402 18953  1147  1078   625    94
+##   FR6  3307   663   216   383  1117 18671  1504  1245    18
+##   FR7  5020  1069   410  1904   912   926 31885  1644    10
+##   FR8  5348   651   378   644   948  1226  2457 27267    54
+##   FRA  1078   114    26    60   188   180   200   214 26456</code></pre>
+</div>
+<div id="manipulating-the-database-creating-maps" class="section level1">
+<h1>Manipulating the database: creating maps</h1>
+<pre class="r"><code># Number of contracts for 2006
+data(nuts2006)
+region&lt;-as.data.frame(table(df$nuts4_ach))
+names(region)[names(region) == &#39;Var1&#39;] &lt;- &#39;id&#39;
+choroLayer(spdf = nuts2.spdf, df = region, var = &quot;Freq&quot;, legend.title.txt = &quot;Nb de contrats par région&quot;)
+title(&quot;DECP 2020&quot;)
+# Titles, legend, sources
+layoutLayer(title = &quot;Number of contracts per region&quot;,
+            author = &quot;PH Morand&quot;,
+            sources = &quot;data.gouv.fr, 2021&quot;,
+            scale = NULL,
+            south = TRUE)</code></pre>
+<p><img src="live_from_DECP_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>departement&lt;-as.data.frame(table(df$nuts_ach))
+names(departement)[names(departement) == &#39;Var1&#39;] &lt;- &#39;id&#39;
+choroLayer(spdf = nuts3.spdf, df = departement, var = &quot;Freq&quot;, legend.title.txt = &quot;Nb de contrats par dpt&quot;)
+title(&quot;Number of contracts&quot;)
+layoutLayer(title = &quot;Number of contracts per departement&quot;,
+            author = &quot;PH Morand&quot;,
+            sources = &quot;data.gouv.fr, 2021&quot;,
+            scale = NULL,
+            south = TRUE)</code></pre>
+<p><img src="live_from_DECP_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

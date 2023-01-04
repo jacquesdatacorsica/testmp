@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>DILA - OpenData</title>
+  <link rel="icon" type="image/png" href="/opendata/custom/images/favicon-32x32.png" sizes="32x32"/>
+  <link rel="icon" type="image/png" href="/opendata/custom/images/favicon-16x16.png" sizes="16x16"/>
+  <link href='/opendata/webjars/springfox-swagger-ui/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='/opendata/custom/css/dila.css' rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+<div class="page">
+	<header class="header">
+		<div class="banner" role="banner">
+			<h1 class="site-title">
+				<a class="site-title_link" href="http://www.dila.premier-ministre.gouv.fr/" title="nouvelle fenêtre. dila.premier-ministre.gouv.fr " target="_blank">
+					Direction de l&rsquo;<strong>information légale et administrative</strong>
+				</a>
+				<span class="site-title_baseline">Au service du public</span>
+			</h1>
+		</div>
+	</header>
+    <main id="main" class="main" role="main">
+
+            <div class="main__content rubrique-informations">                        
+                <div class="content__rubrique">                
+                    <h2 class="rubrique-title">Page introuvable</h2>                    
+                    <p class="gamma">La page que vous demandez n'existe pas ou a été déplacée ou l'adresse saisie est erronée.</p>
+                    <p><a href="/opendata/swagger-ui.html">Retourner à l'accueil</a>.
+                </div>
+            </div>  
+        </main>
+<footer class="footer" role="contentinfo">	
+	<p class="incipit gamma">Éditeur public de référence, imprimeur d’État, opérateur de services publics numériques, la DILA est une direction d'administration centrale des services du Premier ministre, placée sous l'autorité du Secrétariat général du Gouvernement.</p>
+	<div class="dila-mentions">
+		<ul class="mentions_gouv">
+			<li><a href="http://www.gouvernement.fr" target="_blank" title="nouvelle fenêtre. Site du gouvernement français">gouvernement.fr</a></li>
+			<li><a href="http://www.assemblee-nationale.fr" target="_blank" title="nouvelle fenêtre. Site de l'Assemblée nationale">Assemblée nationale</a></li>
+			<li><a href="http://www.senat.fr" target="_blank" title="nouvelle fenêtre. Site du Sénat">Sénat</a></li>
+			<li><a href="http://rip.journal-officiel.gouv.fr/" target="_blank" title="nouvelle fenêtre. RIP de la DILA">Répertoire des informations publiques</a></li>
+		</ul><!-- important à conserver - sert à supprimer l'espace avec inline-block
+			--><!-- important à conserver - sert à supprimer l'espace avec inline-block
+		--><ul class="mentions_credits">
+			<li>DILA 2016</li>
+			<li><a href="http://www.dila.premier-ministre.gouv.fr/informations-sur-le-site/informations-legales/mentions-legales" target="_blank" title="nouvelle fenêtre. Mentions légales">Mentions légales</a></li><!--mentions légales-->
+			<li><a href="http://www.dila.premier-ministre.gouv.fr/actualites/presse/communiques/" target="_blank" title="nouvelle fenêtre. Communiqués">Communiqués</a></li><!--communiqués-->
+			<li><a href="http://www.dila.premier-ministre.gouv.fr/informations-sur-le-site/qualite-de-service/accessibilite" target="_blank" title="nouvelle fenêtre. Accessibilité">Accessibilité</a></li><!--Accessibilité-->
+			<li><a href="http://www.dila.premier-ministre.gouv.fr/projet-service-public-fr-2016/" target="_blank" title="nouvelle fenêtre. Espace projet Service public">Espace projet Service public</a></li><!--projet Service public-->
+		</ul>
+	</div>
+</footer>
+</div>	
+</body>
+</html>
